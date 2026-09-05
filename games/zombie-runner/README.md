@@ -2,7 +2,7 @@
 
 Canonical GDevelop 5 source: **`games/zombie-runner/zombie-runner.json`**
 
-**Zombie Runner — Wrocław** vertical slice (task 004): portrait 9:16, one-input jump, three hazards, score, game over, retry. Placeholder art on the official Run, Dino run baseline. See `GAMEPLAY.md` and `PROVENANCE.md`.
+**Zombie Runner — Wrocław** is the Plonku product client on Runner Factory v2. Product lock: `PRODUCT.md`. Placeholder dino/desert art is debt for GOAL 004 (tasks 020+), not the shipping look.
 
 ## Open and run locally
 
