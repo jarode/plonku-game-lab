@@ -71,7 +71,7 @@ Keep `runner-v1` for the next 2D runner; add **slot-id `apply-skin`** (or a shar
 
 ## Commit SHA
 
-Docs only: *(filled after commit)*
+Docs only: `9dbdebad607a5a296ede9d0853ddfd32f5c725b6`
 
 ## Operator actions required
 
