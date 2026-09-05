@@ -168,7 +168,18 @@ function snap() {
     const counts = {};
     for (const n of names) counts[n] = scene.getObjects(n).length;
     counts.bricks = counts.Block_1 + counts.Block_2 + counts.Block_3;
-    return { ready: true, scene: scene.getName(), gameState, score, lives, counts };
+    return {
+      ready: true,
+      scene: scene.getName(),
+      gameState,
+      score,
+      lives,
+      counts,
+      boardId: window.__boBoardId || "",
+      signature: window.__boBoardSignature || "",
+      boardError: window.__boBoardError || "",
+      expectedBricks: window.__boBoard ? window.__boBoard.brickCount : -1,
+    };
   })()`;
 }
 
@@ -234,10 +245,17 @@ async function main() {
       deviceScaleFactor: 1,
       mobile: viewH > viewW,
     });
-    await cdp.send("Page.navigate", { url: `http://127.0.0.1:${httpPort}/` });
+    const origin = `http://127.0.0.1:${httpPort}`;
+    await cdp.send("Page.navigate", { url: `${origin}/` });
     const gameEarly = await waitSnap(
       cdp,
-      (s) => s.ready && s.scene === "Game" && s.counts.Paddle >= 1 && s.counts.Ball >= 1 && s.counts.bricks >= 20,
+      (s) =>
+        s.ready &&
+        s.scene === "Game" &&
+        s.counts.Paddle >= 1 &&
+        s.counts.Ball >= 1 &&
+        s.counts.bricks >= 1 &&
+        s.signature.length === 64,
       20000,
       "boot Game"
     );
@@ -275,7 +293,9 @@ async function main() {
           snapShot.counts.Ball === 1 &&
           snapShot.lives === 3 &&
           snapShot.counts.bricks === last &&
-          snapShot.counts.bricks >= 20
+          snapShot.counts.bricks >= 1 &&
+          snapShot.expectedBricks === snapShot.counts.bricks &&
+          snapShot.signature.length === 64
         ) {
           stable += 1;
           if (stable >= 3) return snapShot;
@@ -321,15 +341,55 @@ async function main() {
       await waitSnap(cdp, (s) => s.gameState === "GamePlay", 5000, `cycle ${i} GamePlay`);
       const rx = await failAndRestart("restart" + i);
       if (rx.counts.Ball !== 1) fail("ball count not 1 after restart " + i);
-      if (rx.counts.bricks < 20 || rx.counts.bricks > 120) fail("bad brick count " + rx.counts.bricks);
+      if (rx.counts.bricks < 1 || rx.counts.bricks > 120) fail("bad brick count " + rx.counts.bricks);
+      if (rx.signature !== r1.signature) fail("signature drifted after restart " + i);
       lastBricks = rx.counts.bricks;
     }
 
+    const fixtureIds = ["sparse-low", "dense-high", "balanced-mid", "mixed-corridor", "mixed-spike"];
+    const signatures = {};
+    for (const fid of fixtureIds) {
+      await cdp.send("Page.navigate", { url: `${origin}/?fixture=${fid}` });
+      const fx = await waitSnap(
+        cdp,
+        (s) =>
+          s.ready &&
+          s.scene === "Game" &&
+          s.boardId === fid &&
+          s.boardError === "" &&
+          s.counts.bricks === s.expectedBricks &&
+          s.counts.bricks >= 1,
+        20000,
+        "fixture " + fid
+      );
+      signatures[fid] = { signature: fx.signature, bricks: fx.counts.bricks, b1: fx.counts.Block_1, b2: fx.counts.Block_2, b3: fx.counts.Block_3 };
+    }
+    const uniq = new Set(Object.values(signatures).map((x) => x.signature));
+    if (uniq.size !== 5) fail("fixture signatures not unique " + JSON.stringify(signatures));
+    if (signatures["dense-high"].bricks <= signatures["sparse-low"].bricks + 8) {
+      fail("dense vs sparse brick gap too small " + JSON.stringify(signatures));
+    }
+
+    await cdp.send("Page.navigate", { url: `${origin}/?fixture=not-a-real-fixture` });
+    const bad = await waitSnap(
+      cdp,
+      (s) =>
+        s.ready &&
+        s.scene === "Game" &&
+        s.boardError === "unknown_fixture" &&
+        s.boardId === "balanced-mid" &&
+        s.signature === signatures["balanced-mid"].signature,
+      20000,
+      "invalid fixture fallback"
+    );
+
     console.log("BREAKOUT_SMOKE: PASS");
     console.log("viewport", `${viewW}x${viewH}`);
-    console.log("boot", gameEarly.scene, JSON.stringify(game.counts));
+    console.log("boot", gameEarly.scene, JSON.stringify(game.counts), gameEarly.boardId);
     console.log("play", playing.gameState);
-    console.log("restarts", 10, "lastBricks", lastBricks);
+    console.log("restarts", 10, "lastBricks", lastBricks, "sig", r1.signature);
+    console.log("fixtures", JSON.stringify(signatures));
+    console.log("invalidFallback", bad.boardId, bad.boardError);
   } finally {
     try {
       ws?.close();

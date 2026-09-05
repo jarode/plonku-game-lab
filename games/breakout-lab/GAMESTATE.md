@@ -28,4 +28,4 @@ Restart: Replay button or **R** → `replaceScene("Game")` (no page reload). Hom
 | Brick rows | instances of Block_1/2/3 | 15 each on Game |
 | Window | properties | 1920×1080 landscape |
 
-Bricks load from external layouts `BrickLayout1`–`5` at random (`RandomInRange(1,5)`), so instance counts vary per restart (often ~45–90). Restart must still be one board, score 0, one ball, 3 lives.
+Bricks are spawned from the 042 contract (`GENERATOR.md`). Default fixture `balanced-mid`. Override with `?fixture=<id>`. Restart must still be one board, score 0, one ball, 3 lives.

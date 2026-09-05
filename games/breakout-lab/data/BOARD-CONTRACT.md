@@ -35,7 +35,7 @@ Same input → same `cells` grid and SHA-256 `signature` of canonical JSON.
 
 | id | Intent |
 | --- | --- |
-| `sparse-low` | Mostly gaps |
+| `sparse-low` | Top-row crumbs only (playable, mostly gaps) |
 | `dense-high` | Almost full high HP |
 | `balanced-mid` | 4 stepped columns |
 | `mixed-corridor` | Alternating low/high |
