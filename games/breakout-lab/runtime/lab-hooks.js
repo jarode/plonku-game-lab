@@ -20,9 +20,19 @@
   }
 
   let st = "";
+  let score = 0;
+  let lives = 0;
   try {
     st = runtimeScene.getScene().getVariables().get("GameState").getAsString();
   } catch (eSt) {}
+  try {
+    score = runtimeScene.getScene().getVariables().get("Score").getAsNumber();
+  } catch (eSc) {}
+  try {
+    lives = runtimeScene.getScene().getVariables().get("Lifes").getAsNumber();
+  } catch (eLf) {}
+  updatePlonkuShell(st, score, lives);
+
   if (st === "NotStarted" || st === "GamePlay") {
     const pads = runtimeScene.getObjects("Paddle");
     if (pads.length) {
@@ -48,6 +58,43 @@
 
   if (gdjs.evtTools.input.wasKeyJustPressed(runtimeScene, "R")) {
     gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Game", true);
+  }
+
+  function updatePlonkuShell(gameState, scoreVal, livesVal) {
+    if (typeof document === "undefined") return;
+    let root = document.getElementById("bo-plonku-shell");
+    if (!root) {
+      try {
+        const canvas = runtimeScene.getGame().getRenderer().getCanvas();
+        if (!canvas || !canvas.parentElement) return;
+        const parent = canvas.parentElement;
+        if (getComputedStyle(parent).position === "static") parent.style.position = "relative";
+        root = document.createElement("div");
+        root.id = "bo-plonku-shell";
+        root.setAttribute("aria-hidden", "true");
+        root.style.cssText =
+          "position:absolute;inset:0;pointer-events:none;z-index:6;font-family:'Arial Narrow',Arial,sans-serif;color:#e8fff0;";
+        root.innerHTML =
+          '<div style="position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">' +
+          '<div style="border:1px solid #c8ff00;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.16em;font-size:12px;color:#c8ff00;">BREAKOUT LAB</div>' +
+          '<div id="bo-profile-chip" style="border:1px solid #ff2d95;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.14em;font-size:12px;color:#ff2d95;">DATA PROFILE</div>' +
+          '<div id="bo-hud-chip" style="border:1px solid #00e5ff;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.08em;font-size:12px;color:#00e5ff;">SCORE 0 · LIVES 3</div>' +
+          "</div>" +
+          '<div id="bo-state-hint" style="position:absolute;left:12px;right:12px;bottom:12px;text-align:center;letter-spacing:0.18em;font-size:13px;color:#c8ff00;text-shadow:0 0 12px #0b1020;"></div>';
+        parent.appendChild(root);
+      } catch (eShell) {
+        return;
+      }
+    }
+    const hud = document.getElementById("bo-hud-chip");
+    if (hud) hud.textContent = "SCORE " + Math.floor(scoreVal) + " · LIVES " + Math.floor(livesVal);
+    const hint = document.getElementById("bo-state-hint");
+    if (hint) {
+      if (gameState === "NotStarted") hint.textContent = "MOVE · TAP / SPACE TO LAUNCH";
+      else if (gameState === "Lost") hint.textContent = "SIGNAL LOST · RETRY";
+      else if (gameState === "Won") hint.textContent = "BOARD CLEAR";
+      else hint.textContent = "";
+    }
   }
 
   function applyLabBoard(scene, boards) {

@@ -261,6 +261,14 @@ async function main() {
     );
     await new Promise((r) => setTimeout(r, 800));
     const game = await cdp.evaluate(snap());
+    if (process.argv.includes("--shot")) {
+      const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
+      const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
+      fs.mkdirSync(outDir, { recursive: true });
+      const shotPath = path.join(outDir, "044-breakout-shell.png");
+      fs.writeFileSync(shotPath, Buffer.from(shot.data, "base64"));
+      console.log("shot", shotPath);
+    }
 
     await cdp.evaluate(`(() => {
       window.__boGame.getInputManager().onKeyPressed(32);

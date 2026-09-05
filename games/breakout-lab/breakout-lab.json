@@ -1476,15 +1476,15 @@
       ]
     },
     {
-      "b": 85,
+      "b": 36,
       "disableInputWhenNotFocused": true,
       "mangledName": "Game",
       "name": "Game",
-      "r": 52,
+      "r": 8,
       "standardSortMethod": true,
       "stopSoundsOnStartup": false,
-      "title": "BreakOut Example",
-      "v": 64,
+      "title": "Breakout Lab",
+      "v": 16,
       "uiSettings": {
         "grid": false,
         "gridType": "rectangular",
@@ -2987,14 +2987,14 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Score: 999",
+          "string": "SCORE 0",
           "font": "kenvector_future_thin.ttf",
           "textAlignment": "",
           "characterSize": 40,
           "color": {
-            "b": 0,
-            "g": 95,
-            "r": 254
+            "r": 0,
+            "g": 229,
+            "b": 255
           },
           "content": {
             "bold": false,
@@ -3010,11 +3010,11 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "Score: 999",
+            "text": "SCORE 0",
             "font": "kenvector_future_thin.ttf",
             "textAlignment": "",
             "characterSize": 40,
-            "color": "254;95;0"
+            "color": "0;229;255"
           }
         },
         {
@@ -3028,14 +3028,14 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Press Space to Start",
+          "string": "LAUNCH",
           "font": "kenvector_future_thin.ttf",
           "textAlignment": "",
           "characterSize": 40,
           "color": {
-            "b": 0,
-            "g": 95,
-            "r": 254
+            "r": 200,
+            "g": 255,
+            "b": 0
           },
           "content": {
             "bold": false,
@@ -3051,11 +3051,11 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "Press Space to Start",
+            "text": "LAUNCH",
             "font": "kenvector_future_thin.ttf",
             "textAlignment": "",
             "characterSize": 40,
-            "color": "254;95;0"
+            "color": "200;255;0"
           }
         },
         {
@@ -3069,14 +3069,14 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "This is a GDevelop example for BreakOut\nUse A and D (or the left and right arrow key) to move the paddle\nRed bricks take 3 hits\nYellow bricks take 2 hits\nWhite bricks take 1 hit\n\nPowerups randomly fall ",
+          "string": "MOVE THE PADDLE · TAP OR SPACE\nWHITE 1 HIT · YELLOW 2 · RED 3",
           "font": "kenvector_future_thin.ttf",
           "textAlignment": "",
           "characterSize": 25,
           "color": {
-            "b": 0,
-            "g": 95,
-            "r": 254
+            "r": 0,
+            "g": 229,
+            "b": 255
           },
           "content": {
             "bold": false,
@@ -3092,11 +3092,11 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "This is a GDevelop example for BreakOut\nUse A and D (or the left and right arrow key) to move the paddle\nRed bricks take 3 hits\nYellow bricks take 2 hits\nWhite bricks take 1 hit\n\nPowerups randomly fall ",
+            "text": "MOVE THE PADDLE · TAP OR SPACE\nWHITE 1 HIT · YELLOW 2 · RED 3",
             "font": "kenvector_future_thin.ttf",
             "textAlignment": "",
             "characterSize": 25,
-            "color": "254;95;0"
+            "color": "0;229;255"
           }
         },
         {
@@ -3110,14 +3110,14 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "You Won",
+          "string": "SIGNAL LOST",
           "font": "kenvector_future_thin.ttf",
           "textAlignment": "",
           "characterSize": 120,
           "color": {
-            "b": 0,
-            "g": 95,
-            "r": 254
+            "r": 255,
+            "g": 45,
+            "b": 149
           },
           "content": {
             "bold": false,
@@ -3133,11 +3133,11 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "You Won",
+            "text": "SIGNAL LOST",
             "font": "kenvector_future_thin.ttf",
             "textAlignment": "",
             "characterSize": 120,
-            "color": "254;95;0"
+            "color": "255;45;149"
           }
         },
         {
@@ -6318,7 +6318,7 @@
                         "End_Card_Title",
                         "Text",
                         "=",
-                        "\"YOU LOST\""
+                        "\"SIGNAL LOST\""
                       ]
                     }
                   ]
@@ -6361,7 +6361,7 @@
                         "End_Card_Title",
                         "Text",
                         "=",
-                        "\"YOU WON\""
+                        "\"BOARD CLEAR\""
                       ]
                     }
                   ]
@@ -6533,9 +6533,19 @@
             "  }\r",
             "\r",
             "  let st = \"\";\r",
+            "  let score = 0;\r",
+            "  let lives = 0;\r",
             "  try {\r",
             "    st = runtimeScene.getScene().getVariables().get(\"GameState\").getAsString();\r",
             "  } catch (eSt) {}\r",
+            "  try {\r",
+            "    score = runtimeScene.getScene().getVariables().get(\"Score\").getAsNumber();\r",
+            "  } catch (eSc) {}\r",
+            "  try {\r",
+            "    lives = runtimeScene.getScene().getVariables().get(\"Lifes\").getAsNumber();\r",
+            "  } catch (eLf) {}\r",
+            "  updatePlonkuShell(st, score, lives);\r",
+            "\r",
             "  if (st === \"NotStarted\" || st === \"GamePlay\") {\r",
             "    const pads = runtimeScene.getObjects(\"Paddle\");\r",
             "    if (pads.length) {\r",
@@ -6561,6 +6571,43 @@
             "\r",
             "  if (gdjs.evtTools.input.wasKeyJustPressed(runtimeScene, \"R\")) {\r",
             "    gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, \"Game\", true);\r",
+            "  }\r",
+            "\r",
+            "  function updatePlonkuShell(gameState, scoreVal, livesVal) {\r",
+            "    if (typeof document === \"undefined\") return;\r",
+            "    let root = document.getElementById(\"bo-plonku-shell\");\r",
+            "    if (!root) {\r",
+            "      try {\r",
+            "        const canvas = runtimeScene.getGame().getRenderer().getCanvas();\r",
+            "        if (!canvas || !canvas.parentElement) return;\r",
+            "        const parent = canvas.parentElement;\r",
+            "        if (getComputedStyle(parent).position === \"static\") parent.style.position = \"relative\";\r",
+            "        root = document.createElement(\"div\");\r",
+            "        root.id = \"bo-plonku-shell\";\r",
+            "        root.setAttribute(\"aria-hidden\", \"true\");\r",
+            "        root.style.cssText =\r",
+            "          \"position:absolute;inset:0;pointer-events:none;z-index:6;font-family:'Arial Narrow',Arial,sans-serif;color:#e8fff0;\";\r",
+            "        root.innerHTML =\r",
+            "          '<div style=\"position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;\">' +\r",
+            "          '<div style=\"border:1px solid #c8ff00;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.16em;font-size:12px;color:#c8ff00;\">BREAKOUT LAB</div>' +\r",
+            "          '<div id=\"bo-profile-chip\" style=\"border:1px solid #ff2d95;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.14em;font-size:12px;color:#ff2d95;\">DATA PROFILE</div>' +\r",
+            "          '<div id=\"bo-hud-chip\" style=\"border:1px solid #00e5ff;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.08em;font-size:12px;color:#00e5ff;\">SCORE 0 · LIVES 3</div>' +\r",
+            "          \"</div>\" +\r",
+            "          '<div id=\"bo-state-hint\" style=\"position:absolute;left:12px;right:12px;bottom:12px;text-align:center;letter-spacing:0.18em;font-size:13px;color:#c8ff00;text-shadow:0 0 12px #0b1020;\"></div>';\r",
+            "        parent.appendChild(root);\r",
+            "      } catch (eShell) {\r",
+            "        return;\r",
+            "      }\r",
+            "    }\r",
+            "    const hud = document.getElementById(\"bo-hud-chip\");\r",
+            "    if (hud) hud.textContent = \"SCORE \" + Math.floor(scoreVal) + \" · LIVES \" + Math.floor(livesVal);\r",
+            "    const hint = document.getElementById(\"bo-state-hint\");\r",
+            "    if (hint) {\r",
+            "      if (gameState === \"NotStarted\") hint.textContent = \"MOVE · TAP / SPACE TO LAUNCH\";\r",
+            "      else if (gameState === \"Lost\") hint.textContent = \"SIGNAL LOST · RETRY\";\r",
+            "      else if (gameState === \"Won\") hint.textContent = \"BOARD CLEAR\";\r",
+            "      else hint.textContent = \"\";\r",
+            "    }\r",
             "  }\r",
             "\r",
             "  function applyLabBoard(scene, boards) {\r",
@@ -6769,7 +6816,8 @@
           "name": "Tween",
           "type": "Tween::TweenBehavior"
         }
-      ]
+      ],
+      "g": 16
     },
     {
       "b": 85,
