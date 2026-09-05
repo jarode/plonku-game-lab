@@ -1,0 +1,1 @@
+Placeholder sprites come from the official GDevelop example **Run, Dino run** (MIT), the same pack used to bootstrap Zombie Runner. They are not Wrocław art and are not a second source of gameplay truth.

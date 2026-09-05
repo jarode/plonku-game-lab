@@ -53,7 +53,12 @@ function zrSoftReset(runtimeScene) {
   }
   const texts = runtimeScene.getObjects("ScoreText");
   if (texts.length && typeof texts[0].setString === "function") {
-    texts[0].setString("Tap or Space to run");
+    let hud = "Tap or Space to run";
+    try {
+      const custom = sv.get("HudTitle").getAsString();
+      if (custom) hud = custom;
+    } catch (e) {}
+    texts[0].setString(hud);
   }
 }
 

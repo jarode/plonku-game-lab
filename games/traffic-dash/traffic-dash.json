@@ -12,15 +12,15 @@
     "antialisingEnabledOnMobile": false,
     "folderProject": false,
     "orientation": "portrait",
-    "packageName": "com.plonku.runner.v1",
+    "packageName": "com.plonku.trafficdash",
     "pixelsRounding": false,
-    "projectUuid": "b7e2c4a1-9d50-4f8e-8c3a-0f1e2d3c4b5a",
+    "projectUuid": "a1e21157-11a4-4f0b-999c-19c319acc82c",
     "scaleMode": "linear",
     "sizeOnStartupMode": "adaptWidth",
     "templateSlug": "runner-v1",
     "version": "1.0.0",
-    "name": "Runner v1",
-    "description": "Reusable portrait endless-runner seed. Placeholder art; reskin per client game.",
+    "name": "Traffic Dash",
+    "description": "Portrait endless runner instantiated from templates/runner-v1.",
     "author": "",
     "windowWidth": 540,
     "windowHeight": 960,
@@ -102,7 +102,7 @@
   "resources": {
     "resources": [
       {
-        "file": "assets/Desert Background.png",
+        "file": "assets/thumbnail-game.png",
         "kind": "image",
         "metadata": "",
         "name": "Desert Background.png",
@@ -126,7 +126,7 @@
         }
       },
       {
-        "file": "assets/9patch_Desert Tile_north.png",
+        "file": "assets/Scenery/Grass (2).png",
         "kind": "image",
         "metadata": "",
         "name": "9patch_Desert Tile_north.png",
@@ -138,7 +138,7 @@
         }
       },
       {
-        "file": "assets/Obstacles/Cactus3-1.png",
+        "file": "assets/Scenery/Tree.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Cactus3-1.png",
@@ -146,7 +146,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Obstacles/Duck_Island.png",
+        "file": "assets/Scenery/Sign-1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Duck_Island.png",
@@ -287,7 +287,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Scenery/Skeleton.png",
+        "file": "assets/Scenery/Cactus (2).png",
         "kind": "image",
         "metadata": "",
         "name": "Skeleton.png",
@@ -311,7 +311,7 @@
         }
       },
       {
-        "file": "assets/Obstacles/Cactus3-1.png",
+        "file": "assets/Scenery/Tree.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Obstacles/Cactus3-1.png",
@@ -331,7 +331,7 @@
         }
       },
       {
-        "file": "assets/Obstacles/Duck_Island.png",
+        "file": "assets/Scenery/Sign-1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Obstacles/Duck_Island.png",
@@ -395,7 +395,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Buttons/JumpButton-1-0.png",
+        "file": "assets/Buttons/RestartButton.png",
         "kind": "image",
         "metadata": "",
         "name": "JumpButton-1-0.png",
@@ -411,7 +411,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Run_1.png",
+        "file": "assets/Dino/Duck-5-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_1.png",
@@ -419,7 +419,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Run_2.png",
+        "file": "assets/Dino/Duck-6-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_2.png",
@@ -427,7 +427,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Run_3.png",
+        "file": "assets/Dino/Duck-6.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_3.png",
@@ -435,7 +435,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Run_4.png",
+        "file": "assets/Dino/Duck-9-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_4.png",
@@ -443,7 +443,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Run_5.png",
+        "file": "assets/Dino/Duck-9.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_5.png",
@@ -451,7 +451,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Run_6.png",
+        "file": "assets/Dino/Duck-10-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_6.png",
@@ -459,7 +459,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Run_7.png",
+        "file": "assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_7.png",
@@ -467,7 +467,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Run_8.png",
+        "file": "assets/Dino/Duck-5-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_8.png",
@@ -475,7 +475,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_1.png",
+        "file": "assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_1.png",
@@ -483,7 +483,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_2.png",
+        "file": "assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_2.png",
@@ -491,7 +491,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Idle_3.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_3.png",
@@ -499,7 +499,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_4.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_4.png",
@@ -507,7 +507,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Idle_5.png",
+        "file": "assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_5.png",
@@ -515,7 +515,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Idle_6.png",
+        "file": "assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_6.png",
@@ -523,7 +523,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Idle_7.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_7.png",
@@ -531,7 +531,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_8.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_8.png",
@@ -539,7 +539,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_9.png",
+        "file": "assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_9.png",
@@ -547,7 +547,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_10.png",
+        "file": "assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_10.png",
@@ -555,7 +555,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Jump_1.png",
+        "file": "assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_1.png",
@@ -563,7 +563,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Jump_4.png",
+        "file": "assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_4.png",
@@ -571,7 +571,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Jump_5.png",
+        "file": "assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_5.png",
@@ -579,7 +579,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Jump_6.png",
+        "file": "assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_6.png",
@@ -587,7 +587,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Jump_10.png",
+        "file": "assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_10.png",
@@ -595,7 +595,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Jump_11.png",
+        "file": "assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_11.png",
@@ -603,7 +603,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Jump_12.png",
+        "file": "assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_12.png",
@@ -683,7 +683,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dead-1.png",
+        "file": "assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-1.png",
@@ -691,7 +691,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dead-2.png",
+        "file": "assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-2.png",
@@ -699,7 +699,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dead-3.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-3.png",
@@ -707,7 +707,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dead-4.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-4.png",
@@ -715,7 +715,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dead-5.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-5.png",
@@ -723,7 +723,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dead-6.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-6.png",
@@ -731,7 +731,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dead-7.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-7.png",
@@ -739,7 +739,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dead-8.png",
+        "file": "assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-8.png",
@@ -2415,7 +2415,7 @@
         {
           "name": "ObstacleSpeed",
           "type": "number",
-          "value": 550
+          "value": 420
         },
         {
           "name": "ObstacleSpawnDelay",
@@ -2460,7 +2460,7 @@
         {
           "name": "HudTitle",
           "type": "string",
-          "value": ""
+          "value": "Traffic Dash\nTap or Space to run"
         }
       ],
       "instances": [
@@ -5441,7 +5441,7 @@
                 "ScoreText",
                 "Text",
                 "=",
-                "\"Runner\" + NewLine() + \"Tap or Space to run\""
+                "\"Traffic Dash\" + NewLine() + \"Tap or Space to run\""
               ]
             },
             {
@@ -5475,7 +5475,7 @@
                     "ScoreText",
                     "Text",
                     "=",
-                    "\"Runner v1 \" + NewLine() + \"Tap or Space to run\""
+                    "\"Traffic Dash \" + NewLine() + \"Tap or Space to run\""
                   ]
                 },
                 {
@@ -5527,7 +5527,7 @@
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
                 "// Runner v1 chunk sequencer + dev controls.\r",
-                "const CHUNK_CATALOG = {\"safeEntry\":200,\"safeExit\":200,\"chunks\":[{\"id\":\"easy-01\",\"group\":\"EASY\",\"width\":720,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":320}]},{\"id\":\"easy-02\",\"group\":\"EASY\",\"width\":720,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":340}]},{\"id\":\"easy-03\",\"group\":\"EASY\",\"width\":760,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":300}]},{\"id\":\"med-01\",\"group\":\"MEDIUM\",\"width\":880,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":280},{\"object\":\"IslandObstacle\",\"x\":560}]},{\"id\":\"med-02\",\"group\":\"MEDIUM\",\"width\":860,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":260},{\"object\":\"CactusObstacle\",\"x\":460}]},{\"id\":\"med-03\",\"group\":\"MEDIUM\",\"width\":900,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":260},{\"object\":\"IslandObstacle\",\"x\":580}]},{\"id\":\"hard-01\",\"group\":\"HARD\",\"width\":1040,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":240},{\"object\":\"CactusObstacle\",\"x\":520},{\"object\":\"WreckObstacle\",\"x\":760}]},{\"id\":\"hard-02\",\"group\":\"HARD\",\"width\":960,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":240},{\"object\":\"CactusObstacle\",\"x\":520},{\"object\":\"CactusObstacle\",\"x\":680}]},{\"id\":\"hard-03\",\"group\":\"HARD\",\"width\":1000,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":240},{\"object\":\"IslandObstacle\",\"x\":480},{\"object\":\"WreckObstacle\",\"x\":760}]}]};\r",
+                "const CHUNK_CATALOG = {\"safeEntry\":200,\"safeExit\":200,\"chunks\":[{\"id\":\"easy-01\",\"group\":\"EASY\",\"width\":800,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":400}]},{\"id\":\"easy-02\",\"group\":\"EASY\",\"width\":720,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":360}]},{\"id\":\"easy-03\",\"group\":\"EASY\",\"width\":760,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":300}]},{\"id\":\"med-01\",\"group\":\"MEDIUM\",\"width\":920,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":260},{\"object\":\"WreckObstacle\",\"x\":620}]},{\"id\":\"med-02\",\"group\":\"MEDIUM\",\"width\":900,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":280},{\"object\":\"CactusObstacle\",\"x\":560}]},{\"id\":\"med-03\",\"group\":\"MEDIUM\",\"width\":900,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":260},{\"object\":\"IslandObstacle\",\"x\":580}]},{\"id\":\"hard-01\",\"group\":\"HARD\",\"width\":1100,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":240},{\"object\":\"IslandObstacle\",\"x\":520},{\"object\":\"WreckObstacle\",\"x\":820}]},{\"id\":\"hard-02\",\"group\":\"HARD\",\"width\":960,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":240},{\"object\":\"CactusObstacle\",\"x\":520},{\"object\":\"CactusObstacle\",\"x\":680}]},{\"id\":\"hard-03\",\"group\":\"HARD\",\"width\":1000,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":240},{\"object\":\"IslandObstacle\",\"x\":480},{\"object\":\"WreckObstacle\",\"x\":760}]}]};\r",
                 "\r",
                 "function zrIsDev() {\r",
                 "  try {\r",
@@ -5581,7 +5581,12 @@
                 "  }\r",
                 "  const texts = runtimeScene.getObjects(\"ScoreText\");\r",
                 "  if (texts.length && typeof texts[0].setString === \"function\") {\r",
-                "    texts[0].setString(\"Tap or Space to run\");\r",
+                "    let hud = \"Tap or Space to run\";\r",
+                "    try {\r",
+                "      const custom = sv.get(\"HudTitle\").getAsString();\r",
+                "      if (custom) hud = custom;\r",
+                "    } catch (e) {}\r",
+                "    texts[0].setString(hud);\r",
                 "  }\r",
                 "}\r",
                 "\r",
@@ -5938,7 +5943,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"\" + GlobalVariableString(Score)"
+                        "\"Traffic  \" + GlobalVariableString(Score)"
                       ]
                     }
                   ],
@@ -7310,7 +7315,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"GAME OVER - tap or Space\" + NewLine() + \"\" + GlobalVariableString(Score)"
+                        "\"GAME OVER - tap or Space\" + NewLine() + \"Traffic  \" + GlobalVariableString(Score)"
                       ]
                     }
                   ],
