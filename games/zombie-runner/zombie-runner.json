@@ -170,7 +170,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/wroclaw-v1/audio/jump.wav",
+        "file": "../../templates/runner-v1/assets/Sounds/jump.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "Jump.mp3",
@@ -200,7 +200,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/wroclaw-v1/audio/dusk_loop.wav",
+        "file": "../../templates/runner-v1/assets/Sounds/DesertMusic.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "DesertMusic.mp3",
@@ -210,7 +210,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/wroclaw-v1/audio/silence.wav",
+        "file": "../../templates/runner-v1/assets/Sounds/LeaderboardMusic.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "LeaderboardMusic.mp3",
@@ -747,7 +747,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/wroclaw-v1/audio/death.wav",
+        "file": "../../templates/runner-v1/assets/Sounds/death.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "Death.mp3",

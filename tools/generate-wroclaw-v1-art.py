@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Original Wrocław v1 cut-out sprites for Zombie Runner. No third-party art."""
+"""Original Wrocław v1 sprites — Plonku neon-editorial pass (GOAL 005 / 031)."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -9,19 +9,19 @@ from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "games" / "zombie-runner" / "assets" / "wroclaw-v1"
 
-OUTLINE = (26, 21, 16, 255)
-SKIN = (143, 191, 122, 255)
-HOOD = (45, 58, 78, 255)
-HOOD_DARK = (32, 42, 58, 255)
-BRICK = (184, 74, 58, 255)
-BRICK_DARK = (132, 48, 40, 255)
-TEAL = (42, 95, 110, 255)
-SKY = (232, 184, 109, 255)
-SKY_TOP = (62, 78, 118, 255)
-COBBLE = (92, 83, 72, 255)
-COBBLE_LIGHT = (120, 110, 96, 255)
-SIGN = (240, 228, 200, 255)
-ACCENT = (232, 184, 109, 255)
+OUTLINE = (12, 14, 18, 255)
+SKIN = (110, 168, 92, 255)
+HOOD = (22, 24, 30, 255)
+HOOD_DARK = (14, 16, 20, 255)
+PINK = (255, 45, 139, 255)
+LIME = (215, 255, 63, 255)
+CYAN = (0, 217, 255, 255)
+NAVY = (26, 29, 35, 255)
+MOON = (232, 184, 109, 255)
+CONCRETE = (48, 52, 60, 255)
+CONCRETE_L = (72, 76, 84, 255)
+STRIPE_R = (196, 48, 48, 255)
+OFF = (244, 244, 241, 255)
 
 
 def new_canvas(w: int, h: int) -> tuple[Image.Image, ImageDraw.ImageDraw]:
@@ -34,7 +34,7 @@ def oval(d: ImageDraw.ImageDraw, box, fill, outline=OUTLINE, width=3):
 
 
 def rect(d: ImageDraw.ImageDraw, box, fill, outline=OUTLINE, width=3):
-    d.rounded_rectangle(box, radius=6, fill=fill, outline=outline, width=width)
+    d.rectangle(box, fill=fill, outline=outline, width=width)
 
 
 def draw_zombie(d: ImageDraw.ImageDraw, ox: int, oy: int, phase: int, mode: str) -> None:
@@ -48,26 +48,22 @@ def draw_zombie(d: ImageDraw.ImageDraw, ox: int, oy: int, phase: int, mode: str)
     leg = 6 if phase % 2 == 0 else -6
     if mode == "idle":
         leg = (phase % 3) - 1
-    # legs
     rect(d, [ox + 58 + leg, oy + 78, ox + 78 + leg, oy + 112], HOOD_DARK)
     rect(d, [ox + 86 - leg, oy + 78, ox + 106 - leg, oy + 112], HOOD_DARK)
-    # body hoodie
+    # pink backpack
+    rect(d, [ox + 42, oy + 44 + bob, ox + 58, oy + 86 + bob], PINK)
     rect(d, [ox + 52, oy + 38 + bob, ox + 118, oy + 88 + bob], HOOD)
-    # torn hem
+    oval(d, [ox + 60, oy + 10 + bob, ox + 112, oy + 58 + bob], SKIN)
+    # cap
+    d.rectangle([ox + 58, oy + 8 + bob, ox + 114, oy + 24 + bob], fill=HOOD, outline=OUTLINE)
     d.polygon(
-        [(ox + 118, oy + 70 + bob), (ox + 132, oy + 78 + bob), (ox + 118, oy + 86 + bob)],
-        fill=HOOD,
+        [(ox + 78, oy + 4 + bob), (ox + 94, oy + 4 + bob), (ox + 86, oy + 16 + bob)],
+        fill=MOON,
         outline=OUTLINE,
     )
-    # head
-    oval(d, [ox + 60, oy + 8 + bob, ox + 112, oy + 58 + bob], SKIN)
-    # hood
-    d.pieslice([ox + 56, oy + 4 + bob, ox + 116, oy + 48 + bob], 200, 340, fill=HOOD, outline=OUTLINE)
-    # eye
-    oval(d, [ox + 86, oy + 24 + bob, ox + 100, oy + 38 + bob], SIGN, width=2)
-    oval(d, [ox + 90, oy + 28 + bob, ox + 96, oy + 34 + bob], OUTLINE, width=1)
-    # crooked extra eye (slapstick, not gore)
-    oval(d, [ox + 72, oy + 26 + bob, ox + 82, oy + 36 + bob], (90, 140, 80, 255), width=2)
+    oval(d, [ox + 86, oy + 26 + bob, ox + 100, oy + 40 + bob], CYAN, width=2)
+    oval(d, [ox + 90, oy + 30 + bob, ox + 96, oy + 36 + bob], OUTLINE, width=1)
+    oval(d, [ox + 70, oy + 28 + bob, ox + 80, oy + 38 + bob], LIME, width=2)
 
 
 def make_player_frame(mode: str, i: int, n: int) -> Image.Image:
@@ -77,43 +73,51 @@ def make_player_frame(mode: str, i: int, n: int) -> Image.Image:
 
 
 def make_bollard() -> Image.Image:
+    """Jersey barricade — same 86x96 box."""
     im, d = new_canvas(86, 96)
-    rect(d, [28, 18, 58, 90], COBBLE)
-    oval(d, [22, 8, 64, 36], BRICK)
-    rect(d, [18, 86, 68, 94], COBBLE_LIGHT)
+    rect(d, [8, 28, 78, 90], CONCRETE)
+    d.rectangle([8, 40, 78, 52], fill=STRIPE_R)
+    d.rectangle([8, 52, 78, 64], fill=OFF)
+    d.rectangle([8, 64, 78, 76], fill=STRIPE_R)
+    rect(d, [18, 16, 68, 32], CONCRETE_L)
+    d.rectangle([12, 86, 74, 94], fill=HOOD_DARK)
     return im
 
 
 def make_overhead() -> Image.Image:
+    """Infected pigeon — same 128x66 box."""
     im, d = new_canvas(128, 66)
-    rect(d, [8, 8, 120, 22], HOOD_DARK)
-    rect(d, [40, 20, 88, 58], SIGN)
-    d.rectangle([48, 28, 80, 36], fill=BRICK)
-    d.rectangle([52, 42, 76, 48], fill=TEAL)
+    d.polygon([(18, 36), (70, 18), (110, 28), (96, 48), (40, 50)], fill=HOOD, outline=OUTLINE)
+    d.polygon([(70, 18), (118, 8), (108, 28)], fill=PINK, outline=OUTLINE)
+    oval(d, [96, 20, 118, 42], HOOD)
+    oval(d, [108, 26, 114, 32], LIME, width=1)
+    d.polygon([(118, 30), (126, 28), (118, 36)], fill=MOON)
+    d.line([(40, 50), (32, 62)], fill=OUTLINE, width=3)
+    d.line([(56, 50), (52, 62)], fill=OUTLINE, width=3)
     return im
 
 
 def make_wreck() -> Image.Image:
+    """Tram silhouette — same 160x40 box."""
     im, d = new_canvas(160, 40)
-    rect(d, [6, 14, 154, 36], HOOD_DARK)
-    oval(d, [12, 6, 40, 34], COBBLE)
-    oval(d, [120, 6, 148, 34], COBBLE)
-    rect(d, [44, 8, 110, 22], BRICK)
+    rect(d, [6, 8, 154, 36], HOOD)
+    d.rectangle([20, 12, 48, 26], fill=CYAN)
+    d.rectangle([56, 12, 84, 26], fill=PINK)
+    d.rectangle([92, 12, 120, 26], fill=CYAN)
+    oval(d, [18, 26, 36, 38], CONCRETE)
+    oval(d, [124, 26, 142, 38], CONCRETE)
+    d.rectangle([130, 4, 150, 12], fill=LIME)
     return im
 
 
 def make_ground() -> Image.Image:
     im, d = new_canvas(64, 64)
-    d.rectangle([0, 0, 63, 63], fill=COBBLE, outline=OUTLINE)
+    d.rectangle([0, 0, 63, 63], fill=CONCRETE, outline=OUTLINE)
     for y in range(0, 64, 16):
         for x in range(0, 64, 16):
             off = 8 if (y // 16) % 2 else 0
-            d.rounded_rectangle(
-                [x + off - 8, y + 2, x + off + 6, y + 14],
-                radius=3,
-                fill=COBBLE_LIGHT,
-                outline=BRICK_DARK,
-            )
+            d.rectangle([x + off - 6, y + 2, x + off + 8, y + 12], fill=CONCRETE_L, outline=HOOD_DARK)
+    d.ellipse([40, 44, 58, 58], outline=LIME, width=2)
     return im
 
 
@@ -121,37 +125,55 @@ def make_bg() -> Image.Image:
     im, d = new_canvas(1280, 960)
     for y in range(960):
         t = y / 959
-        col = tuple(int(SKY_TOP[i] * (1 - t) + SKY[i] * t) for i in range(3)) + (255,)
-        d.line([(0, y), (1279, y)], fill=col)
-    d.rectangle([0, 620, 1279, 959], fill=TEAL)
-    d.polygon([(0, 640), (200, 600), (420, 648), (0, 700)], fill=(36, 82, 96, 255))
-    # kamienice + spires
-    blocks = [(40, 380, 180, 640), (200, 340, 360, 640), (380, 400, 520, 640), (900, 360, 1080, 640), (1100, 400, 1260, 640)]
+        r = int(18 * (1 - t) + 40 * t)
+        g = int(12 * (1 - t) + 22 * t)
+        b = int(28 * (1 - t) + 48 * t)
+        d.line([(0, y), (1279, y)], fill=(r, g, b, 255))
+    oval(d, [920, 40, 1140, 260], MOON)
+    d.rectangle([0, 640, 1279, 959], fill=(20, 36, 48, 255))
+    d.polygon([(0, 660), (280, 620), (520, 668), (0, 720)], fill=(12, 48, 58, 255))
+    blocks = [
+        (40, 380, 180, 640),
+        (200, 300, 360, 640),
+        (380, 400, 520, 640),
+        (860, 340, 1040, 640),
+        (1080, 400, 1260, 640),
+    ]
     for b in blocks:
-        d.rectangle(b, fill=BRICK, outline=OUTLINE, width=4)
+        d.rectangle(b, fill=HOOD, outline=OUTLINE, width=3)
         for wy in range(b[1] + 20, b[3] - 30, 36):
             for wx in range(b[0] + 16, b[2] - 16, 28):
-                d.rectangle([wx, wy, wx + 14, wy + 18], fill=SKY_TOP)
-    # twin spires
-    d.polygon([(640, 220), (700, 420), (580, 420)], fill=BRICK_DARK, outline=OUTLINE)
-    d.polygon([(740, 200), (800, 420), (680, 420)], fill=BRICK, outline=OUTLINE)
-    d.rectangle([620, 420, 820, 640], fill=BRICK_DARK, outline=OUTLINE, width=4)
+                col = CYAN if (wx + wy) % 56 < 28 else PINK
+                d.rectangle([wx, wy, wx + 14, wy + 18], fill=col)
+    d.polygon([(600, 180), (670, 420), (540, 420)], fill=HOOD_DARK, outline=CYAN, width=3)
+    d.polygon([(710, 160), (790, 420), (640, 420)], fill=HOOD, outline=PINK, width=3)
+    d.rectangle([580, 420, 820, 640], fill=HOOD_DARK, outline=OUTLINE, width=3)
+    d.rectangle([80, 240, 220, 280], fill=PINK)
+    d.rectangle([40, 200, 90, 248], fill=LIME)
+    try:
+        from PIL import ImageFont
+
+        font = ImageFont.truetype(r"C:\Windows\Fonts\arialbd.ttf", 28)
+        d.text((88, 246), "WROCŁAW", font=font, fill=OFF)
+        d.text((48, 430), "TU TEŻ SĄ DANE", font=font, fill=CYAN)
+    except Exception:
+        pass
     return im
 
 
 def make_button() -> Image.Image:
     im, d = new_canvas(960, 250)
-    d.rounded_rectangle([80, 30, 880, 220], radius=80, fill=BRICK, outline=OUTLINE, width=8)
-    d.rounded_rectangle([120, 55, 840, 195], radius=64, fill=ACCENT, outline=HOOD_DARK, width=6)
-    d.polygon([(430, 70), (560, 125), (430, 180)], fill=HOOD)
+    d.rectangle([80, 40, 880, 230], fill=PINK)
+    d.rectangle([80, 24, 880, 214], fill=LIME)
+    d.polygon([(430, 64), (560, 119), (430, 174)], fill=HOOD)
     return im
 
 
 def make_logo() -> Image.Image:
     im, d = new_canvas(256, 96)
-    oval(d, [8, 20, 56, 76], SKIN)
-    d.rectangle([48, 40, 248, 80], fill=HOOD)
-    d.rectangle([64, 16, 232, 48], fill=BRICK)
+    rect(d, [8, 16, 248, 80], NAVY, LIME, 4)
+    d.rectangle([16, 24, 72, 72], fill=PINK)
+    d.rectangle([80, 32, 232, 64], fill=CYAN)
     return im
 
 
