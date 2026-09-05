@@ -50,6 +50,10 @@ Include the exact reasons and the boundaries of the decision.
 
 PASS only if the report contains a clear evidence-based decision, identifies the biggest remaining bottleneck, and recommends the next concrete action for the project.
 
-## Result
+## Result and chain behavior
 
-Create `012_gdevelop_vs_godot_benchmark-RESULT.md` with the benchmark table, evidence sources, GO/HYBRID/NO-GO decision, limitations, and commit SHA if repository changes are made. Stop after push.
+Create `012_gdevelop_vs_godot_benchmark-RESULT.md` with the benchmark table, evidence sources, GO/HYBRID/NO-GO decision, limitations, and commit SHA if repository changes are made.
+
+This is the final task of `GOAL-002_factory_validation_and_technology_decision.md`.
+
+After committing/pushing the RESULT, STOP regardless of whether the decision is GO, HYBRID, or NO-GO. Do not create or start task 013. ChatGPT reviews the full GOAL 002 before any further work.
