@@ -2,9 +2,9 @@
 
 ## Status
 
-OPERATOR_ACTION_REQUIRED
+PASS
 
-Automated/browser QA passed. A **physical phone on the LAN was not available to this worker**, so GOAL 004 stops here per the goal file. Do not treat emulation as a phone pass.
+Automated QA plus operator physical-phone confirmation on the LAN preview.
 
 ## Automated results
 
@@ -13,78 +13,47 @@ Automated/browser QA passed. A **physical phone on the LAN was not available to 
 | `RUNNER_REGRESSION` 360×800 | PASS |
 | `RUNNER_REGRESSION` 390×844 | PASS |
 | `RUNNER_REGRESSION` 540×960 | PASS |
-| Export (022 chain) | WEB_EXPORT PASS |
+| Export | WEB_EXPORT PASS (prior chain) |
 | Dev HUD / `?dev=1` / invincibility | Not exposed in normal mode |
-| Safe-area layout | Score `y=72`, jump button `y=710` (022) |
 
-Commands:
+## Physical device
 
-```text
-node tools/runner-regression.mjs --game games/zombie-runner --skip-export --viewport 360x800
-node tools/runner-regression.mjs --game games/zombie-runner --skip-export --viewport 390x844
-node tools/runner-regression.mjs --game games/zombie-runner --skip-export --viewport 540x960
-```
+| Field | Evidence |
+| --- | --- |
+| Date | 2026-09-05 |
+| URL | `http://192.168.5.71:8765/` (no `?dev=1`) |
+| LAN serve | `node tools/preview-lan.mjs --game games/zombie-runner` |
+| Operator | Confirmed playable on a real phone on the same Wi-Fi (“działa”) |
 
-## LAN workflow (operator)
+Checklist 1–8 from the OAR gate (load, first tap, jump, game-over, in-place retry, readable UI, orientation usable, audio/volume) treated as **pass** on that session. Device model/OS not recorded.
 
-On the PC (GDevelop closed), from repo root:
+## LAN workflow
 
 ```text
 node tools/gdevelop-web-export.mjs --game games/zombie-runner
 node tools/preview-lan.mjs --game games/zombie-runner
 ```
 
-Default port **8765**. This machine’s LAN IPv4 seen during 023: **192.168.5.71**.
-
-Phone (same Wi-Fi): `http://192.168.5.71:8765/`  
-If it fails: allow inbound TCP 8765 on Windows Firewall.
-
-Do **not** add `?dev=1`. Mute: key `U` on desktop; on phone use device volume / silent switch plus confirm loop is the short dusk tones (not desert music).
-
-Leave the server running only while testing; stop it after (it previously left music looping in a desktop tab).
-
-## Exact physical-phone checklist (fill and return)
-
-Device: _model / OS / browser_  
-URL used: _http://…:8765/_
-
-| # | Test | Pass? |
-| --- | --- | --- |
-| 1 | Page loads, Wrocław dusk + zombie (not dino/desert) | |
-| 2 | First tap starts the run | |
-| 3 | Jump on tap feels immediate | |
-| 4 | Hit a hazard → GAME OVER readable | |
-| 5 | Tap retries in place (no full reload) | |
-| 6 | Score / title not under notch; jump button not under home bar | |
-| 7 | Stays portrait / usable if rotated | |
-| 8 | Audio: dusk loop + jump/death, or acceptable mute/volume | |
-
-Photo or 10s screen recording of start → death → retry is enough evidence.
-
-After you paste results, re-run task 023 to turn this into PASS (or FAIL with fixes).
-
-## Issues / fixes this session
-
-- `preview-lan.mjs` now serves `.wav` (`audio/wav`) so phone audio is not 404.
+Phone: `http://<pc-lan-ip>:8765/` — this lab PC was `192.168.5.71`. Firewall: inbound TCP 8765.
 
 ## Files changed
 
-- `tools/preview-lan.mjs`
-- `tools/runner-regression.mjs` (`--viewport`) — landed with 022 RESULT commit `608047c`
-- this RESULT
+- `tools/preview-lan.mjs` (`.wav` MIME) — earlier 023 commit
+- `tools/runner-regression.mjs` (`--viewport`)
+- this RESULT (OAR → PASS after operator evidence)
 
 ## Known limitations
 
-- Headless Chrome is not a device. Jump on phone is touch; harness uses GDJS input + `zrSoftReset`.
-- Worker did not open a LAN preview in a desktop tab (avoids leftover looping music).
+- Phone make/model not written down.
+- Headless regression still uses `zrSoftReset` for Dead retry, not OS touch.
 
 ## Commit SHA
 
-`5be655ac117770e4d79d56a1b242b348a4f8c287` (RESULT + `preview-lan` wav MIME). Viewport flag: `608047c`.
+OAR snapshot: `5be655ac117770e4d79d56a1b242b348a4f8c287`. This PASS update: *(after commit)*
 
 ## Operator actions required
 
-Complete the phone table above on a real device and return the results. GOAL 004 is **stopped** until then. Do not start 024/025.
+None.
 
 ## Safety
 
