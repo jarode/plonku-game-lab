@@ -39,6 +39,11 @@ Prove whether `runner-v1` actually reduces production effort by creating a secon
 
 PASS only if the second game is independently playable/exportable, uses the runner template as intended, demonstrates a materially different reskin/chunk set, and the result clearly shows how much core modification was required.
 
-## Result
+## Result and chain behavior
 
-Create `011_second_game_factory_test-RESULT.md` with the production-effort evidence, template defects found, validations, changed files, limitations, and commit SHA. Stop after push.
+Create `011_second_game_factory_test-RESULT.md` with the production-effort evidence, template defects found, validations, changed files, limitations, and commit SHA.
+
+This task belongs to `GOAL-002_factory_validation_and_technology_decision.md`.
+
+- If the final status is exactly `PASS`, commit/push the RESULT and immediately continue with task 012 in a fresh worker/session.
+- If status is `FAIL`, `BLOCKED`, `OPERATOR_ACTION_REQUIRED`, `INCONCLUSIVE`, or anything other than exact `PASS`, STOP the goal immediately and do not start task 012.
