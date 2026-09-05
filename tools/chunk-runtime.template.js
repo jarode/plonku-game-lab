@@ -16,8 +16,43 @@ function zrJustPressed(runtimeScene, key) {
   return gdjs.evtTools.input.wasKeyJustPressed(runtimeScene, key);
 }
 
-function zrReplaceGame(runtimeScene) {
-  gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Game", true);
+function zrSoftReset(runtimeScene) {
+  const names = [
+    "CactusObstacle",
+    "IslandObstacle",
+    "WreckObstacle",
+    "BonusObject",
+    "BonusParticle",
+  ];
+  for (const name of names) {
+    const list = runtimeScene.getObjects(name).slice();
+    for (const obj of list) {
+      if (typeof obj.deleteFromScene === "function") obj.deleteFromScene(runtimeScene);
+    }
+  }
+  runtimeScene.getGame().getVariables().get("Score").setNumber(0);
+  const sv = runtimeScene.getScene().getVariables();
+  sv.get("GameStatus").setString("Preparing");
+  runtimeScene._zrChunk = null;
+  const dinos = runtimeScene.getObjects("Dino");
+  if (dinos.length) {
+    const dino = dinos[0];
+    const ix = dino.getVariables().get("InitialX").getAsNumber();
+    dino.setX(ix || 48);
+    dino.setY(724);
+    try {
+      dino.getBehavior("Animation").setAnimationName("Idle");
+    } catch (e) {}
+    try {
+      dino.activateBehavior("PlatformerObject", true);
+    } catch (e2) {}
+  }
+  const texts = runtimeScene.getObjects("ScoreText");
+  if (texts.length && typeof texts[0].setString === "function") {
+    texts[0].setString(
+      "Zombie Runner - Wroclaw" + "\n" + "Tap or Space to run"
+    );
+  }
 }
 
 (function runChunkAndDev(runtimeScene) {
@@ -65,7 +100,7 @@ function zrReplaceGame(runtimeScene) {
       return;
     }
     if (zrJustPressed(runtimeScene, "R")) {
-      zrReplaceGame(runtimeScene);
+      zrSoftReset(runtimeScene);
       return;
     }
     if (zrJustPressed(runtimeScene, "N")) {
@@ -105,6 +140,16 @@ function zrReplaceGame(runtimeScene) {
   }
 
   const status = sceneVars.get("GameStatus").getAsString();
+  if (status === "Dead") {
+    const retry =
+      zrJustPressed(runtimeScene, "Space") ||
+      zrJustPressed(runtimeScene, "R") ||
+      gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+    if (retry) {
+      zrSoftReset(runtimeScene);
+      return;
+    }
+  }
   if (status !== "Playing") {
     if (status === "Preparing" || status === "Dead") {
       runtimeScene._zrChunk = null;

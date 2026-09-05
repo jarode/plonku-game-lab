@@ -5713,8 +5713,43 @@
                         "  return gdjs.evtTools.input.wasKeyJustPressed(runtimeScene, key);\r",
                         "}\r",
                         "\r",
-                        "function zrReplaceGame(runtimeScene) {\r",
-                        "  gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, \"Game\", true);\r",
+                        "function zrSoftReset(runtimeScene) {\r",
+                        "  const names = [\r",
+                        "    \"CactusObstacle\",\r",
+                        "    \"IslandObstacle\",\r",
+                        "    \"WreckObstacle\",\r",
+                        "    \"BonusObject\",\r",
+                        "    \"BonusParticle\",\r",
+                        "  ];\r",
+                        "  for (const name of names) {\r",
+                        "    const list = runtimeScene.getObjects(name).slice();\r",
+                        "    for (const obj of list) {\r",
+                        "      if (typeof obj.deleteFromScene === \"function\") obj.deleteFromScene(runtimeScene);\r",
+                        "    }\r",
+                        "  }\r",
+                        "  runtimeScene.getGame().getVariables().get(\"Score\").setNumber(0);\r",
+                        "  const sv = runtimeScene.getScene().getVariables();\r",
+                        "  sv.get(\"GameStatus\").setString(\"Preparing\");\r",
+                        "  runtimeScene._zrChunk = null;\r",
+                        "  const dinos = runtimeScene.getObjects(\"Dino\");\r",
+                        "  if (dinos.length) {\r",
+                        "    const dino = dinos[0];\r",
+                        "    const ix = dino.getVariables().get(\"InitialX\").getAsNumber();\r",
+                        "    dino.setX(ix || 48);\r",
+                        "    dino.setY(724);\r",
+                        "    try {\r",
+                        "      dino.getBehavior(\"Animation\").setAnimationName(\"Idle\");\r",
+                        "    } catch (e) {}\r",
+                        "    try {\r",
+                        "      dino.activateBehavior(\"PlatformerObject\", true);\r",
+                        "    } catch (e2) {}\r",
+                        "  }\r",
+                        "  const texts = runtimeScene.getObjects(\"ScoreText\");\r",
+                        "  if (texts.length && typeof texts[0].setString === \"function\") {\r",
+                        "    texts[0].setString(\r",
+                        "      \"Zombie Runner - Wroclaw\" + \"\\n\" + \"Tap or Space to run\"\r",
+                        "    );\r",
+                        "  }\r",
                         "}\r",
                         "\r",
                         "(function runChunkAndDev(runtimeScene) {\r",
@@ -5762,7 +5797,7 @@
                         "      return;\r",
                         "    }\r",
                         "    if (zrJustPressed(runtimeScene, \"R\")) {\r",
-                        "      zrReplaceGame(runtimeScene);\r",
+                        "      zrSoftReset(runtimeScene);\r",
                         "      return;\r",
                         "    }\r",
                         "    if (zrJustPressed(runtimeScene, \"N\")) {\r",
@@ -5802,6 +5837,16 @@
                         "  }\r",
                         "\r",
                         "  const status = sceneVars.get(\"GameStatus\").getAsString();\r",
+                        "  if (status === \"Dead\") {\r",
+                        "    const retry =\r",
+                        "      zrJustPressed(runtimeScene, \"Space\") ||\r",
+                        "      zrJustPressed(runtimeScene, \"R\") ||\r",
+                        "      gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, \"Left\");\r",
+                        "    if (retry) {\r",
+                        "      zrSoftReset(runtimeScene);\r",
+                        "      return;\r",
+                        "    }\r",
+                        "  }\r",
                         "  if (status !== \"Playing\") {\r",
                         "    if (status === \"Preparing\" || status === \"Dead\") {\r",
                         "      runtimeScene._zrChunk = null;\r",
@@ -7296,12 +7341,12 @@
                       "actions": [
                         {
                           "type": {
-                            "value": "Scene"
+                            "value": "SetStringVariable"
                           },
                           "parameters": [
-                            "",
-                            "\"Game\"",
-                            "yes"
+                            "GameStatus",
+                            "=",
+                            "\"Dead\""
                           ]
                         }
                       ],
@@ -7334,12 +7379,12 @@
                       "actions": [
                         {
                           "type": {
-                            "value": "Scene"
+                            "value": "SetStringVariable"
                           },
                           "parameters": [
-                            "",
-                            "\"Game\"",
-                            "yes"
+                            "GameStatus",
+                            "=",
+                            "\"Dead\""
                           ]
                         }
                       ]
