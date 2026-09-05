@@ -27,6 +27,16 @@ Output directory (gitignored): `games/zombie-runner/build/`
 
 The script prints `WEB_EXPORT: PASS` or `WEB_EXPORT: FAIL` and exits 0 or 1.
 
+## LAN phone preview (task 007)
+
+After export:
+
+```text
+node tools/preview-lan.mjs
+```
+
+See `games/zombie-runner/MOBILE-PREVIEW.md`.
+
 ## Chunk catalog (task 005)
 
 Edit `games/zombie-runner/chunks.json`, then:

@@ -20,4 +20,6 @@ node tools/gdevelop-web-export.mjs
 
 Success: `WEB_EXPORT: PASS`. See `tools/README.md`.
 
+LAN phone preview: `node tools/preview-lan.mjs` (see `MOBILE-PREVIEW.md`).
+
 Do not add a second `.json` project in this folder.
