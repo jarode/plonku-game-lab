@@ -49,7 +49,7 @@ Do not start that product in this task.
 
 ## Commit SHA
 
-Documentation: *(filled after commit)*
+Documentation: `7ad83c65465887ff9338e205b42711c17ea7140a`
 
 ## Operator actions required
 
