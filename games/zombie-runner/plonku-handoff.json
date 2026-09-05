@@ -1,7 +1,7 @@
 {
   "schema": "plonku-web-handoff/v1",
   "slug": "zombie-runner",
-  "displayTitle": "Zombie Runner — Wrocław",
+  "displayTitle": "Zombie Survival Score",
   "packageName": "com.plonku.zombierunner",
   "version": "1.0.0",
   "orientation": "portrait",

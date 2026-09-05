@@ -20,7 +20,7 @@
     "templateSlug": "",
     "version": "1.0.0",
     "name": "Zombie Survival Score",
-    "description": "Portrait one-input runner. Wrocław dusk identity. Tap or Space to jump.",
+    "description": "Plonku lab: Zombie Survival Score. Wrocław night runner. One thumb. Public data, our interpretation.",
     "author": "",
     "windowWidth": 540,
     "windowHeight": 960,
@@ -56,27 +56,27 @@
       "ios-icon-76": "",
       "ios-icon-80": "",
       "ios-icon-87": "",
-      "liluo-thumbnail": "assets/thumbnail-game.png"
+      "liluo-thumbnail": "assets/wroclaw-v1/logo.png"
     },
     "loadingScreen": {
-      "backgroundColor": 0,
+      "backgroundColor": 1710371,
       "backgroundFadeInDuration": 0.2,
       "backgroundImageResourceName": "",
-      "gdevelopLogoStyle": "light",
-      "logoAndProgressFadeInDuration": 0.2,
-      "logoAndProgressLogoFadeInDelay": 0.2,
-      "minDuration": 1.5,
-      "progressBarColor": 16777215,
-      "progressBarHeight": 20,
+      "gdevelopLogoStyle": "dark",
+      "logoAndProgressFadeInDuration": 0.15,
+      "logoAndProgressLogoFadeInDelay": 0.05,
+      "minDuration": 0.4,
+      "progressBarColor": 14155711,
+      "progressBarHeight": 8,
       "progressBarMaxWidth": 200,
       "progressBarMinWidth": 40,
       "progressBarWidthPercent": 30,
-      "showGDevelopSplash": true,
+      "showGDevelopSplash": false,
       "showProgressBar": true
     },
     "watermark": {
       "placement": "bottom-left",
-      "showWatermark": true
+      "showWatermark": false
     },
     "authorIds": [
       "5gX7968mpUXFN0LrNCRJkaUPgX93",
@@ -387,7 +387,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Buttons/DuckButton-1.png",
+        "file": "assets/wroclaw-v1/jump_button.png",
         "kind": "image",
         "metadata": "",
         "name": "DuckButton-1.png",
@@ -611,7 +611,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-3.png",
+        "file": "assets/wroclaw-v1/player/idle_01.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-3.png",
@@ -619,7 +619,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-4.png",
+        "file": "assets/wroclaw-v1/player/idle_02.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-4.png",
@@ -627,7 +627,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-5-0.png",
+        "file": "assets/wroclaw-v1/player/idle_03.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-5-0.png",
@@ -635,7 +635,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-6-0.png",
+        "file": "assets/wroclaw-v1/player/idle_04.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-6-0.png",
@@ -643,7 +643,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-6.png",
+        "file": "assets/wroclaw-v1/player/idle_05.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-6.png",
@@ -651,7 +651,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-9-0.png",
+        "file": "assets/wroclaw-v1/player/idle_06.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-9-0.png",
@@ -659,7 +659,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-9.png",
+        "file": "assets/wroclaw-v1/player/idle_07.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-9.png",
@@ -667,7 +667,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-10-0.png",
+        "file": "assets/wroclaw-v1/player/idle_08.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-10-0.png",
@@ -675,7 +675,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Duck-11.png",
+        "file": "assets/wroclaw-v1/player/idle_09.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-11.png",
