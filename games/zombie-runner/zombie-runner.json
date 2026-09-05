@@ -1,5 +1,5 @@
 {
-  "firstLayout": "Intro",
+  "firstLayout": "Game",
   "gdVersion": {
     "build": 244,
     "major": 5,
@@ -11,19 +11,19 @@
     "antialiasingMode": "MSAA",
     "antialisingEnabledOnMobile": false,
     "folderProject": false,
-    "orientation": "landscape",
-    "packageName": "com.example.rundinorun",
+    "orientation": "portrait",
+    "packageName": "com.plonku.zombierunner",
     "pixelsRounding": false,
     "projectUuid": "64b0c061-4a91-4011-99c3-1f08b26a4495",
     "scaleMode": "linear",
-    "sizeOnStartupMode": "",
+    "sizeOnStartupMode": "adaptWidth",
     "templateSlug": "",
     "version": "1.0.0",
-    "name": "Run, Dino run",
-    "description": "The revamped version of Chrome's offline Dino runner.\n\nControls :\n   Computer : Up and Down arrow keys\n   Touch screens : Swipe up or down\n",
+    "name": "Zombie Runner — Wrocław",
+    "description": "One-input portrait endless runner. Automatic run; Space or tap to jump. Placeholder art on the Run, Dino run baseline.",
     "author": "",
-    "windowWidth": 960,
-    "windowHeight": 540,
+    "windowWidth": 540,
+    "windowHeight": 960,
     "latestCompilationDirectory": "",
     "maxFPS": 60,
     "minFPS": 20,
@@ -2420,7 +2420,7 @@
         {
           "name": "ObstacleSpawnDelay",
           "type": "string",
-          "value": "2"
+          "value": "1.2"
         },
         {
           "name": "CactusInField",
@@ -2441,9 +2441,9 @@
           "layer": "",
           "name": "Platform",
           "persistentUuid": "59a6a8b0-78a3-4661-85c0-62f4cc9ef72e",
-          "width": 960,
+          "width": 540,
           "x": 0,
-          "y": 480,
+          "y": 832,
           "zOrder": 4,
           "numberProperties": [],
           "stringProperties": [],
@@ -2457,8 +2457,8 @@
           "name": "ScoreText",
           "persistentUuid": "b4cdf63a-8d7e-4bd0-83ee-8dfd60fd49dd",
           "width": 0,
-          "x": 21,
-          "y": 13,
+          "x": 16,
+          "y": 24,
           "zOrder": 14,
           "numberProperties": [],
           "stringProperties": [],
@@ -2467,13 +2467,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 896,
+          "height": 1200,
           "layer": "Background",
           "name": "Background",
           "persistentUuid": "48c699d8-eec9-4115-ae30-822d8389a521",
-          "width": 1024,
-          "x": -32,
-          "y": -352,
+          "width": 640,
+          "x": -40,
+          "y": -80,
           "zOrder": 17,
           "numberProperties": [],
           "stringProperties": [],
@@ -2487,8 +2487,8 @@
           "name": "TutorialSprite",
           "persistentUuid": "20ccb8d2-a0f4-4d6b-a908-74bb4a0149fe",
           "width": 0,
-          "x": 48,
-          "y": 64,
+          "x": 24,
+          "y": 160,
           "zOrder": 27,
           "numberProperties": [],
           "stringProperties": [],
@@ -2502,8 +2502,8 @@
           "name": "JumpButton",
           "persistentUuid": "e5f23674-5d6a-451c-b857-44c5a0f9ff51",
           "width": 0,
-          "x": 0,
-          "y": 0,
+          "x": 360,
+          "y": 780,
           "zOrder": 29,
           "numberProperties": [],
           "stringProperties": [],
@@ -2512,13 +2512,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 294,
+          "height": 8,
           "layer": "TouchButtons",
           "name": "DuckButton",
           "persistentUuid": "31cb7b91-db5c-40c9-8d70-550f41d6157b",
-          "width": 960,
-          "x": 0,
-          "y": 250,
+          "width": 8,
+          "x": -2000,
+          "y": -2000,
           "zOrder": 30,
           "numberProperties": [],
           "stringProperties": [],
@@ -2532,8 +2532,8 @@
           "name": "TutorialTouchscreenJump",
           "persistentUuid": "f007fe19-0b98-419e-a9d4-3911b45fbbcb",
           "width": 0,
-          "x": 576,
-          "y": -32,
+          "x": 40,
+          "y": 200,
           "zOrder": 31,
           "numberProperties": [],
           "stringProperties": [],
@@ -2547,8 +2547,8 @@
           "name": "TutorialTouchscreenDuck",
           "persistentUuid": "b5dec053-e367-4c4c-a9c9-4b98ee19087a",
           "width": 0,
-          "x": 576,
-          "y": 180,
+          "x": -2000,
+          "y": -2000,
           "zOrder": 32,
           "numberProperties": [],
           "stringProperties": [],
@@ -2561,9 +2561,9 @@
           "layer": "",
           "name": "Limit",
           "persistentUuid": "ba58fff4-f170-43ac-b897-f9885c348dcd",
-          "width": 960,
+          "width": 540,
           "x": 0,
-          "y": 224,
+          "y": 360,
           "zOrder": 33,
           "numberProperties": [],
           "stringProperties": [],
@@ -2577,8 +2577,8 @@
           "name": "Dino",
           "persistentUuid": "4355f663-4fd5-41b2-83c2-2c5f313938d9",
           "width": 0,
-          "x": 59,
-          "y": 372,
+          "x": 48,
+          "y": 724,
           "zOrder": 34,
           "numberProperties": [],
           "stringProperties": [],
@@ -5139,6 +5139,72 @@
               ]
             }
           ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "WreckObstacle",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "DestroyOutside",
+              "type": "DestroyOutsideBehavior::DestroyOutside",
+              "extraBorder": 1000
+            }
+          ],
+          "animations": [
+            {
+              "name": "Wreck",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.025,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Skeleton.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 64
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 16
+                          },
+                          {
+                            "x": 120,
+                            "y": 16
+                          },
+                          {
+                            "x": 120,
+                            "y": 64
+                          },
+                          {
+                            "x": 0,
+                            "y": 64
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -5179,6 +5245,9 @@
           },
           {
             "objectName": "IslandObstacle"
+          },
+          {
+            "objectName": "WreckObstacle"
           },
           {
             "objectName": "BonusObject"
@@ -5243,6 +5312,49 @@
                 "=",
                 "Dino.X()"
               ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "DuckButton"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "TutorialTouchscreenDuck"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "TutorialSprite"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "TutorialTouchscreenJump"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "ScoreText",
+                "Text",
+                "=",
+                "\"Zombie Runner - Wroclaw\" + NewLine() + \"Tap or Space to run\""
+              ]
             }
           ],
           "events": [
@@ -5267,7 +5379,7 @@
                     "ScoreText",
                     "Text",
                     "=",
-                    "\"Touch to start running.\""
+                    "\"Zombie Runner — Wroclaw \" + NewLine() + \"Tap or Space to run\""
                   ]
                 },
                 {
@@ -5484,7 +5596,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"Score   \" + GlobalVariableString(Score)"
+                        "\"Wrocław  \" + GlobalVariableString(Score)"
                       ]
                     }
                   ],
@@ -5841,7 +5953,7 @@
                                   },
                                   "parameters": [
                                     "Dino",
-                                    "\"Up\""
+                                    "\"Space\""
                                   ]
                                 }
                               ],
@@ -5866,7 +5978,7 @@
                                   },
                                   "parameters": [
                                     "Dino",
-                                    "\"Down\""
+                                    "\"__disabled_duck__\""
                                   ]
                                 },
                                 {
@@ -5942,6 +6054,22 @@
                               ],
                               "actions": [],
                               "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "PlatformBehavior::SimulateJumpKey"
+                                      },
+                                      "parameters": [
+                                        "Dino",
+                                        "PlatformerObject"
+                                      ]
+                                    }
+                                  ],
+                                  "events": []
+                                },
                                 {
                                   "type": "BuiltinCommonInstructions::Standard",
                                   "conditions": [
@@ -6244,7 +6372,7 @@
                               "parameters": [
                                 "ObstacleType",
                                 "=",
-                                "RandomInRange(0,2)"
+                                "RandomInRange(0, 3)"
                               ]
                             },
                             {
@@ -6553,6 +6681,47 @@
                                   ]
                                 }
                               ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "ObstacleType",
+                                    "=",
+                                    "3"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Create"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "WreckObstacle",
+                                    "RandomInRange(75, 125) + SceneWindowWidth()",
+                                    "Platform.BoundingBoxTop()",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "AddForceAL"
+                                  },
+                                  "parameters": [
+                                    "WreckObstacle",
+                                    "180",
+                                    "ObstacleSpeed",
+                                    "1"
+                                  ]
+                                }
+                              ],
+                              "events": []
                             }
                           ]
                         }
@@ -6629,6 +6798,18 @@
                                         "IslandObstacle.BoundingBoxCenterY()"
                                       ]
                                     }
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "CollisionNP"
+                                  },
+                                  "parameters": [
+                                    "Dino",
+                                    "WreckObstacle",
+                                    "",
+                                    "",
+                                    ""
                                   ]
                                 }
                               ]
@@ -6758,8 +6939,64 @@
                       ]
                     }
                   ],
-                  "actions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                      },
+                      "parameters": [
+                        "ScoreText",
+                        "Text",
+                        "=",
+                        "\"GAME OVER - tap or Space\" + NewLine() + \"Wroclaw  \" + GlobalVariableString(Score)"
+                      ]
+                    }
+                  ],
                   "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "KeyFromTextPressed"
+                              },
+                              "parameters": [
+                                "Dino",
+                                "\"Space\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "MouseButtonFromTextPressed"
+                              },
+                              "parameters": [
+                                "Dino",
+                                "\"Left\""
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Scene"
+                          },
+                          "parameters": [
+                            "",
+                            "\"Game\"",
+                            "yes"
+                          ]
+                        }
+                      ],
+                      "events": []
+                    },
                     {
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [
@@ -6791,7 +7028,7 @@
                           },
                           "parameters": [
                             "",
-                            "\"Leaderboard\"",
+                            "\"Game\"",
                             "yes"
                           ]
                         }
