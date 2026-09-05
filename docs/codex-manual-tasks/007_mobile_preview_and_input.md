@@ -29,4 +29,8 @@ PASS only if the game is playable in portrait orientation on representative mobi
 
 ## Result
 
-Create `007_mobile_preview_and_input-RESULT.md` with tested viewports/devices or emulation, issues fixed, preview workflow, limitations, and commit SHA. Stop after push.
+Create `007_mobile_preview_and_input-RESULT.md` with tested viewports/devices or emulation, issues fixed, preview workflow, limitations, and commit SHA.
+
+## Chain behavior
+
+When executed under `GOAL-001_zombie_runner_mvp.md`, push implementation + RESULT, then inspect the RESULT status. Continue to task 008 only when status is exactly `PASS`. For any other status, STOP and do not start task 008.
