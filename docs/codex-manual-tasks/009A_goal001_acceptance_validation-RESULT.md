@@ -54,7 +54,7 @@ Task **010 was not started**.
 
 ## Commit SHA
 
-Implementation: *(filled after commit)*
+Implementation: `f279b0eb63755749d01eb3a3a3a417f65d37efb8`
 
 ## Operator actions required
 
