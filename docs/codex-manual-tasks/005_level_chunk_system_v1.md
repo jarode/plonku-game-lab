@@ -32,4 +32,8 @@ PASS only if at least nine chunks exist, the game can assemble them without visi
 
 ## Result
 
-Create `005_level_chunk_system_v1-RESULT.md` with architecture summary, chunk list, validations, changed files, limitations, and commit SHA. Stop after push.
+Create `005_level_chunk_system_v1-RESULT.md` with architecture summary, chunk list, validations, changed files, limitations, and commit SHA.
+
+## Chain behavior
+
+When executed under `GOAL-001_zombie_runner_mvp.md`, push implementation + RESULT, then inspect the RESULT status. Continue to task 006 only when status is exactly `PASS`. For any other status, STOP and do not start task 006.
