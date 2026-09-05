@@ -1,0 +1,4 @@
+{
+  "id": "bad-null-hole",
+  "values": [10, null, 20, 30]
+}
