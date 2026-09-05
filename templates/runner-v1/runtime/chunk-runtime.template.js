@@ -66,6 +66,55 @@ if (typeof window !== "undefined") {
   window.__zrSoftReset = zrSoftReset;
 }
 
+function zrHide(scene, name, hidden) {
+  const list = scene.getObjects(name);
+  for (let i = 0; i < list.length; i++) list[i].hide(hidden);
+}
+
+function zrHit(scene, name, x, y) {
+  const list = scene.getObjects(name);
+  for (let i = 0; i < list.length; i++) {
+    const o = list[i];
+    if (typeof o.isHidden === "function" && o.isHidden()) continue;
+    if (
+      x >= o.getAABBLeft() &&
+      x <= o.getAABBRight() &&
+      y >= o.getAABBTop() &&
+      y <= o.getAABBBottom()
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function zrSyncPlonkuUi(scene) {
+  let st = "";
+  try {
+    st = scene.getScene().getVariables().get("GameStatus").getAsString();
+  } catch (e) {
+    return;
+  }
+  const start = st === "Preparing";
+  const play = st === "Playing";
+  const dead = st === "Dead";
+  zrHide(scene, "UiStart", !start);
+  zrHide(scene, "StartCta", !start);
+  zrHide(scene, "CityCta", !(start || dead));
+  zrHide(scene, "UiHud", !play);
+  zrHide(scene, "UiGo", !dead);
+  zrHide(scene, "GoRetry", !dead);
+  zrHide(scene, "GoScore", !dead);
+  zrHide(scene, "JumpButton", !play);
+  const texts = scene.getObjects("ScoreText");
+  if (texts.length) texts[0].hide(start || dead);
+  const scores = scene.getObjects("GoScore");
+  if (scores.length && dead && typeof scores[0].setString === "function") {
+    const n = scene.getGame().getVariables().get("Score").getAsNumber();
+    scores[0].setString(String(Math.floor(n)));
+  }
+}
+
 (function runChunkAndDev(runtimeScene) {
   const sceneVars = runtimeScene.getScene().getVariables();
   const gameVars = runtimeScene.getGame().getVariables();
@@ -165,12 +214,20 @@ if (typeof window !== "undefined") {
     }
   } catch (eMute) {}
 
+  zrSyncPlonkuUi(runtimeScene);
+
   const status = sceneVars.get("GameStatus").getAsString();
   if (status === "Dead") {
+    const click = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+    let cityHit = false;
+    if (click) {
+      const im = runtimeScene.getGame().getInputManager();
+      cityHit = zrHit(runtimeScene, "CityCta", im.getCursorX(), im.getCursorY());
+    }
     const retry =
       zrJustPressed(runtimeScene, "Space") ||
       zrJustPressed(runtimeScene, "R") ||
-      gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+      (click && !cityHit);
     if (retry) {
       zrSoftReset(runtimeScene);
       return;

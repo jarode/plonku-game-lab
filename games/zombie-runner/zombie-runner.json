@@ -779,6 +779,30 @@
         "name": "assets/thumbnail-game.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/start_panel.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-start.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/cta_start.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-cta-start.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/cta_city.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-cta-city.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -2630,6 +2654,51 @@
           "x": 16,
           "y": 150,
           "zOrder": 40,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 620,
+          "layer": "",
+          "name": "UiStart",
+          "persistentUuid": "aee803d6-3be7-4529-9f74-d82dc8973209",
+          "width": 540,
+          "x": 0,
+          "y": 0,
+          "zOrder": 40,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 88,
+          "layer": "",
+          "name": "StartCta",
+          "persistentUuid": "6f632e74-a3c3-4460-8c79-34f325f0f14b",
+          "width": 460,
+          "x": 40,
+          "y": 640,
+          "zOrder": 42,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 76,
+          "layer": "",
+          "name": "CityCta",
+          "persistentUuid": "46e42aad-0d14-45b6-90a5-a599c1795bd1",
+          "width": 460,
+          "x": 40,
+          "y": 744,
+          "zOrder": 42,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -5298,6 +5367,129 @@
             "lineHeight": 0,
             "color": "139;87;42"
           }
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "UiStart",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "UiStart",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-start.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "StartCta",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "StartCta",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-cta-start.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "CityCta",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "CityCta",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-cta-city.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -5327,6 +5519,15 @@
               },
               {
                 "objectName": "ScoreText"
+              },
+              {
+                "objectName": "UiStart"
+              },
+              {
+                "objectName": "StartCta"
+              },
+              {
+                "objectName": "CityCta"
               }
             ]
           },
@@ -5599,6 +5800,55 @@
                 "  window.__zrSoftReset = zrSoftReset;\r",
                 "}\r",
                 "\r",
+                "function zrHide(scene, name, hidden) {\r",
+                "  const list = scene.getObjects(name);\r",
+                "  for (let i = 0; i < list.length; i++) list[i].hide(hidden);\r",
+                "}\r",
+                "\r",
+                "function zrHit(scene, name, x, y) {\r",
+                "  const list = scene.getObjects(name);\r",
+                "  for (let i = 0; i < list.length; i++) {\r",
+                "    const o = list[i];\r",
+                "    if (typeof o.isHidden === \"function\" && o.isHidden()) continue;\r",
+                "    if (\r",
+                "      x >= o.getAABBLeft() &&\r",
+                "      x <= o.getAABBRight() &&\r",
+                "      y >= o.getAABBTop() &&\r",
+                "      y <= o.getAABBBottom()\r",
+                "    ) {\r",
+                "      return true;\r",
+                "    }\r",
+                "  }\r",
+                "  return false;\r",
+                "}\r",
+                "\r",
+                "function zrSyncPlonkuUi(scene) {\r",
+                "  let st = \"\";\r",
+                "  try {\r",
+                "    st = scene.getScene().getVariables().get(\"GameStatus\").getAsString();\r",
+                "  } catch (e) {\r",
+                "    return;\r",
+                "  }\r",
+                "  const start = st === \"Preparing\";\r",
+                "  const play = st === \"Playing\";\r",
+                "  const dead = st === \"Dead\";\r",
+                "  zrHide(scene, \"UiStart\", !start);\r",
+                "  zrHide(scene, \"StartCta\", !start);\r",
+                "  zrHide(scene, \"CityCta\", !(start || dead));\r",
+                "  zrHide(scene, \"UiHud\", !play);\r",
+                "  zrHide(scene, \"UiGo\", !dead);\r",
+                "  zrHide(scene, \"GoRetry\", !dead);\r",
+                "  zrHide(scene, \"GoScore\", !dead);\r",
+                "  zrHide(scene, \"JumpButton\", !play);\r",
+                "  const texts = scene.getObjects(\"ScoreText\");\r",
+                "  if (texts.length) texts[0].hide(start || dead);\r",
+                "  const scores = scene.getObjects(\"GoScore\");\r",
+                "  if (scores.length && dead && typeof scores[0].setString === \"function\") {\r",
+                "    const n = scene.getGame().getVariables().get(\"Score\").getAsNumber();\r",
+                "    scores[0].setString(String(Math.floor(n)));\r",
+                "  }\r",
+                "}\r",
+                "\r",
                 "(function runChunkAndDev(runtimeScene) {\r",
                 "  const sceneVars = runtimeScene.getScene().getVariables();\r",
                 "  const gameVars = runtimeScene.getGame().getVariables();\r",
@@ -5698,12 +5948,20 @@
                 "    }\r",
                 "  } catch (eMute) {}\r",
                 "\r",
+                "  zrSyncPlonkuUi(runtimeScene);\r",
+                "\r",
                 "  const status = sceneVars.get(\"GameStatus\").getAsString();\r",
                 "  if (status === \"Dead\") {\r",
+                "    const click = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, \"Left\");\r",
+                "    let cityHit = false;\r",
+                "    if (click) {\r",
+                "      const im = runtimeScene.getGame().getInputManager();\r",
+                "      cityHit = zrHit(runtimeScene, \"CityCta\", im.getCursorX(), im.getCursorY());\r",
+                "    }\r",
                 "    const retry =\r",
                 "      zrJustPressed(runtimeScene, \"Space\") ||\r",
                 "      zrJustPressed(runtimeScene, \"R\") ||\r",
-                "      gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, \"Left\");\r",
+                "      (click && !cityHit);\r",
                 "    if (retry) {\r",
                 "      zrSoftReset(runtimeScene);\r",
                 "      return;\r",
@@ -5845,7 +6103,7 @@
                                 "value": "MouseButtonFromTextPressed"
                               },
                               "parameters": [
-                                "Dino",
+                                "StartCta",
                                 "\"Left\""
                               ]
                             }
@@ -7312,65 +7570,65 @@
               "colorG": 147,
               "colorR": 74,
               "creationTime": 0,
-              "name": "Game lost",
-              "source": "",
-              "type": "BuiltinCommonInstructions::Group",
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "StringVariable"
-                      },
-                      "parameters": [
-                        "GameStatus",
-                        "=",
-                        "\"Dead\""
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-                      },
-                      "parameters": [
-                        "ScoreText",
-                        "Text",
-                        "=",
-                        "\"KONIEC GRY\" + NewLine() + \"Spróbuj jeszcze\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
-                      ]
-                    }
-                  ],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "BuiltinCommonInstructions::Or"
-                          },
-                          "parameters": [],
-                          "subInstructions": [
-                            {
-                              "type": {
-                                "value": "KeyFromTextPressed"
-                              },
-                              "parameters": [
-                                "Dino",
-                                "\"Space\""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "MouseButtonFromTextPressed"
-                              },
-                              "parameters": [
-                                "Dino",
-                                "\"Left\""
-                              ]
-                            }
+                              "name": "Game lost",
+                              "source": "",
+                              "type": "BuiltinCommonInstructions::Group",
+                              "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [
+                                    {
+                                      "type": {
+                                        "value": "StringVariable"
+                                      },
+                                      "parameters": [
+                                        "GameStatus",
+                                        "=",
+                                        "\"Dead\""
+                                      ]
+                                    }
+                                  ],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                                      },
+                                      "parameters": [
+                                        "ScoreText",
+                                        "Text",
+                                        "=",
+                                        "\"KONIEC GRY\" + NewLine() + \"Spróbuj jeszcze\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
+                                      ]
+                                    }
+                                  ],
+                                  "events": [
+                                    {
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [
+                                        {
+                                          "type": {
+                                            "value": "BuiltinCommonInstructions::Or"
+                                          },
+                                          "parameters": [],
+                                          "subInstructions": [
+                                            {
+                                              "type": {
+                                                "value": "KeyFromTextPressed"
+                                              },
+                                              "parameters": [
+                                                "Dino",
+                                                "\"Space\""
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "MouseButtonFromTextPressed"
+                                              },
+                                              "parameters": [
+                                                "Dino",
+                                                "\"Left\""
+                                              ]
+                                            }
                           ]
                         }
                       ],
