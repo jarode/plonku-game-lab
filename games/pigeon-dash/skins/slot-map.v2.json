@@ -1,0 +1,95 @@
+{
+  "contract": "runner-skin-v2",
+  "version": 2,
+  "required": [
+    "player_idle",
+    "player_run",
+    "player_jump",
+    "player_dead",
+    "hazard_01",
+    "hazard_02",
+    "hazard_03",
+    "background_far",
+    "ground",
+    "jump_button"
+  ],
+  "optional": ["background_near", "powerup_optional", "logo_optional"],
+  "slots": {
+    "player_idle": {
+      "resources": [
+        "assets/Dino/Dino_Idle_1.png",
+        "assets/Dino/Dino_Idle_2.png",
+        "assets/Dino/Dino_Idle_3.png",
+        "assets/Dino/Dino_Idle_4.png",
+        "assets/Dino/Dino_Idle_5.png",
+        "assets/Dino/Dino_Idle_6.png",
+        "assets/Dino/Dino_Idle_7.png",
+        "assets/Dino/Dino_Idle_8.png",
+        "assets/Dino/Dino_Idle_9.png",
+        "assets/Dino/Dino_Idle_10.png"
+      ]
+    },
+    "player_run": {
+      "resources": [
+        "assets/Dino/Dino_Run_1.png",
+        "assets/Dino/Dino_Run_2.png",
+        "assets/Dino/Dino_Run_3.png",
+        "assets/Dino/Dino_Run_4.png",
+        "assets/Dino/Dino_Run_5.png",
+        "assets/Dino/Dino_Run_6.png",
+        "assets/Dino/Dino_Run_7.png",
+        "assets/Dino/Dino_Run_8.png"
+      ]
+    },
+    "player_jump": {
+      "resources": [
+        "assets/Dino/Dino_Jump_1.png",
+        "assets/Dino/Dino_Jump_4.png",
+        "assets/Dino/Dino_Jump_5.png",
+        "assets/Dino/Dino_Jump_6.png",
+        "assets/Dino/Dino_Jump_10.png",
+        "assets/Dino/Dino_Jump_11.png",
+        "assets/Dino/Dino_Jump_12.png"
+      ]
+    },
+    "player_dead": {
+      "resources": [
+        "assets/Dino/Dead-1.png",
+        "assets/Dino/Dead-2.png",
+        "assets/Dino/Dead-3.png",
+        "assets/Dino/Dead-4.png",
+        "assets/Dino/Dead-5.png",
+        "assets/Dino/Dead-6.png",
+        "assets/Dino/Dead-7.png",
+        "assets/Dino/Dead-8.png"
+      ]
+    },
+    "hazard_01": {
+      "resources": ["assets/Cactus3-1.png", "assets/Obstacles/Cactus3-1.png"]
+    },
+    "hazard_02": {
+      "resources": ["assets/Duck_Island.png", "assets/Obstacles/Duck_Island.png"]
+    },
+    "hazard_03": {
+      "resources": ["Skeleton.png"]
+    },
+    "background_far": {
+      "resources": ["Desert Background.png"]
+    },
+    "background_near": {
+      "resources": []
+    },
+    "ground": {
+      "resources": ["9patch_Desert Tile_north.png"]
+    },
+    "jump_button": {
+      "resources": ["JumpButton-1-0.png"]
+    },
+    "powerup_optional": {
+      "resources": ["assets/CarGirlWheel-1.png"]
+    },
+    "logo_optional": {
+      "resources": ["assets/thumbnail-game.png"]
+    }
+  }
+}

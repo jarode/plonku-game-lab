@@ -1,0 +1,37 @@
+{
+  "contract": "runner-skin-v2",
+  "name": "pigeon-v1",
+  "note": "Park-strut remap via slot ids. Shared pack only; no new binaries.",
+  "slots": {
+    "player_idle": [
+      "assets/Dino/Dino_Walk_1.png",
+      "assets/Dino/Dino_Walk_2.png",
+      "assets/Dino/Dino_Walk_3.png",
+      "assets/Dino/Dino_Walk_4.png",
+      "assets/Dino/Dino_Walk_5.png",
+      "assets/Dino/Dino_Walk_6.png",
+      "assets/Dino/Dino_Walk_7.png",
+      "assets/Dino/Dino_Walk_8.png",
+      "assets/Dino/Dino_Walk_9.png",
+      "assets/Dino/Dino_Walk_10.png"
+    ],
+    "player_run": [
+      "assets/Dino/Dino_Walk_1.png",
+      "assets/Dino/Dino_Walk_3.png",
+      "assets/Dino/Dino_Walk_5.png",
+      "assets/Dino/Dino_Walk_7.png",
+      "assets/Dino/Dino_Walk_9.png",
+      "assets/Dino/Dino_Walk_2.png",
+      "assets/Dino/Dino_Walk_4.png",
+      "assets/Dino/Dino_Walk_6.png"
+    ],
+    "player_jump": "assets/Dino/Dino_Jump_1.png",
+    "player_dead": "assets/Dino/Dead-1.png",
+    "hazard_01": "assets/Obstacles/Cactus3-1.png",
+    "hazard_02": "assets/Scenery/SignArrow.png",
+    "hazard_03": "assets/Scenery/Skeleton.png",
+    "background_far": "assets/Desert Background.png",
+    "ground": "assets/Scenery/tiled_Desert Tile Platform Center.png",
+    "jump_button": "assets/Buttons/JumpButton-1-0.png"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "contract": "runner-skin-v2",
+  "name": "default",
+  "note": "Empty slots restore skins/default/resource-files.json.",
+  "slots": {}
+}

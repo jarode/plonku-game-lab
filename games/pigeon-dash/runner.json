@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "title": "Pigeon Dash",
+  "startPrompt": "Tap or Space to run",
+  "scorePrefix": "Pigeon  ",
+  "obstacleSpeed": 480,
+  "obstacleSpawnDelay": 1.1
+}
