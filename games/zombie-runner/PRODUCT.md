@@ -3,7 +3,7 @@
 Locked direction for tasks 020–025. Do not reopen identity questions in later tasks unless a blocker appears.
 
 **Slug:** `zombie-runner`  
-**Display title:** Zombie Runner — Wrocław  
+**Display title:** Zombie Survival Score / WROCŁAW  
 **Platform:** portrait HTML5, one-thumb, Plonku web embed later (not in this goal)  
 **Engine:** GDevelop client on Runner Factory v2 (`runner.json`, slots, shared pack for unused placeholders only)
 
@@ -13,7 +13,7 @@ Locked direction for tasks 020–025. Do not reopen identity questions in later 
 | --- | --- |
 | Player | Casual phone user, one thumb, no tutorial wall |
 | Session | Typical first-session death at **20–35 seconds**; retry in **under 1 second** |
-| Score | Survival time (keep time-based integer; HUD prefix `Wrocław`) |
+| Score | Survival time (integer seconds). HUD label `WYNIK`, city tag `WROCŁAW` — never `Wrocław 438`. |
 | Depth | Endless; EASY → MEDIUM → HARD chunks, never a menu |
 
 ## Hook (first 1–2 seconds)

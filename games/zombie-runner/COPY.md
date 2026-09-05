@@ -1,6 +1,8 @@
-# Plonku copy — Zombie Runner (GOAL 005 / 027)
+# Plonku copy — Zombie Runner (GOAL 005–006)
 
 Polish is player-facing. English in this file is for implementers only.
+
+Naming lock: `games/zombie-runner/NAMING.md` → **Zombie Survival Score / WROCŁAW**. Score label is `WYNIK`, not the city.
 
 ## Tone
 

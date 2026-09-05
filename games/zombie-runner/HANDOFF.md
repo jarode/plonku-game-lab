@@ -1,4 +1,4 @@
-# Plonku web handoff — Zombie Runner — Wrocław
+# Plonku web handoff — Zombie Survival Score / WROCŁAW
 
 Contract for a **later** Plonku integration. This repo does not modify or deploy the Plonku site.
 
