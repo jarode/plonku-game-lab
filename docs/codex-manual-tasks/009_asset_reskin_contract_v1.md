@@ -48,4 +48,8 @@ PASS only if the current Zombie skin works through the contract and a temporary 
 
 ## Result
 
-Create `009_asset_reskin_contract_v1-RESULT.md` with the contract, proof of alternate reskin, validations, changed files, limitations, and commit SHA. Stop after push.
+Create `009_asset_reskin_contract_v1-RESULT.md` with the contract, proof of alternate reskin, validations, changed files, limitations, and commit SHA.
+
+## Chain behavior
+
+When executed under `GOAL-001_zombie_runner_mvp.md`, push implementation + RESULT, then inspect the RESULT status. If status is exactly `PASS`, STOP successfully: Goal 001 implementation chain is complete and ready for supervisor review. For any other status, STOP and report the non-PASS state.
