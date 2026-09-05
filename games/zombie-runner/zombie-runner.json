@@ -811,6 +811,22 @@
         "name": "plonku-ui-hud.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/go_panel.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-go.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/cta_retry.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-retry.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -2722,6 +2738,51 @@
           "x": 12,
           "y": 8,
           "zOrder": 38,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 420,
+          "layer": "",
+          "name": "UiGo",
+          "persistentUuid": "d823976c-1a73-442b-a035-c3088995037d",
+          "width": 492,
+          "x": 24,
+          "y": 160,
+          "zOrder": 50,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 84,
+          "layer": "",
+          "name": "GoRetry",
+          "persistentUuid": "c83ecffc-6cd7-4036-a79c-d82b5669943f",
+          "width": 460,
+          "x": 40,
+          "y": 600,
+          "zOrder": 52,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 80,
+          "layer": "",
+          "name": "GoScore",
+          "persistentUuid": "8d8b085f-fbfa-445c-abfd-8b2782f8d9cd",
+          "width": 440,
+          "x": 48,
+          "y": 330,
+          "zOrder": 53,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -5554,6 +5615,131 @@
               ]
             }
           ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "UiGo",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "UiGo",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-go.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "GoRetry",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "GoRetry",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-retry.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "GoScore",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "0",
+          "font": "Nathaniel-19.otf",
+          "textAlignment": "",
+          "characterSize": 64,
+          "color": {
+            "r": 215,
+            "g": 255,
+            "b": 63
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": true,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "26;21;16",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "0",
+            "font": "Nathaniel-19.otf",
+            "textAlignment": "",
+            "verticalTextAlignment": "top",
+            "characterSize": 64,
+            "lineHeight": 0,
+            "color": "215;255;63"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -5595,6 +5781,15 @@
               },
               {
                 "objectName": "UiHud"
+              },
+              {
+                "objectName": "UiGo"
+              },
+              {
+                "objectName": "GoRetry"
+              },
+              {
+                "objectName": "GoScore"
               }
             ]
           },
