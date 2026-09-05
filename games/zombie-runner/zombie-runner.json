@@ -827,6 +827,30 @@
         "name": "plonku-ui-retry.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/city_panel.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-city-panel.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/city_play.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-city-play.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/city_soon.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-city-soon.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -2514,6 +2538,11 @@
           "name": "ScorePrefix",
           "type": "string",
           "value": "WYNIK  "
+        },
+        {
+          "name": "CityPicker",
+          "type": "number",
+          "value": 0
         }
       ],
       "instances": [
@@ -2783,6 +2812,51 @@
           "x": 48,
           "y": 330,
           "zOrder": 53,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 400,
+          "layer": "",
+          "name": "CityPanel",
+          "persistentUuid": "216aea7f-e7d7-48a2-a262-ff6fc44b773d",
+          "width": 492,
+          "x": 24,
+          "y": 200,
+          "zOrder": 70,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 80,
+          "layer": "",
+          "name": "CityPlay",
+          "persistentUuid": "d5b5b4be-c65a-4f0d-b685-1a637477582e",
+          "width": 460,
+          "x": 40,
+          "y": 280,
+          "zOrder": 72,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 72,
+          "layer": "",
+          "name": "CitySoon",
+          "persistentUuid": "77f43f68-b838-478b-8d1a-11c9f3e84152",
+          "width": 460,
+          "x": 40,
+          "y": 372,
+          "zOrder": 72,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -5740,6 +5814,129 @@
             "lineHeight": 0,
             "color": "215;255;63"
           }
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "CityPanel",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "CityPanel",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-city-panel.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "CityPlay",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "CityPlay",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-city-play.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "CitySoon",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "CitySoon",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-city-soon.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -5790,6 +5987,15 @@
               },
               {
                 "objectName": "GoScore"
+              },
+              {
+                "objectName": "CityPanel"
+              },
+              {
+                "objectName": "CityPlay"
+              },
+              {
+                "objectName": "CitySoon"
               }
             ]
           },
@@ -6033,6 +6239,9 @@
                 "  runtimeScene.getGame().getVariables().get(\"Score\").setNumber(0);\r",
                 "  const sv = runtimeScene.getScene().getVariables();\r",
                 "  sv.get(\"GameStatus\").setString(\"Preparing\");\r",
+                "  try {\r",
+                "    sv.get(\"CityPicker\").setNumber(0);\r",
+                "  } catch (ePick) {}\r",
                 "  runtimeScene._zrChunk = null;\r",
                 "  const dinos = runtimeScene.getObjects(\"Dino\");\r",
                 "  if (dinos.length) {\r",
@@ -6084,6 +6293,20 @@
                 "  return false;\r",
                 "}\r",
                 "\r",
+                "function zrPickerOpen(scene) {\r",
+                "  try {\r",
+                "    return scene.getScene().getVariables().get(\"CityPicker\").getAsNumber() === 1;\r",
+                "  } catch (e) {\r",
+                "    return false;\r",
+                "  }\r",
+                "}\r",
+                "\r",
+                "function zrSetPicker(scene, on) {\r",
+                "  try {\r",
+                "    scene.getScene().getVariables().get(\"CityPicker\").setNumber(on ? 1 : 0);\r",
+                "  } catch (e) {}\r",
+                "}\r",
+                "\r",
                 "function zrSyncPlonkuUi(scene) {\r",
                 "  let st = \"\";\r",
                 "  try {\r",
@@ -6094,18 +6317,23 @@
                 "  const start = st === \"Preparing\";\r",
                 "  const play = st === \"Playing\";\r",
                 "  const dead = st === \"Dead\";\r",
+                "  const pick = zrPickerOpen(scene);\r",
+                "  if (play && pick) zrSetPicker(scene, false);\r",
                 "  zrHide(scene, \"UiStart\", !start);\r",
-                "  zrHide(scene, \"StartCta\", !start);\r",
+                "  zrHide(scene, \"StartCta\", !(start && !pick));\r",
                 "  zrHide(scene, \"CityCta\", !(start || dead));\r",
                 "  zrHide(scene, \"UiHud\", !play);\r",
-                "  zrHide(scene, \"UiGo\", !dead);\r",
-                "  zrHide(scene, \"GoRetry\", !dead);\r",
-                "  zrHide(scene, \"GoScore\", !dead);\r",
+                "  zrHide(scene, \"UiGo\", !dead || pick);\r",
+                "  zrHide(scene, \"GoRetry\", !dead || pick);\r",
+                "  zrHide(scene, \"GoScore\", !dead || pick);\r",
                 "  zrHide(scene, \"JumpButton\", !play);\r",
+                "  zrHide(scene, \"CityPanel\", !pick);\r",
+                "  zrHide(scene, \"CityPlay\", !pick);\r",
+                "  zrHide(scene, \"CitySoon\", !pick);\r",
                 "  const texts = scene.getObjects(\"ScoreText\");\r",
                 "  if (texts.length) texts[0].hide(start || dead);\r",
                 "  const scores = scene.getObjects(\"GoScore\");\r",
-                "  if (scores.length && dead && typeof scores[0].setString === \"function\") {\r",
+                "  if (scores.length && dead && !pick && typeof scores[0].setString === \"function\") {\r",
                 "    const n = scene.getGame().getVariables().get(\"Score\").getAsNumber();\r",
                 "    scores[0].setString(String(Math.floor(n)));\r",
                 "  }\r",
@@ -6213,12 +6441,35 @@
                 "  zrSyncPlonkuUi(runtimeScene);\r",
                 "\r",
                 "  const status = sceneVars.get(\"GameStatus\").getAsString();\r",
+                "  const click = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, \"Left\");\r",
+                "  const im = runtimeScene.getGame().getInputManager();\r",
+                "  const cx = im.getCursorX();\r",
+                "  const cy = im.getCursorY();\r",
+                "\r",
+                "  if (click && zrHit(runtimeScene, \"CityCta\", cx, cy) && (status === \"Preparing\" || status === \"Dead\")) {\r",
+                "    zrSetPicker(runtimeScene, !zrPickerOpen(runtimeScene));\r",
+                "    zrSyncPlonkuUi(runtimeScene);\r",
+                "    return;\r",
+                "  }\r",
+                "  if (zrPickerOpen(runtimeScene)) {\r",
+                "    if (click && zrHit(runtimeScene, \"CityPlay\", cx, cy)) {\r",
+                "      zrSetPicker(runtimeScene, false);\r",
+                "      zrSyncPlonkuUi(runtimeScene);\r",
+                "      return;\r",
+                "    }\r",
+                "    if (click && (zrHit(runtimeScene, \"CitySoon\", cx, cy) || zrHit(runtimeScene, \"CityPanel\", cx, cy))) {\r",
+                "      return;\r",
+                "    }\r",
+                "  }\r",
+                "\r",
                 "  if (status === \"Dead\") {\r",
-                "    const click = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, \"Left\");\r",
                 "    let cityHit = false;\r",
                 "    if (click) {\r",
-                "      const im = runtimeScene.getGame().getInputManager();\r",
-                "      cityHit = zrHit(runtimeScene, \"CityCta\", im.getCursorX(), im.getCursorY());\r",
+                "      cityHit =\r",
+                "        zrHit(runtimeScene, \"CityCta\", cx, cy) ||\r",
+                "        zrHit(runtimeScene, \"CityPlay\", cx, cy) ||\r",
+                "        zrHit(runtimeScene, \"CitySoon\", cx, cy) ||\r",
+                "        zrHit(runtimeScene, \"CityPanel\", cx, cy);\r",
                 "    }\r",
                 "    const retry =\r",
                 "      zrJustPressed(runtimeScene, \"Space\") ||\r",

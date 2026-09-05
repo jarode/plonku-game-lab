@@ -37,6 +37,9 @@ function zrSoftReset(runtimeScene) {
   runtimeScene.getGame().getVariables().get("Score").setNumber(0);
   const sv = runtimeScene.getScene().getVariables();
   sv.get("GameStatus").setString("Preparing");
+  try {
+    sv.get("CityPicker").setNumber(0);
+  } catch (ePick) {}
   runtimeScene._zrChunk = null;
   const dinos = runtimeScene.getObjects("Dino");
   if (dinos.length) {
@@ -88,6 +91,20 @@ function zrHit(scene, name, x, y) {
   return false;
 }
 
+function zrPickerOpen(scene) {
+  try {
+    return scene.getScene().getVariables().get("CityPicker").getAsNumber() === 1;
+  } catch (e) {
+    return false;
+  }
+}
+
+function zrSetPicker(scene, on) {
+  try {
+    scene.getScene().getVariables().get("CityPicker").setNumber(on ? 1 : 0);
+  } catch (e) {}
+}
+
 function zrSyncPlonkuUi(scene) {
   let st = "";
   try {
@@ -98,18 +115,23 @@ function zrSyncPlonkuUi(scene) {
   const start = st === "Preparing";
   const play = st === "Playing";
   const dead = st === "Dead";
+  const pick = zrPickerOpen(scene);
+  if (play && pick) zrSetPicker(scene, false);
   zrHide(scene, "UiStart", !start);
-  zrHide(scene, "StartCta", !start);
+  zrHide(scene, "StartCta", !(start && !pick));
   zrHide(scene, "CityCta", !(start || dead));
   zrHide(scene, "UiHud", !play);
-  zrHide(scene, "UiGo", !dead);
-  zrHide(scene, "GoRetry", !dead);
-  zrHide(scene, "GoScore", !dead);
+  zrHide(scene, "UiGo", !dead || pick);
+  zrHide(scene, "GoRetry", !dead || pick);
+  zrHide(scene, "GoScore", !dead || pick);
   zrHide(scene, "JumpButton", !play);
+  zrHide(scene, "CityPanel", !pick);
+  zrHide(scene, "CityPlay", !pick);
+  zrHide(scene, "CitySoon", !pick);
   const texts = scene.getObjects("ScoreText");
   if (texts.length) texts[0].hide(start || dead);
   const scores = scene.getObjects("GoScore");
-  if (scores.length && dead && typeof scores[0].setString === "function") {
+  if (scores.length && dead && !pick && typeof scores[0].setString === "function") {
     const n = scene.getGame().getVariables().get("Score").getAsNumber();
     scores[0].setString(String(Math.floor(n)));
   }
@@ -217,12 +239,35 @@ function zrSyncPlonkuUi(scene) {
   zrSyncPlonkuUi(runtimeScene);
 
   const status = sceneVars.get("GameStatus").getAsString();
+  const click = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+  const im = runtimeScene.getGame().getInputManager();
+  const cx = im.getCursorX();
+  const cy = im.getCursorY();
+
+  if (click && zrHit(runtimeScene, "CityCta", cx, cy) && (status === "Preparing" || status === "Dead")) {
+    zrSetPicker(runtimeScene, !zrPickerOpen(runtimeScene));
+    zrSyncPlonkuUi(runtimeScene);
+    return;
+  }
+  if (zrPickerOpen(runtimeScene)) {
+    if (click && zrHit(runtimeScene, "CityPlay", cx, cy)) {
+      zrSetPicker(runtimeScene, false);
+      zrSyncPlonkuUi(runtimeScene);
+      return;
+    }
+    if (click && (zrHit(runtimeScene, "CitySoon", cx, cy) || zrHit(runtimeScene, "CityPanel", cx, cy))) {
+      return;
+    }
+  }
+
   if (status === "Dead") {
-    const click = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
     let cityHit = false;
     if (click) {
-      const im = runtimeScene.getGame().getInputManager();
-      cityHit = zrHit(runtimeScene, "CityCta", im.getCursorX(), im.getCursorY());
+      cityHit =
+        zrHit(runtimeScene, "CityCta", cx, cy) ||
+        zrHit(runtimeScene, "CityPlay", cx, cy) ||
+        zrHit(runtimeScene, "CitySoon", cx, cy) ||
+        zrHit(runtimeScene, "CityPanel", cx, cy);
     }
     const retry =
       zrJustPressed(runtimeScene, "Space") ||

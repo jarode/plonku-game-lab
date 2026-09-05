@@ -212,6 +212,36 @@ if (wanted.has("hud")) {
     inst: instance("UiHud", { x: 12, y: 8, w: 516, h: 96, z: 38 }),
   });
 }
+if (wanted.has("city")) {
+  defs.push({
+    res: ["assets/wroclaw-v1/ui/city_panel.png", "plonku-ui-city-panel.png"],
+    obj: spriteObject("CityPanel", "plonku-ui-city-panel.png"),
+    inst: instance("CityPanel", { x: 24, y: 200, w: 492, h: 400, z: 70 }),
+  });
+  defs.push({
+    res: ["assets/wroclaw-v1/ui/city_play.png", "plonku-ui-city-play.png"],
+    obj: spriteObject("CityPlay", "plonku-ui-city-play.png"),
+    inst: instance("CityPlay", { x: 40, y: 280, w: 460, h: 80, z: 72 }),
+  });
+  defs.push({
+    res: ["assets/wroclaw-v1/ui/city_soon.png", "plonku-ui-city-soon.png"],
+    obj: spriteObject("CitySoon", "plonku-ui-city-soon.png"),
+    inst: instance("CitySoon", { x: 40, y: 372, w: 460, h: 72, z: 72 }),
+  });
+  setSceneVarPicker();
+}
+
+function setSceneVarPicker() {
+  game.variables = game.variables || [];
+  let entry = game.variables.find((v) => v.name === "CityPicker");
+  if (!entry) {
+    game.variables.push({ name: "CityPicker", type: "number", value: 0 });
+  } else {
+    entry.type = "number";
+    entry.value = 0;
+  }
+}
+
 if (wanted.has("go")) {
   defs.push({
     res: ["assets/wroclaw-v1/ui/go_panel.png", "plonku-ui-go.png"],

@@ -256,6 +256,21 @@ def pack_ui() -> None:
     go.save(UI / "go_panel.png")
     cta(460, 84, LIME, PINK, "SPRÓBUJ JESZCZE   ↺").save(UI / "cta_retry.png")
 
+    panel = Image.new("RGBA", (492, 400), (18, 20, 26, 235))
+    panel = grain(panel, 10)
+    d = ImageDraw.Draw(panel)
+    d.rectangle([0, 0, 491, 399], outline=CYAN, width=4)
+    d.text((24, 18), "WYBIERZ MIASTO", font=font(28), fill=OFF)
+    d.text((24, 58), "Na razie jedno playable.", font=font(16), fill=CYAN)
+    d.text((24, 360), "Wkrótce więcej miast", font=font(14), fill=(180, 180, 176, 255))
+    panel.save(UI / "city_panel.png")
+    cta(460, 80, LIME, PINK, "WROCŁAW   ·  GRAJ").save(UI / "city_play.png")
+    soon = Image.new("RGBA", (460, 72), (0, 0, 0, 0))
+    d = ImageDraw.Draw(soon)
+    d.rectangle([0, 0, 459, 71], outline=(80, 84, 92, 255), width=3, fill=(26, 29, 35, 220))
+    d.text((22, 22), "INNE MIASTA  ·  WKRÓTCE", font=font(18), fill=(160, 160, 156, 255))
+    soon.save(UI / "city_soon.png")
+
     (SVG / "README.md").write_text(
         "# Plonku SVG sources\n\nUI chrome is authored as SVG here and rasterized to `../ui/`.\n"
         "World paintings: `docs/codex-manual-tasks/refs/goal-005/art-drop/` then pack to slot PNGs.\n"
