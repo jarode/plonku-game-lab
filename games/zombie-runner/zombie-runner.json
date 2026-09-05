@@ -19,7 +19,7 @@
     "sizeOnStartupMode": "adaptWidth",
     "templateSlug": "",
     "version": "1.0.0",
-    "name": "Zombie Runner — Wrocław",
+    "name": "Zombie Survival Score",
     "description": "Portrait one-input runner. Wrocław dusk identity. Tap or Space to jump.",
     "author": "",
     "windowWidth": 540,
@@ -2460,12 +2460,12 @@
         {
           "name": "HudTitle",
           "type": "string",
-          "value": "Zombie Runner — Wrocław\nTap to run · U mutes audio"
+          "value": "Zombie Survival Score\nPrzetrwaj Wrocław. Dotknij, żeby biec."
         },
         {
           "name": "ScorePrefix",
           "type": "string",
-          "value": "Wrocław  "
+          "value": "WYNIK  "
         }
       ],
       "instances": [
@@ -7339,7 +7339,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"GAME OVER\" + NewLine() + \"Tap to retry\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
+                        "\"KONIEC GRY\" + NewLine() + \"Spróbuj jeszcze\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
                       ]
                     }
                   ],

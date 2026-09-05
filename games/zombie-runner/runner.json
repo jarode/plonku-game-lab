@@ -1,8 +1,10 @@
 {
   "version": 1,
-  "title": "Zombie Runner — Wrocław",
-  "startPrompt": "Tap to run · U mutes audio",
-  "scorePrefix": "Wrocław  ",
+  "title": "Zombie Survival Score",
+  "startPrompt": "Przetrwaj Wrocław. Dotknij, żeby biec.",
+  "scorePrefix": "WYNIK  ",
+  "gameOverTitle": "KONIEC GRY",
+  "gameOverRetry": "Spróbuj jeszcze",
   "obstacleSpeed": 500,
   "obstacleSpawnDelay": 1.0
 }

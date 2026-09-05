@@ -9,8 +9,11 @@ export const RUNNER_CONFIG_VERSION = 1;
 export const HUD_TITLE_EXPR = "VariableString(HudTitle)";
 export const SCORE_PLAYING_EXPR =
   "VariableString(ScorePrefix) + GlobalVariableString(Score)";
-export const SCORE_DEAD_EXPR =
-  '"GAME OVER" + NewLine() + "Tap to retry" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)';
+export function scoreDeadExprFromConfig(cfg) {
+  const title = String(cfg.gameOverTitle || "GAME OVER").trim();
+  const retry = String(cfg.gameOverRetry || "Tap to retry").trim();
+  return `${JSON.stringify(title)} + NewLine() + ${JSON.stringify(retry)} + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)`;
+}
 
 export function runnerConfigPath(gameDir) {
   return path.join(gameDir, "runner.json");
@@ -42,6 +45,12 @@ export function validateRunnerConfig(cfg) {
   const delay = cfg.obstacleSpawnDelay;
   if (typeof delay !== "number" || !Number.isFinite(delay) || delay < 0.2 || delay > 5) {
     errors.push("obstacleSpawnDelay must be a number in [0.2, 5]");
+  }
+  if (typeof cfg.gameOverTitle === "string" && cfg.gameOverTitle.length > 80) {
+    errors.push("gameOverTitle must be at most 80 characters");
+  }
+  if (typeof cfg.gameOverRetry === "string" && cfg.gameOverRetry.length > 80) {
+    errors.push("gameOverRetry must be at most 80 characters");
   }
   return errors;
 }
@@ -91,7 +100,8 @@ function walkEvents(events, visit) {
   }
 }
 
-function rewriteScoreTextExpressions(layout) {
+function rewriteScoreTextExpressions(layout, cfg) {
+  const deadExpr = scoreDeadExprFromConfig(cfg);
   let changed = 0;
   walkEvents(layout.events, (event) => {
     for (const action of event.actions || []) {
@@ -100,8 +110,14 @@ function rewriteScoreTextExpressions(layout) {
       const expr = params[3];
       if (typeof expr !== "string") continue;
       let next = null;
-      if (expr.includes("GAME OVER") || expr.includes("SCORE_DEAD") || expr.includes(SCORE_DEAD_EXPR)) {
-        next = SCORE_DEAD_EXPR;
+      if (
+        expr.includes("GAME OVER") ||
+        expr.includes("KONIEC") ||
+        expr.includes("Tap to retry") ||
+        expr.includes("Spróbuj") ||
+        expr === deadExpr
+      ) {
+        next = deadExpr;
       } else if (
         expr.includes("Tap or Space") ||
         expr.includes("HudTitle") ||
@@ -131,7 +147,7 @@ export function applyRunnerConfigToProject(project, cfg) {
   setSceneVar(game, "ObstacleSpawnDelay", "string", String(cfg.obstacleSpawnDelay));
   setSceneVar(game, "HudTitle", "string", hudTitleFromConfig(cfg));
   setSceneVar(game, "ScorePrefix", "string", cfg.scorePrefix);
-  const hudRewrites = rewriteScoreTextExpressions(game);
+  const hudRewrites = rewriteScoreTextExpressions(game, cfg);
   return { hudRewrites };
 }
 

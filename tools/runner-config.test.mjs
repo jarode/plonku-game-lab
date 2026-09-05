@@ -25,6 +25,35 @@ test("obstacleSpeed out of range fails", () => {
   assert.ok(errors.some((e) => e.includes("obstacleSpeed")));
 });
 
+test("Polish game over strings land in the dead HUD expr", () => {
+  const project = {
+    properties: { name: "old" },
+    layouts: [
+      {
+        name: "Game",
+        variables: [],
+        events: [
+          {
+            actions: [
+              {
+                parameters: ["ScoreText", "Text", "=", '"GAME OVER" + NewLine() + "Tap to retry"'],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  };
+  applyRunnerConfigToProject(project, {
+    ...valid,
+    gameOverTitle: "KONIEC GRY",
+    gameOverRetry: "Spróbuj jeszcze",
+  });
+  const expr = project.layouts[0].events[0].actions[0].parameters[3];
+  assert.match(expr, /KONIEC GRY/);
+  assert.match(expr, /Spróbuj jeszcze/);
+});
+
 test("sync writes scene vars and HUD expressions", () => {
   const project = {
     properties: { name: "old" },
