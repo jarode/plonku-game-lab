@@ -35,7 +35,7 @@ Same five signatures/brick counts as 043; invalid fixture fallback unchanged. Sm
 
 ## Commit SHA
 
-Implementation: `PENDING`
+Implementation: `c936c5ee73117cbf46fd41c1c34a9a3eceb6fd29`
 
 ## Operator actions required
 
