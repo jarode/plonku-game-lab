@@ -2,18 +2,11 @@
 
 | Field | Value |
 | --- | --- |
-| Path | `games/zombie-runner/assets/wroclaw-v1/` |
-| Created | 2026-09-05 for GOAL 004 / task 020 |
-| Plonku pass | 2026-09-05 GOAL 005 / task 031 |
-| Generator | `tools/generate-wroclaw-v1-art.py` |
-| License | Original work for plonku-game-lab; same as the repo (not upstream MIT dino art) |
-| Method | Procedural sprites (Pillow). No third-party images, no paid APIs, no franchise characters. |
-| Look | Neon-editorial night city: lime / pink / cyan, tram, barricade, pigeon, hoodie runner with pink backpack |
+| Operator drop | `docs/codex-manual-tasks/refs/goal-005/art-drop/` (task 033A) |
+| Pack | `python tools/build-plonku-art.py` → slot PNGs under this folder |
+| License | Operator-supplied masters for plonku-game-lab; not MIT dino art |
+| Look | Neon-noir Wrocław + sticker zombie kid, tram, pigeon, jersey barrier |
 
-Re-run: `python tools/generate-wroclaw-v1-art.py`
+Do **not** re-run `generate-wroclaw-v1-art.py`.
 
-UI overlays: `assets/wroclaw-v1/ui/` from `tools/generate-plonku-ui.py`.
-
-## Audio
-
-`assets/wroclaw-v1/audio/*.wav` from `tools/generate-wroclaw-v1-audio.py` — procedural PCM, not desert/leaderboard loops.
+Minimum drop: `bg.png`, `ground.png`, `runner-{run,idle,jump,dead}-01.png`, `barricade.png`, `pigeon.png`, `tram.png`, `jump-button.png`.

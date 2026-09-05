@@ -45,3 +45,9 @@ GOAL 005 is successful only if task 033 ends with `PASS` and decision:
 `ACCEPTED — visually aligned with Plonku style`
 
 No public deployment or Plonku-site modification is authorized.
+
+## Follow-up (not 034)
+
+Operator art drop after 033: `033A_operator_generate_plonku_slot_art.md`  
+Drop folder: `docs/codex-manual-tasks/refs/goal-005/art-drop/`  
+Do not start GOAL 006 from this follow-up.

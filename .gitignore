@@ -23,6 +23,9 @@ temp/
 tools/local/
 tools/.cache/
 
+# Huge concept paintings used by tools/build-plonku-art.py (rebuild from Cursor assets if needed)
+games/zombie-runner/assets/wroclaw-v1/concept-masters/
+
 # Node / JS helpers if added later
 node_modules/
 npm-debug.log*

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 118" width="170" height="118">
+  <!-- Plonku runner  vector source matching moodboard kid: lime skin, crown cap, pink pack -->
+  <g fill="none" stroke="#0C0E12" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M28 62 l12 18 8-6" fill="#111318"/>
+    <rect x="22" y="40" width="22" height="36" rx="6" fill="#FF2D8B"/>
+    <path d="M48 86 l-8 24 16 2 6-22z" fill="#111318"/>
+    <path d="M78 84 l12 26 18-2-8-26z" fill="#111318"/>
+    <rect x="46" y="38" width="58" height="48" rx="10" fill="#111318"/>
+    <circle cx="86" cy="30" r="22" fill="#8FD46A"/>
+    <path d="M64 18 h44 v12 h-10 l-12-10-12 10 h-10z" fill="#111318"/>
+    <path d="M78 10 l8 12 8-12z" fill="#E8B86D"/>
+    <circle cx="94" cy="30" r="7" fill="#F4F4F1"/>
+    <circle cx="78" cy="30" r="5" fill="#F4F4F1"/>
+    <path d="M76 40 h16" />
+    <path d="M80 38 v6 M84 38 v6 M88 38 v6" />
+    <ellipse cx="40" y="108" rx="18" ry="5" fill="#FF2D8B" opacity="0.35" stroke="none"/>
+  </g>
+</svg>
