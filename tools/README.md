@@ -47,3 +47,13 @@ node tools/sync-chunk-catalog.mjs
 
 See `games/zombie-runner/CHUNK-CONTRACT.md`. Do not edit jump/collision events to add a chunk.
 
+## Skins (task 009)
+
+```text
+node tools/apply-skin.mjs wroclaw-v1
+node tools/apply-skin.mjs alt-blocky
+```
+
+See `games/zombie-runner/ASSET-CONTRACT.md`. Changes resource `file` paths only.
+
+

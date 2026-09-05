@@ -1,0 +1,10 @@
+{
+  "name": "alt-blocky",
+  "note": "Temporary remap using other already-licensed example sprites so the contract is visible without new art.",
+  "resources": {
+    "assets/Cactus3-1.png": "assets/Scenery/Tree.png",
+    "assets/Obstacles/Cactus3-1.png": "assets/Scenery/Tree.png",
+    "Skeleton.png": "assets/Scenery/Cactus (2).png",
+    "JumpButton-1-0.png": "assets/Buttons/RestartButton.png"
+  }
+}
