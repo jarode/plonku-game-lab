@@ -52,7 +52,7 @@ Factory clients Traffic Dash / Pigeon Dash are unchanged products. This acceptan
 
 ## Commit SHA
 
-Documentation: *(filled after commit)*
+Documentation: `775c1e498ab7f1dc72ee2ccfa11360b68753d9fa`
 
 ## Operator actions required
 
