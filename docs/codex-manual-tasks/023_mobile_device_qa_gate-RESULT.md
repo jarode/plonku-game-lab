@@ -80,7 +80,7 @@ After you paste results, re-run task 023 to turn this into PASS (or FAIL with fi
 
 ## Commit SHA
 
-*(filled after commit if files change)*
+`5be655ac117770e4d79d56a1b242b348a4f8c287` (RESULT + `preview-lan` wav MIME). Viewport flag: `608047c`.
 
 ## Operator actions required
 
