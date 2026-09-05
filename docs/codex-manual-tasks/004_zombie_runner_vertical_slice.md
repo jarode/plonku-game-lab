@@ -45,4 +45,8 @@ PASS only if the game can be played from start to game over and restarted repeat
 
 ## Result
 
-Create `004_zombie_runner_vertical_slice-RESULT.md` with gameplay description, validations, changed files, limitations, screenshots/paths when practical, and commit SHA. Stop after push.
+Create `004_zombie_runner_vertical_slice-RESULT.md` with gameplay description, validations, changed files, limitations, screenshots/paths when practical, and commit SHA.
+
+## Chain behavior
+
+When executed under `GOAL-001_zombie_runner_mvp.md`, push implementation + RESULT, then inspect the RESULT status. Continue to task 005 only when status is exactly `PASS`. For `FAIL`, `BLOCKED`, `OPERATOR_ACTION_REQUIRED`, `INCONCLUSIVE`, or any other status, STOP and do not start task 005.
