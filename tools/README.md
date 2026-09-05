@@ -48,4 +48,14 @@ Does not copy `templates/runner-v1/assets/` into the game. Relink existing clone
 node tools/relink-runner-pack.mjs --game games/zombie-runner
 ```
 
+## Runtime config
+
+`games/<slug>/runner.json` holds title, HUD prompt, `obstacleSpeed`, `scorePrefix`, and `obstacleSpawnDelay`. Apply with:
+
+```text
+node tools/sync-runner-config.mjs --game games/zombie-runner
+```
+
+Missing/invalid config exits 1 (`SYNC_RUNNER_CONFIG: FAIL`). Do not hand-edit nested Preparing/Playing HUD expressions for these fields.
+
 See `templates/runner-v1/README.md`.

@@ -48,7 +48,7 @@ Then:
 1. Open `games/my-runner/my-runner.json` in GDevelop.
 2. Replace placeholder sprites via a new `skins/<name>/manifest.json` and `node tools/apply-skin.mjs <name> --game games/my-runner`.
 3. Edit `games/my-runner/chunks.json` (keep 9 chunks, 3 per group) and `node tools/sync-chunk-catalog.mjs --game games/my-runner`.
-4. Change HUD/title strings in the Game scene (Preparing / Playing / Dead text). Set scene string `HudTitle` for the in-place retry banner (`zrSoftReset` reads it). Optionally change `ObstacleSpeed` (balancing).
+4. Edit `games/my-runner/runner.json` (title, `obstacleSpeed`, `scorePrefix`, spawn delay) then `node tools/sync-runner-config.mjs --game games/my-runner`.
 5. Do **not** copy files from `games/zombie-runner/` to paper over gaps.
 6. Export: `node tools/gdevelop-web-export.mjs --game games/my-runner`
 

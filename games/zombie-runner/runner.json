@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "title": "Zombie Runner — Wrocław",
+  "startPrompt": "Tap or Space to run",
+  "scorePrefix": "Wrocław  ",
+  "obstacleSpeed": 550,
+  "obstacleSpawnDelay": 1.2
+}

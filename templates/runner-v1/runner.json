@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "title": "Runner v1",
+  "startPrompt": "Tap or Space to run",
+  "scorePrefix": "",
+  "obstacleSpeed": 550,
+  "obstacleSpawnDelay": 1.2
+}

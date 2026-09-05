@@ -2460,6 +2460,11 @@
         {
           "name": "HudTitle",
           "type": "string",
+          "value": "Runner v1\nTap or Space to run"
+        },
+        {
+          "name": "ScorePrefix",
+          "type": "string",
           "value": ""
         }
       ],
@@ -5441,7 +5446,7 @@
                 "ScoreText",
                 "Text",
                 "=",
-                "\"Runner\" + NewLine() + \"Tap or Space to run\""
+                "VariableString(HudTitle)"
               ]
             },
             {
@@ -5475,7 +5480,7 @@
                     "ScoreText",
                     "Text",
                     "=",
-                    "\"Runner v1 \" + NewLine() + \"Tap or Space to run\""
+                    "VariableString(HudTitle)"
                   ]
                 },
                 {
@@ -5581,7 +5586,12 @@
                 "  }\r",
                 "  const texts = runtimeScene.getObjects(\"ScoreText\");\r",
                 "  if (texts.length && typeof texts[0].setString === \"function\") {\r",
-                "    texts[0].setString(\"Tap or Space to run\");\r",
+                "    let hud = \"Tap or Space to run\";\r",
+                "    try {\r",
+                "      const custom = sv.get(\"HudTitle\").getAsString();\r",
+                "      if (custom) hud = custom;\r",
+                "    } catch (e) {}\r",
+                "    texts[0].setString(hud);\r",
                 "  }\r",
                 "}\r",
                 "\r",
@@ -5938,7 +5948,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"\" + GlobalVariableString(Score)"
+                        "VariableString(ScorePrefix) + GlobalVariableString(Score)"
                       ]
                     }
                   ],
@@ -7310,7 +7320,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"GAME OVER - tap or Space\" + NewLine() + \"\" + GlobalVariableString(Score)"
+                        "\"GAME OVER - tap or Space\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
                       ]
                     }
                   ],

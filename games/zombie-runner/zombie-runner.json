@@ -2456,6 +2456,16 @@
           "name": "DevForceChunk",
           "type": "string",
           "value": ""
+        },
+        {
+          "name": "HudTitle",
+          "type": "string",
+          "value": "Zombie Runner — Wrocław\nTap or Space to run"
+        },
+        {
+          "name": "ScorePrefix",
+          "type": "string",
+          "value": "Wrocław  "
         }
       ],
       "instances": [
@@ -5436,7 +5446,7 @@
                 "ScoreText",
                 "Text",
                 "=",
-                "\"Zombie Runner - Wroclaw\" + NewLine() + \"Tap or Space to run\""
+                "VariableString(HudTitle)"
               ]
             },
             {
@@ -5470,7 +5480,7 @@
                     "ScoreText",
                     "Text",
                     "=",
-                    "\"Zombie Runner — Wroclaw \" + NewLine() + \"Tap or Space to run\""
+                    "VariableString(HudTitle)"
                   ]
                 },
                 {
@@ -5521,7 +5531,7 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "// Zombie Runner chunk sequencer (task 005) + dev controls (task 006).\r",
+                "// Runner v1 chunk sequencer + dev controls.\r",
                 "const CHUNK_CATALOG = {\"safeEntry\":200,\"safeExit\":200,\"chunks\":[{\"id\":\"easy-cactus\",\"group\":\"EASY\",\"width\":720,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":320}]},{\"id\":\"easy-island\",\"group\":\"EASY\",\"width\":720,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":340}]},{\"id\":\"easy-wreck\",\"group\":\"EASY\",\"width\":760,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":300}]},{\"id\":\"med-cactus-island\",\"group\":\"MEDIUM\",\"width\":880,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":280},{\"object\":\"IslandObstacle\",\"x\":560}]},{\"id\":\"med-double-cactus\",\"group\":\"MEDIUM\",\"width\":860,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":260},{\"object\":\"CactusObstacle\",\"x\":460}]},{\"id\":\"med-wreck-island\",\"group\":\"MEDIUM\",\"width\":900,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":260},{\"object\":\"IslandObstacle\",\"x\":580}]},{\"id\":\"hard-gauntlet\",\"group\":\"HARD\",\"width\":1040,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":240},{\"object\":\"CactusObstacle\",\"x\":520},{\"object\":\"WreckObstacle\",\"x\":760}]},{\"id\":\"hard-wreck-cactus\",\"group\":\"HARD\",\"width\":960,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":240},{\"object\":\"CactusObstacle\",\"x\":520},{\"object\":\"CactusObstacle\",\"x\":680}]},{\"id\":\"hard-island-pack\",\"group\":\"HARD\",\"width\":1000,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":240},{\"object\":\"IslandObstacle\",\"x\":480},{\"object\":\"WreckObstacle\",\"x\":760}]}]};\r",
                 "\r",
                 "function zrIsDev() {\r",
@@ -5537,6 +5547,10 @@
                 "\r",
                 "function zrJustPressed(runtimeScene, key) {\r",
                 "  return gdjs.evtTools.input.wasKeyJustPressed(runtimeScene, key);\r",
+                "}\r",
+                "\r",
+                "function zrReplaceGame(runtimeScene) {\r",
+                "  gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, \"Game\", false);\r",
                 "}\r",
                 "\r",
                 "function zrSoftReset(runtimeScene) {\r",
@@ -5572,9 +5586,12 @@
                 "  }\r",
                 "  const texts = runtimeScene.getObjects(\"ScoreText\");\r",
                 "  if (texts.length && typeof texts[0].setString === \"function\") {\r",
-                "    texts[0].setString(\r",
-                "      \"Zombie Runner - Wroclaw\" + \"\\n\" + \"Tap or Space to run\"\r",
-                "    );\r",
+                "    let hud = \"Tap or Space to run\";\r",
+                "    try {\r",
+                "      const custom = sv.get(\"HudTitle\").getAsString();\r",
+                "      if (custom) hud = custom;\r",
+                "    } catch (e) {}\r",
+                "    texts[0].setString(hud);\r",
                 "  }\r",
                 "}\r",
                 "\r",
@@ -5931,7 +5948,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"Wrocław  \" + GlobalVariableString(Score)"
+                        "VariableString(ScorePrefix) + GlobalVariableString(Score)"
                       ]
                     }
                   ],
@@ -7303,7 +7320,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"GAME OVER - tap or Space\" + NewLine() + \"Wroclaw  \" + GlobalVariableString(Score)"
+                        "\"GAME OVER - tap or Space\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
                       ]
                     }
                   ],

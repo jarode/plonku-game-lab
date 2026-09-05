@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "title": "Traffic Dash",
+  "startPrompt": "Tap or Space to run",
+  "scorePrefix": "Traffic  ",
+  "obstacleSpeed": 420,
+  "obstacleSpawnDelay": 1.2
+}

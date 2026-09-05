@@ -2461,6 +2461,11 @@
           "name": "HudTitle",
           "type": "string",
           "value": "Traffic Dash\nTap or Space to run"
+        },
+        {
+          "name": "ScorePrefix",
+          "type": "string",
+          "value": "Traffic  "
         }
       ],
       "instances": [
@@ -5441,7 +5446,7 @@
                 "ScoreText",
                 "Text",
                 "=",
-                "\"Traffic Dash\" + NewLine() + \"Tap or Space to run\""
+                "VariableString(HudTitle)"
               ]
             },
             {
@@ -5475,7 +5480,7 @@
                     "ScoreText",
                     "Text",
                     "=",
-                    "\"Traffic Dash \" + NewLine() + \"Tap or Space to run\""
+                    "VariableString(HudTitle)"
                   ]
                 },
                 {
@@ -5943,7 +5948,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"Traffic  \" + GlobalVariableString(Score)"
+                        "VariableString(ScorePrefix) + GlobalVariableString(Score)"
                       ]
                     }
                   ],
@@ -7315,7 +7320,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"GAME OVER - tap or Space\" + NewLine() + \"Traffic  \" + GlobalVariableString(Score)"
+                        "\"GAME OVER - tap or Space\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
                       ]
                     }
                   ],

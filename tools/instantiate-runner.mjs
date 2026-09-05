@@ -11,6 +11,7 @@ import {
   rewriteProjectResourcesToPack,
   rewriteSnapshotToPack,
 } from "./runner-pack.mjs";
+import { applyRunnerConfigToProject, defaultRunnerConfig } from "./runner-config.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -61,11 +62,16 @@ fs.renameSync(oldJson, newJson);
 
 const display = title || slug;
 const project = JSON.parse(fs.readFileSync(newJson, "utf8"));
-project.properties.name = display;
+const runnerCfg = defaultRunnerConfig({
+  title: display,
+  scorePrefix: `${display.replace(/ — .*$/, "").slice(0, 24)}  `,
+});
+fs.writeFileSync(path.join(dest, "runner.json"), JSON.stringify(runnerCfg, null, 2) + "\n");
 project.properties.description = "Portrait endless runner instantiated from templates/runner-v1.";
 project.properties.packageName = "com.plonku." + slug.replace(/-/g, "");
 project.properties.projectUuid = crypto.randomUUID();
 rewriteProjectResourcesToPack(root, dest, project);
+applyRunnerConfigToProject(project, runnerCfg);
 fs.writeFileSync(newJson, JSON.stringify(project, null, 2) + "\n");
 
 for (const snapName of ["default", "wroclaw-v1"]) {
@@ -89,6 +95,7 @@ node tools/gdevelop-web-export.mjs --game games/${slug}
 node tools/preview-lan.mjs --game games/${slug}
 node tools/sync-chunk-catalog.mjs --game games/${slug}
 node tools/apply-skin.mjs default --game games/${slug}
+node tools/sync-runner-config.mjs --game games/${slug}
 \`\`\`
 `;
 fs.writeFileSync(path.join(dest, "README.md"), readme);
