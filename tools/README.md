@@ -67,4 +67,12 @@ node tools/runner-regression.mjs --game games/traffic-dash
 
 Broken fixture (must exit 1): `node tools/runner-regression.mjs --game tools/fixtures/runner-regression-fail`
 
+## Plonku web handoff (Zombie Runner)
+
+```text
+node tools/package-plonku-handoff.mjs --game games/zombie-runner
+```
+
+See `games/zombie-runner/HANDOFF.md`. Output is gitignored under `dist/`.
+
 See `templates/runner-v1/README.md`.

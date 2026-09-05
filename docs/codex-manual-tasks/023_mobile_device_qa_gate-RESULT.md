@@ -49,7 +49,7 @@ Phone: `http://<pc-lan-ip>:8765/` — this lab PC was `192.168.5.71`. Firewall: 
 
 ## Commit SHA
 
-OAR snapshot: `5be655ac117770e4d79d56a1b242b348a4f8c287`. This PASS update: *(after commit)*
+OAR snapshot: `5be655ac117770e4d79d56a1b242b348a4f8c287`. This PASS update: `78c80dcea87bc37a068972eeae56e8bc82b5b80f`
 
 ## Operator actions required
 

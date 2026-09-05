@@ -1,0 +1,21 @@
+{
+  "schema": "plonku-web-handoff/v1",
+  "slug": "zombie-runner",
+  "displayTitle": "Zombie Runner — Wrocław",
+  "packageName": "com.plonku.zombierunner",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "designResolution": { "width": 540, "height": 960 },
+  "sizeOnStartupMode": "adaptWidth",
+  "entryFile": "index.html",
+  "exportCommand": "node tools/gdevelop-web-export.mjs --game games/zombie-runner",
+  "packageCommand": "node tools/package-plonku-handoff.mjs --game games/zombie-runner",
+  "sourceDir": "games/zombie-runner",
+  "generatedExportDir": "games/zombie-runner/build",
+  "handoffOutputDir": "dist/plonku-handoff/zombie-runner",
+  "icon": "assets/wroclaw-v1/logo.png",
+  "thumbnail": "assets/wroclaw-v1/bg_far.png",
+  "muteHint": "Desktop: U toggles mute (localStorage zr-muted). Phone: system volume.",
+  "devModeQuery": "dev=1",
+  "notes": "Serve the packaged folder as the HTTP document root for this game (or a subpath that contains index.html plus its relative siblings). Do not strip directory structure. No Plonku-site deploy in this repo."
+}
