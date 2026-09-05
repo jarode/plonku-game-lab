@@ -1,5 +1,5 @@
 {
-  "firstLayout": "",
+  "firstLayout": "Game",
   "gdVersion": {
     "build": 99,
     "major": 4,
@@ -12,7 +12,7 @@
     "antialisingEnabledOnMobile": false,
     "folderProject": false,
     "orientation": "landscape",
-    "packageName": "com.example.breakout",
+    "packageName": "com.plonku.breakoutlab",
     "pixelsRounding": false,
     "projectUuid": "2c28df01-d09f-4695-9fc0-029caa4a0fec",
     "scaleMode": "linear",
@@ -20,7 +20,7 @@
     "templateSlug": "",
     "useExternalSourceFiles": false,
     "version": "2.0.0",
-    "name": "BreakOut",
+    "name": "Breakout Lab",
     "description": "",
     "author": "Midhil M(Leo Red)",
     "windowWidth": 1920,
@@ -43,12 +43,12 @@
       "progressBarMaxWidth": 200,
       "progressBarMinWidth": 40,
       "progressBarWidthPercent": 30,
-      "showGDevelopSplash": true,
+      "showGDevelopSplash": false,
       "showProgressBar": true
     },
     "watermark": {
       "placement": "bottom-left",
-      "showWatermark": true
+      "showWatermark": false
     },
     "authorIds": [
       "HBp2oDKV87gKFbdd1wyV1jRYRC13"
@@ -554,8 +554,8 @@
           "name": "GDevelop_WaterMark",
           "persistentUuid": "4b4c3178-e524-4510-86fd-06189efe694f",
           "width": 96,
-          "x": 54,
-          "y": 48,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 7,
           "numberProperties": [],
           "stringProperties": [],
@@ -1595,8 +1595,8 @@
           "name": "Home_Button",
           "persistentUuid": "edff2bf4-a43c-4968-bc5b-ceaf76118abd",
           "width": 0,
-          "x": 942,
-          "y": 734,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 13,
           "numberProperties": [
             {
@@ -1722,8 +1722,8 @@
           "name": "GDevelop_WaterMark",
           "persistentUuid": "46a6a59b-b0d6-4409-8e22-81b942190588",
           "width": 62,
-          "x": 1795,
-          "y": 44,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
@@ -1767,8 +1767,8 @@
           "name": "Home_Button",
           "persistentUuid": "839b47e9-2d7e-4104-bcb7-8004efa72b2a",
           "width": 0,
-          "x": 1689,
-          "y": 71,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 30,
           "numberProperties": [],
           "stringProperties": [],
@@ -6507,6 +6507,36 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "// Breakout Lab hooks (injected into Game JsCode). Restart is scene replace, not a second Game instance.\r",
+            "(function (runtimeScene) {\r",
+            "  function hideAll(name) {\r",
+            "    const list = runtimeScene.getObjects(name);\r",
+            "    for (let i = 0; i < list.length; i++) list[i].hide(true);\r",
+            "  }\r",
+            "  hideAll(\"GDevelop_WaterMark\");\r",
+            "  hideAll(\"Home_Button\");\r",
+            "\r",
+            "  if (typeof window !== \"undefined\") {\r",
+            "    window.__boSoftReset = function () {\r",
+            "      const game = window.__boGame;\r",
+            "      if (game && game.getSceneStack) game.getSceneStack().replace(\"Game\", true);\r",
+            "      else gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, \"Game\", false);\r",
+            "    };\r",
+            "  }\r",
+            "\r",
+            "  if (gdjs.evtTools.input.wasKeyJustPressed(runtimeScene, \"R\")) {\r",
+            "    gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, \"Game\", true);\r",
+            "  }\r",
+            "})(runtimeScene);\r",
+            "\r"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": true
         }
       ],
       "layers": [
@@ -6772,8 +6802,8 @@
           "name": "Home_Button",
           "persistentUuid": "66191ae4-1dc9-48f9-9f05-b17463169ee0",
           "width": 0,
-          "x": 946,
-          "y": 736,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 13,
           "numberProperties": [
             {
@@ -6899,8 +6929,8 @@
           "name": "GDevelop_WaterMark",
           "persistentUuid": "3f692014-f151-4c21-bfc9-6dbf23c96333",
           "width": 62,
-          "x": 1797,
-          "y": 46,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
@@ -6944,8 +6974,8 @@
           "name": "Home_Button",
           "persistentUuid": "63fe76b6-2225-4c87-af5a-c5c07460ec6d",
           "width": 0,
-          "x": 1691,
-          "y": 73,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 30,
           "numberProperties": [],
           "stringProperties": [],

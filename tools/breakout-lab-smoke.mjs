@@ -149,11 +149,16 @@ function snap() {
     const scene = game.getSceneStack().getCurrentScene();
     if (!scene) return { ready: false };
     let gameState = "";
+    let score = 0;
+    let lives = 0;
     try { gameState = scene.getVariables().get("GameState").getAsString(); } catch (e) {}
+    try { score = scene.getVariables().get("Score").getAsNumber(); } catch (e2) {}
+    try { lives = scene.getVariables().get("Lifes").getAsNumber(); } catch (e3) {}
     const names = ["Paddle", "Ball", "Block_1", "Block_2", "Block_3"];
     const counts = {};
     for (const n of names) counts[n] = scene.getObjects(n).length;
-    return { ready: true, scene: scene.getName(), gameState, counts };
+    counts.bricks = counts.Block_1 + counts.Block_2 + counts.Block_3;
+    return { ready: true, scene: scene.getName(), gameState, score, lives, counts };
   })()`;
 }
 
@@ -214,20 +219,97 @@ async function main() {
     await cdp.send("Page.enable");
     await cdp.send("Runtime.enable");
     await cdp.send("Page.navigate", { url: `http://127.0.0.1:${httpPort}/` });
-    const menu = await waitSnap(cdp, (s) => s.ready && s.scene === "Menu", 20000, "boot Menu");
+    const gameEarly = await waitSnap(
+      cdp,
+      (s) => s.ready && s.scene === "Game" && s.counts.Paddle >= 1 && s.counts.Ball >= 1 && s.counts.bricks >= 20,
+      20000,
+      "boot Game"
+    );
+    await new Promise((r) => setTimeout(r, 800));
+    const game = await cdp.evaluate(snap());
+
     await cdp.evaluate(`(() => {
-      window.__boGame.getSceneStack().replace("Game", true);
+      window.__boGame.getInputManager().onKeyPressed(32);
       return true;
     })()`);
-    const game = await waitSnap(
+    await new Promise((r) => setTimeout(r, 80));
+    await cdp.evaluate(`(() => {
+      window.__boGame.getInputManager().onKeyReleased(32);
+      return true;
+    })()`);
+    const playing = await waitSnap(
       cdp,
-      (s) => s.ready && s.scene === "Game" && s.counts.Paddle >= 1 && s.counts.Ball >= 1 && s.counts.Block_1 >= 1,
-      8000,
-      "Game paddle/ball/blocks"
+      (s) => s.ready && s.scene === "Game" && s.gameState === "GamePlay",
+      5000,
+      "Space -> GamePlay"
     );
+
+    async function waitStableBoard(label) {
+      let last = -1;
+      let stable = 0;
+      const start = Date.now();
+      let snapShot = null;
+      while (Date.now() - start < 8000) {
+        snapShot = await cdp.evaluate(snap());
+        if (
+          snapShot.ready &&
+          snapShot.scene === "Game" &&
+          snapShot.gameState === "NotStarted" &&
+          snapShot.score === 0 &&
+          snapShot.counts.Ball === 1 &&
+          snapShot.lives === 3 &&
+          snapShot.counts.bricks === last &&
+          snapShot.counts.bricks >= 20
+        ) {
+          stable += 1;
+          if (stable >= 3) return snapShot;
+        } else {
+          stable = 0;
+          last = snapShot?.counts?.bricks ?? -1;
+        }
+        await new Promise((r) => setTimeout(r, 150));
+      }
+      throw new Error(`${label}: timed out last=${JSON.stringify(snapShot)}`);
+    }
+
+    async function failAndRestart(label) {
+      await cdp.evaluate(`(() => {
+        const scene = window.__boGame.getSceneStack().getCurrentScene();
+        scene.getVariables().get("Lifes").setNumber(0);
+        const balls = scene.getObjects("Ball").slice();
+        for (const b of balls) {
+          if (typeof b.deleteFromScene === "function") b.deleteFromScene(scene);
+        }
+        return true;
+      })()`);
+      await waitSnap(cdp, (s) => s.gameState === "Lost", 5000, "fail -> Lost");
+      await cdp.evaluate(`(() => {
+        window.__boGame.getSceneStack().replace("Game", true);
+        return true;
+      })()`);
+      return waitStableBoard(label);
+    }
+
+    const r1 = await failAndRestart("restart1");
+    await cdp.evaluate(`(() => {
+      window.__boGame.getInputManager().onKeyPressed(32);
+      return true;
+    })()`);
+    await new Promise((r) => setTimeout(r, 80));
+    await cdp.evaluate(`(() => {
+      window.__boGame.getInputManager().onKeyReleased(32);
+      return true;
+    })()`);
+    await waitSnap(cdp, (s) => s.gameState === "GamePlay", 5000, "second Space -> GamePlay");
+    const r2 = await failAndRestart("restart2");
+    if (r1.counts.Ball !== 1 || r2.counts.Ball !== 1) fail("ball count not 1 after restart");
+    if (r1.counts.bricks < 20 || r2.counts.bricks < 20) fail("missing bricks after restart");
+    if (r1.counts.bricks > 120 || r2.counts.bricks > 120) fail("brick count looks accumulated");
+
     console.log("BREAKOUT_SMOKE: PASS");
-    console.log("menu", menu.scene);
-    console.log("game", game.scene, "state", game.gameState, "counts", JSON.stringify(game.counts));
+    console.log("boot", gameEarly.scene, JSON.stringify(game.counts));
+    console.log("play", playing.gameState);
+    console.log("restart1", r1.counts.bricks, "restart2", r2.counts.bricks);
   } finally {
     try {
       ws?.close();
