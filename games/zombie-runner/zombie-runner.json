@@ -102,7 +102,7 @@
   "resources": {
     "resources": [
       {
-        "file": "../../templates/runner-v1/assets/Desert Background.png",
+        "file": "assets/wroclaw-v1/bg_far.png",
         "kind": "image",
         "metadata": "",
         "name": "Desert Background.png",
@@ -126,7 +126,7 @@
         }
       },
       {
-        "file": "../../templates/runner-v1/assets/9patch_Desert Tile_north.png",
+        "file": "assets/wroclaw-v1/ground.png",
         "kind": "image",
         "metadata": "",
         "name": "9patch_Desert Tile_north.png",
@@ -138,7 +138,7 @@
         }
       },
       {
-        "file": "../../templates/runner-v1/assets/Obstacles/Cactus3-1.png",
+        "file": "assets/wroclaw-v1/hazard_bollard.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Cactus3-1.png",
@@ -146,7 +146,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Obstacles/Duck_Island.png",
+        "file": "assets/wroclaw-v1/hazard_overhead.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Duck_Island.png",
@@ -287,7 +287,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Scenery/Skeleton.png",
+        "file": "assets/wroclaw-v1/hazard_wreck.png",
         "kind": "image",
         "metadata": "",
         "name": "Skeleton.png",
@@ -311,7 +311,7 @@
         }
       },
       {
-        "file": "../../templates/runner-v1/assets/Obstacles/Cactus3-1.png",
+        "file": "assets/wroclaw-v1/hazard_bollard.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Obstacles/Cactus3-1.png",
@@ -331,7 +331,7 @@
         }
       },
       {
-        "file": "../../templates/runner-v1/assets/Obstacles/Duck_Island.png",
+        "file": "assets/wroclaw-v1/hazard_overhead.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Obstacles/Duck_Island.png",
@@ -395,7 +395,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Buttons/JumpButton-1-0.png",
+        "file": "assets/wroclaw-v1/jump_button.png",
         "kind": "image",
         "metadata": "",
         "name": "JumpButton-1-0.png",
@@ -411,7 +411,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_1.png",
+        "file": "assets/wroclaw-v1/player/run_01.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_1.png",
@@ -419,7 +419,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_2.png",
+        "file": "assets/wroclaw-v1/player/run_02.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_2.png",
@@ -427,7 +427,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_3.png",
+        "file": "assets/wroclaw-v1/player/run_03.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_3.png",
@@ -435,7 +435,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_4.png",
+        "file": "assets/wroclaw-v1/player/run_04.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_4.png",
@@ -443,7 +443,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_5.png",
+        "file": "assets/wroclaw-v1/player/run_05.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_5.png",
@@ -451,7 +451,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_6.png",
+        "file": "assets/wroclaw-v1/player/run_06.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_6.png",
@@ -459,7 +459,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_7.png",
+        "file": "assets/wroclaw-v1/player/run_07.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_7.png",
@@ -467,7 +467,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_8.png",
+        "file": "assets/wroclaw-v1/player/run_08.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_8.png",
@@ -475,7 +475,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_1.png",
+        "file": "assets/wroclaw-v1/player/idle_01.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_1.png",
@@ -483,7 +483,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_2.png",
+        "file": "assets/wroclaw-v1/player/idle_02.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_2.png",
@@ -491,7 +491,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_3.png",
+        "file": "assets/wroclaw-v1/player/idle_03.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_3.png",
@@ -499,7 +499,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_4.png",
+        "file": "assets/wroclaw-v1/player/idle_04.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_4.png",
@@ -507,7 +507,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_5.png",
+        "file": "assets/wroclaw-v1/player/idle_05.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_5.png",
@@ -515,7 +515,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_6.png",
+        "file": "assets/wroclaw-v1/player/idle_06.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_6.png",
@@ -523,7 +523,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_7.png",
+        "file": "assets/wroclaw-v1/player/idle_07.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_7.png",
@@ -531,7 +531,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_8.png",
+        "file": "assets/wroclaw-v1/player/idle_08.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_8.png",
@@ -539,7 +539,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_9.png",
+        "file": "assets/wroclaw-v1/player/idle_09.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_9.png",
@@ -547,7 +547,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_10.png",
+        "file": "assets/wroclaw-v1/player/idle_10.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_10.png",
@@ -555,7 +555,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_1.png",
+        "file": "assets/wroclaw-v1/player/jump_01.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_1.png",
@@ -563,7 +563,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_4.png",
+        "file": "assets/wroclaw-v1/player/jump_02.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_4.png",
@@ -571,7 +571,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_5.png",
+        "file": "assets/wroclaw-v1/player/jump_03.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_5.png",
@@ -579,7 +579,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_6.png",
+        "file": "assets/wroclaw-v1/player/jump_04.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_6.png",
@@ -587,7 +587,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_10.png",
+        "file": "assets/wroclaw-v1/player/jump_05.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_10.png",
@@ -595,7 +595,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_11.png",
+        "file": "assets/wroclaw-v1/player/jump_06.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_11.png",
@@ -603,7 +603,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_12.png",
+        "file": "assets/wroclaw-v1/player/jump_07.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_12.png",
@@ -683,7 +683,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dead-1.png",
+        "file": "assets/wroclaw-v1/player/dead_01.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-1.png",
@@ -691,7 +691,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dead-2.png",
+        "file": "assets/wroclaw-v1/player/dead_02.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-2.png",
@@ -699,7 +699,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dead-3.png",
+        "file": "assets/wroclaw-v1/player/dead_03.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-3.png",
@@ -707,7 +707,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dead-4.png",
+        "file": "assets/wroclaw-v1/player/dead_04.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-4.png",
@@ -715,7 +715,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dead-5.png",
+        "file": "assets/wroclaw-v1/player/dead_05.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-5.png",
@@ -723,7 +723,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dead-6.png",
+        "file": "assets/wroclaw-v1/player/dead_06.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-6.png",
@@ -731,7 +731,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dead-7.png",
+        "file": "assets/wroclaw-v1/player/dead_07.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-7.png",
@@ -739,7 +739,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Dino/Dead-8.png",
+        "file": "assets/wroclaw-v1/player/dead_08.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-8.png",
@@ -773,7 +773,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/thumbnail-game.png",
+        "file": "assets/wroclaw-v1/logo.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/thumbnail-game.png",

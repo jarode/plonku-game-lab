@@ -1,6 +1,55 @@
 {
   "contract": "runner-skin-v2",
   "name": "wroclaw-v1",
-  "note": "Empty slots restore the baseline snapshot.",
-  "slots": {}
+  "note": "Original Wrocław cut-out pack (task 020). Local files under assets/wroclaw-v1/.",
+  "slots": {
+    "player_idle": [
+      "assets/wroclaw-v1/player/idle_01.png",
+      "assets/wroclaw-v1/player/idle_02.png",
+      "assets/wroclaw-v1/player/idle_03.png",
+      "assets/wroclaw-v1/player/idle_04.png",
+      "assets/wroclaw-v1/player/idle_05.png",
+      "assets/wroclaw-v1/player/idle_06.png",
+      "assets/wroclaw-v1/player/idle_07.png",
+      "assets/wroclaw-v1/player/idle_08.png",
+      "assets/wroclaw-v1/player/idle_09.png",
+      "assets/wroclaw-v1/player/idle_10.png"
+    ],
+    "player_run": [
+      "assets/wroclaw-v1/player/run_01.png",
+      "assets/wroclaw-v1/player/run_02.png",
+      "assets/wroclaw-v1/player/run_03.png",
+      "assets/wroclaw-v1/player/run_04.png",
+      "assets/wroclaw-v1/player/run_05.png",
+      "assets/wroclaw-v1/player/run_06.png",
+      "assets/wroclaw-v1/player/run_07.png",
+      "assets/wroclaw-v1/player/run_08.png"
+    ],
+    "player_jump": [
+      "assets/wroclaw-v1/player/jump_01.png",
+      "assets/wroclaw-v1/player/jump_02.png",
+      "assets/wroclaw-v1/player/jump_03.png",
+      "assets/wroclaw-v1/player/jump_04.png",
+      "assets/wroclaw-v1/player/jump_05.png",
+      "assets/wroclaw-v1/player/jump_06.png",
+      "assets/wroclaw-v1/player/jump_07.png"
+    ],
+    "player_dead": [
+      "assets/wroclaw-v1/player/dead_01.png",
+      "assets/wroclaw-v1/player/dead_02.png",
+      "assets/wroclaw-v1/player/dead_03.png",
+      "assets/wroclaw-v1/player/dead_04.png",
+      "assets/wroclaw-v1/player/dead_05.png",
+      "assets/wroclaw-v1/player/dead_06.png",
+      "assets/wroclaw-v1/player/dead_07.png",
+      "assets/wroclaw-v1/player/dead_08.png"
+    ],
+    "hazard_01": "assets/wroclaw-v1/hazard_bollard.png",
+    "hazard_02": "assets/wroclaw-v1/hazard_overhead.png",
+    "hazard_03": "assets/wroclaw-v1/hazard_wreck.png",
+    "background_far": "assets/wroclaw-v1/bg_far.png",
+    "ground": "assets/wroclaw-v1/ground.png",
+    "jump_button": "assets/wroclaw-v1/jump_button.png",
+    "logo_optional": "assets/wroclaw-v1/logo.png"
+  }
 }
