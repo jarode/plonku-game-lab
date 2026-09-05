@@ -1,10 +1,17 @@
 {
+  "contract": "runner-skin-v2",
   "name": "alt-blocky",
-  "note": "Temporary remap using other already-licensed example sprites so the contract is visible without new art.",
-  "resources": {
-    "assets/Cactus3-1.png": "assets/Scenery/Tree.png",
-    "assets/Obstacles/Cactus3-1.png": "assets/Scenery/Tree.png",
-    "Skeleton.png": "assets/Scenery/Cactus (2).png",
-    "JumpButton-1-0.png": "assets/Buttons/RestartButton.png"
+  "note": "v2 slot remap; $baseline keeps default frames.",
+  "slots": {
+    "player_idle": "$baseline",
+    "player_run": "$baseline",
+    "player_jump": "$baseline",
+    "player_dead": "$baseline",
+    "hazard_01": "assets/Scenery/Tree.png",
+    "hazard_02": "$baseline",
+    "hazard_03": "assets/Scenery/Cactus (2).png",
+    "background_far": "$baseline",
+    "ground": "$baseline",
+    "jump_button": "assets/Buttons/RestartButton.png"
   }
 }

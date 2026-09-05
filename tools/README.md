@@ -27,12 +27,14 @@ node tools/sync-chunk-catalog.mjs
 node tools/sync-chunk-catalog.mjs --game templates/runner-v1
 ```
 
-## Skins
+## Skins (v2 slots)
 
 ```text
 node tools/apply-skin.mjs wroclaw-v1
-node tools/apply-skin.mjs default --game templates/runner-v1
+node tools/apply-skin.mjs traffic-v1 --game games/traffic-dash
 ```
+
+See `templates/runner-v1/ASSET-CONTRACT.md`. Missing required slots or files exit 1 (`APPLY_SKIN: FAIL`).
 
 ## New runner game
 

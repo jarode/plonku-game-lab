@@ -1,5 +1,6 @@
 {
+  "contract": "runner-skin-v2",
   "name": "default",
-  "note": "Baseline placeholder sprites shipped with the template (MIT GDevelop example pack).",
-  "resources": {}
+  "note": "Empty slots restore skins/default/resource-files.json.",
+  "slots": {}
 }

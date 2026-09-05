@@ -1,5 +1,6 @@
 {
+  "contract": "runner-skin-v2",
   "name": "wroclaw-v1",
-  "note": "Current placeholder dino/desert set (baseline art).",
-  "resources": {}
+  "note": "Empty slots restore the baseline snapshot.",
+  "slots": {}
 }
