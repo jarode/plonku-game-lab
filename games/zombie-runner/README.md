@@ -16,10 +16,12 @@ GDevelop 5.6.281 portable is installed at `F:\gry\GDevelop-5\GDevelop.exe` (not 
 2. Preview from the editor (play the **Intro** scene, click **Start**, then any key to run).
 3. Keyboard: **Up** jump, **Down** duck. Touch: swipe up/down (plus on-screen jump/duck buttons in the Game scene).
 
-Headless HTML5 export (writes `games/zombie-runner/build/`, gitignored):
+Headless HTML5 export (writes `games/zombie-runner/build/`, gitignored). Close GDevelop first, then from the repo root:
 
 ```text
-F:\gry\GDevelop-5\GDevelop.exe --disable-update-check --run-command EXPORT_HTML5_EXTERNAL F:\gry\plonku-game-lab\games\zombie-runner\zombie-runner.json
+node tools/gdevelop-web-export.mjs
 ```
+
+Success signal: `WEB_EXPORT: PASS` (exit 0). Failure: `WEB_EXPORT: FAIL` (exit 1). See `tools/README.md`.
 
 Do not add a second `.json` project in this folder.

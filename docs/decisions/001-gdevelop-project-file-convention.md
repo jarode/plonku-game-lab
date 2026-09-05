@@ -11,7 +11,7 @@ There is one canonical GDevelop 5 project for Zombie Runner:
 games/zombie-runner/zombie-runner.json
 ```
 
-Assets and (after enabling multiple-file save) scene/event/layout/extension files live in the same directory. Generated exports go to `games/zombie-runner/export/` and are not committed.
+Assets and (after enabling multiple-file save) scene/event/layout/extension files live in the same directory. Generated HTML5 exports go to `games/zombie-runner/build/` (GDevelop default next to the project file) and are not committed.
 
 ## Why
 
@@ -29,7 +29,7 @@ Inspected 2026-09-05 (updated in task 002):
 
 1. **Open** — File → Open → `games/zombie-runner/zombie-runner.json`.
 2. **Preview** — editor Preview.
-3. **Export** — `GDevelop.exe --disable-update-check --run-command EXPORT_HTML5_EXTERNAL <project.json>` writes `games/zombie-runner/build/` (gitignored). Verified in task 002.
+3. **Export** — from repo root, with the editor closed: `node tools/gdevelop-web-export.mjs` (task 003). GDevelop CLI `EXPORT_HTML5_EXTERNAL` writes `games/zombie-runner/build/` (gitignored).
 
 Do not treat a copy under `export/`, Desktop, or another folder as canonical source.
 
