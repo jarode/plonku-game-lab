@@ -1,6 +1,6 @@
 # GOAL 007 — Data-Driven Breakout Lab
 
-Status: READY
+Status: ACCEPTED — ready for topic selection
 Branch: `ai-control`
 
 ## Goal
