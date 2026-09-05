@@ -44,7 +44,7 @@ Contract: `games/zombie-runner/CHUNK-CONTRACT.md` (200px safe entry/exit, object
 
 ## Commit SHA
 
-Implementation: `1ad2b031925e2fdb9795006779163bef76655e71`
+Implementation: `e7313be` (rebased onto Goal 001 chain)
 
 ## Operator actions required
 
