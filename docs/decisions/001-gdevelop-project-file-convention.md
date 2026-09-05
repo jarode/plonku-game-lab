@@ -19,19 +19,17 @@ GDevelop 5 stores a game as JSON. A single project file avoids competing sources
 
 ## Local preview / export (truthful for this machine)
 
-Inspected 2026-09-05:
+Inspected 2026-09-05 (updated in task 002):
 
 | Tool | Result |
 | --- | --- |
-| GDevelop desktop / CLI (`gdevelop`, `GDevelop.exe`) | **Not installed** (PATH, Start Menu, uninstall registry, `F:\nodejs` npm globals) |
+| GDevelop 5.6.281 portable | `F:\gry\GDevelop-5\GDevelop.exe` (downloaded from GitHub Releases; not committed) |
 | Node.js | `v24.15.0` at `F:\nodejs\node.exe` |
 | npm | `12.0.1` |
 
-Until GDevelop 5 is installed (free download from [gdevelop.io](https://gdevelop.io)):
-
-1. **Open** — File → Open → `games/zombie-runner/zombie-runner.json` (file appears in task 002).
-2. **Preview** — editor Preview (keyboard/touch as available in the editor). Headless preview is not available without the editor.
-3. **Export** — editor Export → HTML5 into `games/zombie-runner/export/web`. Recent GDevelop builds also support `--run-command EXPORT_HTML5_EXTERNAL` for CI; that path is **unverified** here because the editor is missing.
+1. **Open** — File → Open → `games/zombie-runner/zombie-runner.json`.
+2. **Preview** — editor Preview.
+3. **Export** — `GDevelop.exe --disable-update-check --run-command EXPORT_HTML5_EXTERNAL <project.json>` writes `games/zombie-runner/build/` (gitignored). Verified in task 002.
 
 Do not treat a copy under `export/`, Desktop, or another folder as canonical source.
 
@@ -39,4 +37,4 @@ Do not treat a copy under `export/`, Desktop, or another folder as canonical sou
 
 - Task 002 must import the baseline into this path only.
 - Later tasks must not introduce a second `.json` project as a competing canonical file.
-- Operator should install GDevelop 5 locally before preview/export work (task 003).
+- GDevelop 5.6.281 portable lives on `F:\gry\GDevelop-5` and stays out of git.
