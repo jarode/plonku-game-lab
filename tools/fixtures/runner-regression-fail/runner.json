@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "title": "Broken Fixture",
+  "startPrompt": "Tap or Space to run",
+  "scorePrefix": "X  ",
+  "obstacleSpeed": 1,
+  "obstacleSpawnDelay": 1.2
+}

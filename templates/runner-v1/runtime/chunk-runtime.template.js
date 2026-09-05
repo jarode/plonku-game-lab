@@ -62,6 +62,10 @@ function zrSoftReset(runtimeScene) {
   }
 }
 
+if (typeof window !== "undefined") {
+  window.__zrSoftReset = zrSoftReset;
+}
+
 (function runChunkAndDev(runtimeScene) {
   const sceneVars = runtimeScene.getScene().getVariables();
   const gameVars = runtimeScene.getGame().getVariables();

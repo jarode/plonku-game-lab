@@ -58,4 +58,13 @@ node tools/sync-runner-config.mjs --game games/zombie-runner
 
 Missing/invalid config exits 1 (`SYNC_RUNNER_CONFIG: FAIL`). Do not hand-edit nested Preparing/Playing HUD expressions for these fields.
 
+## Regression
+
+```text
+node tools/runner-regression.mjs --game games/zombie-runner
+node tools/runner-regression.mjs --game games/traffic-dash
+```
+
+Broken fixture (must exit 1): `node tools/runner-regression.mjs --game tools/fixtures/runner-regression-fail`
+
 See `templates/runner-v1/README.md`.
