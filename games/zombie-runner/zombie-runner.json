@@ -803,6 +803,14 @@
         "name": "plonku-ui-cta-city.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "file": "assets/wroclaw-v1/ui/hud_bar.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "plonku-ui-hud.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -2516,9 +2524,9 @@
           "name": "ScoreText",
           "persistentUuid": "b4cdf63a-8d7e-4bd0-83ee-8dfd60fd49dd",
           "width": 0,
-          "x": 16,
-          "y": 72,
-          "zOrder": 14,
+          "x": 28,
+          "y": 36,
+          "zOrder": 39,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -2702,6 +2710,21 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 96,
+          "layer": "",
+          "name": "UiHud",
+          "persistentUuid": "188b57c8-2b75-4b18-9330-ccce43130679",
+          "width": 516,
+          "x": 12,
+          "y": 8,
+          "zOrder": 38,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -2875,18 +2898,18 @@
           "string": "Zombie Runner — Wroclaw",
           "font": "Nathaniel-19.otf",
           "textAlignment": "",
-          "characterSize": 32,
+          "characterSize": 28,
           "color": {
-            "r": 184,
-            "g": 74,
-            "b": 58
+            "r": 244,
+            "g": 244,
+            "b": 241
           },
           "content": {
             "bold": false,
             "isOutlineEnabled": true,
             "isShadowEnabled": false,
             "italic": false,
-            "outlineColor": "26;21;16",
+            "outlineColor": "26;29;35",
             "outlineThickness": 2,
             "shadowAngle": 90,
             "shadowBlurRadius": 2,
@@ -2899,9 +2922,9 @@
             "font": "Nathaniel-19.otf",
             "textAlignment": "",
             "verticalTextAlignment": "top",
-            "characterSize": 32,
+            "characterSize": 28,
             "lineHeight": 0,
-            "color": "184;74;58"
+            "color": "244;244;241"
           }
         },
         {
@@ -5490,6 +5513,47 @@
               ]
             }
           ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "UiHud",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "UiHud",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "plonku-ui-hud.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -5528,6 +5592,9 @@
               },
               {
                 "objectName": "CityCta"
+              },
+              {
+                "objectName": "UiHud"
               }
             ]
           },
@@ -7570,65 +7637,65 @@
               "colorG": 147,
               "colorR": 74,
               "creationTime": 0,
-                              "name": "Game lost",
-                              "source": "",
-                              "type": "BuiltinCommonInstructions::Group",
-                              "events": [
-                                {
-                                  "type": "BuiltinCommonInstructions::Standard",
-                                  "conditions": [
-                                    {
-                                      "type": {
-                                        "value": "StringVariable"
-                                      },
-                                      "parameters": [
-                                        "GameStatus",
-                                        "=",
-                                        "\"Dead\""
-                                      ]
-                                    }
-                                  ],
-                                  "actions": [
-                                    {
-                                      "type": {
-                                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-                                      },
-                                      "parameters": [
-                                        "ScoreText",
-                                        "Text",
-                                        "=",
-                                        "\"KONIEC GRY\" + NewLine() + \"Spróbuj jeszcze\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
-                                      ]
-                                    }
-                                  ],
-                                  "events": [
-                                    {
-                                      "type": "BuiltinCommonInstructions::Standard",
-                                      "conditions": [
-                                        {
-                                          "type": {
-                                            "value": "BuiltinCommonInstructions::Or"
-                                          },
-                                          "parameters": [],
-                                          "subInstructions": [
-                                            {
-                                              "type": {
-                                                "value": "KeyFromTextPressed"
-                                              },
-                                              "parameters": [
-                                                "Dino",
-                                                "\"Space\""
-                                              ]
-                                            },
-                                            {
-                                              "type": {
-                                                "value": "MouseButtonFromTextPressed"
-                                              },
-                                              "parameters": [
-                                                "Dino",
-                                                "\"Left\""
-                                              ]
-                                            }
+              "name": "Game lost",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "StringVariable"
+                      },
+                      "parameters": [
+                        "GameStatus",
+                        "=",
+                        "\"Dead\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                      },
+                      "parameters": [
+                        "ScoreText",
+                        "Text",
+                        "=",
+                        "\"KONIEC GRY\" + NewLine() + \"Spróbuj jeszcze\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "KeyFromTextPressed"
+                              },
+                              "parameters": [
+                                "Dino",
+                                "\"Space\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "MouseButtonFromTextPressed"
+                              },
+                              "parameters": [
+                                "Dino",
+                                "\"Left\""
+                              ]
+                            }
                           ]
                         }
                       ],
@@ -7768,7 +7835,7 @@
           "isLocked": false,
           "name": "TouchButtons",
           "renderingType": "",
-          "visibility": false,
+          "visibility": true,
           "cameras": [],
           "effects": []
         }
