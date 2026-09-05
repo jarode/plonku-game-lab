@@ -7,7 +7,7 @@ Placeholder prototype on the Run, Dino run baseline. Art is temporary.
 1. **START** — Game scene, `GameStatus = Preparing`. Tap or any key / Space starts the run.
 2. **PLAYING** — auto-scroll world (obstacles move left). **Space** or **tap** jumps. Score increases with time (distance/survival).
 3. **GAME OVER** — hit a hazard. Overlay on `ScoreText`.
-4. **RETRY** — tap, Space, or **R** runs an in-place reset (hazards deleted, score 0, `Preparing`). No full page reload.
+4. **RETRY** — tap, Space, or **R** runs an in-place reset (hazards deleted, score 0, `Preparing`). No full page reload. The chunk/retry script runs every frame (including Dead), not only while Playing.
 
 Viewport: **540×960**, portrait (9:16).
 

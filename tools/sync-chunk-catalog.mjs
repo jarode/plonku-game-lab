@@ -69,37 +69,23 @@ if (!found) {
     useStrict: true,
     eventsSheetExpanded: true,
   };
-  const playing = findPlaying(game.events);
-  if (playing) {
-    playing.events = playing.events || [];
-    playing.events.unshift(jsEvent);
+  const states = findGroup(game.events, "Game states");
+  if (states) {
+    states.events = states.events || [];
+    states.events.unshift(jsEvent);
   } else {
-    game.events.push({
-      type: "BuiltinCommonInstructions::Standard",
-      conditions: [
-        {
-          type: { value: "StringVariable" },
-          parameters: ["GameStatus", "=", '"Playing"'],
-        },
-      ],
-      actions: [],
-      events: [jsEvent],
-    });
+    game.events.unshift(jsEvent);
   }
   found = true;
 }
 
-function findPlaying(events) {
+function findGroup(events, name) {
   if (!events) return null;
   for (const event of events) {
-    const hit = (event.conditions || []).some(
-      (c) =>
-        (c.type?.value || c.type) === "StringVariable" &&
-        c.parameters?.[0] === "GameStatus" &&
-        c.parameters?.[2] === '"Playing"'
-    );
-    if (hit) return event;
-    const nested = findPlaying(event.events);
+    if (event.type === "BuiltinCommonInstructions::Group" && event.name === name) {
+      return event;
+    }
+    const nested = findGroup(event.events, name);
     if (nested) return nested;
   }
   return null;
