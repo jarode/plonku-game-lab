@@ -2415,12 +2415,12 @@
         {
           "name": "ObstacleSpeed",
           "type": "number",
-          "value": 550
+          "value": 500
         },
         {
           "name": "ObstacleSpawnDelay",
           "type": "string",
-          "value": "1.2"
+          "value": "1"
         },
         {
           "name": "CactusInField",
@@ -3250,10 +3250,10 @@
               "canGrabPlatforms": false,
               "canGrabWithoutMoving": false,
               "deceleration": 1500,
-              "gravity": 2300,
+              "gravity": 2150,
               "ignoreDefaultControls": true,
-              "jumpSpeed": 1500,
-              "jumpSustainTime": 0,
+              "jumpSpeed": 1550,
+              "jumpSustainTime": 0.08,
               "ladderClimbingSpeed": 150,
               "maxFallingSpeed": 3000,
               "maxSpeed": 250,
@@ -5532,7 +5532,7 @@
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
                 "// Runner v1 chunk sequencer + dev controls.\r",
-                "const CHUNK_CATALOG = {\"safeEntry\":200,\"safeExit\":200,\"chunks\":[{\"id\":\"easy-cactus\",\"group\":\"EASY\",\"width\":720,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":320}]},{\"id\":\"easy-island\",\"group\":\"EASY\",\"width\":720,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":340}]},{\"id\":\"easy-wreck\",\"group\":\"EASY\",\"width\":760,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":300}]},{\"id\":\"med-cactus-island\",\"group\":\"MEDIUM\",\"width\":880,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":280},{\"object\":\"IslandObstacle\",\"x\":560}]},{\"id\":\"med-double-cactus\",\"group\":\"MEDIUM\",\"width\":860,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":260},{\"object\":\"CactusObstacle\",\"x\":460}]},{\"id\":\"med-wreck-island\",\"group\":\"MEDIUM\",\"width\":900,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":260},{\"object\":\"IslandObstacle\",\"x\":580}]},{\"id\":\"hard-gauntlet\",\"group\":\"HARD\",\"width\":1040,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":240},{\"object\":\"CactusObstacle\",\"x\":520},{\"object\":\"WreckObstacle\",\"x\":760}]},{\"id\":\"hard-wreck-cactus\",\"group\":\"HARD\",\"width\":960,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":240},{\"object\":\"CactusObstacle\",\"x\":520},{\"object\":\"CactusObstacle\",\"x\":680}]},{\"id\":\"hard-island-pack\",\"group\":\"HARD\",\"width\":1000,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":240},{\"object\":\"IslandObstacle\",\"x\":480},{\"object\":\"WreckObstacle\",\"x\":760}]}]};\r",
+                "const CHUNK_CATALOG = {\"safeEntry\":200,\"safeExit\":200,\"chunks\":[{\"id\":\"easy-cactus\",\"group\":\"EASY\",\"width\":640,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":180}]},{\"id\":\"easy-island\",\"group\":\"EASY\",\"width\":760,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":360}]},{\"id\":\"easy-wreck\",\"group\":\"EASY\",\"width\":820,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":340}]},{\"id\":\"med-cactus-island\",\"group\":\"MEDIUM\",\"width\":920,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":240},{\"object\":\"IslandObstacle\",\"x\":620}]},{\"id\":\"med-double-cactus\",\"group\":\"MEDIUM\",\"width\":940,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":240},{\"object\":\"CactusObstacle\",\"x\":580}]},{\"id\":\"med-wreck-island\",\"group\":\"MEDIUM\",\"width\":940,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":240},{\"object\":\"IslandObstacle\",\"x\":640}]},{\"id\":\"hard-gauntlet\",\"group\":\"HARD\",\"width\":1120,\"hazards\":[{\"object\":\"IslandObstacle\",\"x\":220},{\"object\":\"CactusObstacle\",\"x\":540},{\"object\":\"WreckObstacle\",\"x\":840}]},{\"id\":\"hard-wreck-cactus\",\"group\":\"HARD\",\"width\":1020,\"hazards\":[{\"object\":\"WreckObstacle\",\"x\":220},{\"object\":\"CactusObstacle\",\"x\":520},{\"object\":\"CactusObstacle\",\"x\":760}]},{\"id\":\"hard-island-pack\",\"group\":\"HARD\",\"width\":1080,\"hazards\":[{\"object\":\"CactusObstacle\",\"x\":220},{\"object\":\"IslandObstacle\",\"x\":500},{\"object\":\"WreckObstacle\",\"x\":820}]}]};\r",
                 "\r",
                 "function zrIsDev() {\r",
                 "  try {\r",

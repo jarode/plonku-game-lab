@@ -5,76 +5,76 @@
     {
       "id": "easy-cactus",
       "group": "EASY",
-      "width": 720,
-      "hazards": [{ "object": "CactusObstacle", "x": 320 }]
+      "width": 640,
+      "hazards": [{ "object": "CactusObstacle", "x": 180 }]
     },
     {
       "id": "easy-island",
       "group": "EASY",
-      "width": 720,
-      "hazards": [{ "object": "IslandObstacle", "x": 340 }]
+      "width": 760,
+      "hazards": [{ "object": "IslandObstacle", "x": 360 }]
     },
     {
       "id": "easy-wreck",
       "group": "EASY",
-      "width": 760,
-      "hazards": [{ "object": "WreckObstacle", "x": 300 }]
+      "width": 820,
+      "hazards": [{ "object": "WreckObstacle", "x": 340 }]
     },
     {
       "id": "med-cactus-island",
       "group": "MEDIUM",
-      "width": 880,
+      "width": 920,
       "hazards": [
-        { "object": "CactusObstacle", "x": 280 },
-        { "object": "IslandObstacle", "x": 560 }
+        { "object": "CactusObstacle", "x": 240 },
+        { "object": "IslandObstacle", "x": 620 }
       ]
     },
     {
       "id": "med-double-cactus",
       "group": "MEDIUM",
-      "width": 860,
+      "width": 940,
       "hazards": [
-        { "object": "CactusObstacle", "x": 260 },
-        { "object": "CactusObstacle", "x": 460 }
+        { "object": "CactusObstacle", "x": 240 },
+        { "object": "CactusObstacle", "x": 580 }
       ]
     },
     {
       "id": "med-wreck-island",
       "group": "MEDIUM",
-      "width": 900,
+      "width": 940,
       "hazards": [
-        { "object": "WreckObstacle", "x": 260 },
-        { "object": "IslandObstacle", "x": 580 }
+        { "object": "WreckObstacle", "x": 240 },
+        { "object": "IslandObstacle", "x": 640 }
       ]
     },
     {
       "id": "hard-gauntlet",
       "group": "HARD",
-      "width": 1040,
+      "width": 1120,
       "hazards": [
-        { "object": "IslandObstacle", "x": 240 },
-        { "object": "CactusObstacle", "x": 520 },
-        { "object": "WreckObstacle", "x": 760 }
+        { "object": "IslandObstacle", "x": 220 },
+        { "object": "CactusObstacle", "x": 540 },
+        { "object": "WreckObstacle", "x": 840 }
       ]
     },
     {
       "id": "hard-wreck-cactus",
       "group": "HARD",
-      "width": 960,
+      "width": 1020,
       "hazards": [
-        { "object": "WreckObstacle", "x": 240 },
+        { "object": "WreckObstacle", "x": 220 },
         { "object": "CactusObstacle", "x": 520 },
-        { "object": "CactusObstacle", "x": 680 }
+        { "object": "CactusObstacle", "x": 760 }
       ]
     },
     {
       "id": "hard-island-pack",
       "group": "HARD",
-      "width": 1000,
+      "width": 1080,
       "hazards": [
-        { "object": "CactusObstacle", "x": 240 },
-        { "object": "IslandObstacle", "x": 480 },
-        { "object": "WreckObstacle", "x": 760 }
+        { "object": "CactusObstacle", "x": 220 },
+        { "object": "IslandObstacle", "x": 500 },
+        { "object": "WreckObstacle", "x": 820 }
       ]
     }
   ]

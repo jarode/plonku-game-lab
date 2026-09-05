@@ -1,34 +1,26 @@
-# Zombie Runner — Wrocław (vertical slice)
+# Zombie Runner — Wrocław (gameplay)
 
-Placeholder prototype on the Run, Dino run baseline. Art is temporary.
+Portrait 540×960 one-input runner. Product lock: `PRODUCT.md`. Skin: `wroclaw-v1`.
 
 ## Loop
 
-1. **START** — Game scene, `GameStatus = Preparing`. Tap or any key / Space starts the run.
-2. **PLAYING** — auto-scroll world (obstacles move left). **Space** or **tap** jumps. Score increases with time (distance/survival).
-3. **GAME OVER** — hit a hazard. Overlay on `ScoreText`.
-4. **RETRY** — tap, Space, or **R** runs an in-place reset (hazards deleted, score 0, `Preparing`). No full page reload. The chunk/retry script runs every frame (including Dead), not only while Playing.
+1. **START** — `GameStatus = Preparing`. Tap or Space starts.
+2. **PLAYING** — world scrolls left. Space/tap jumps. Score = survival time.
+3. **GAME OVER** — hazard collision.
+4. **RETRY** — tap, Space, or R → in-place reset (no reload).
 
-Viewport: **540×960**, portrait (9:16).
+Target first-session death **20–35 s**. First ground hazard ~1.4 s after run start (`ObstacleSpeed` 500, `easy-cactus` x=180).
 
-## Hazards (three types)
+## Hazards
 
-Gameplay objects (not tied to final Wrocław art):
-
-| Object | Role | How to survive |
+| Object | Reads as | Survive |
 | --- | --- | --- |
-| `CactusObstacle` | Ground barrier | Jump |
-| `IslandObstacle` | Overhead obstacle | Stay low (do not jump) |
-| `WreckObstacle` | Wide ground wreck (skeleton placeholder) | Jump earlier / further |
+| `CactusObstacle` | Bollard / street clutter | Jump |
+| `IslandObstacle` | Overhead sign | Stay low |
+| `WreckObstacle` | Wide wreck | Jump early |
 
-Spawns come from `chunks.json` (nine EASY/MEDIUM/HARD chunks). See `CHUNK-CONTRACT.md`.
+Nine EASY/MEDIUM/HARD chunks in `chunks.json`.
 
 ## Controls
 
-- Keyboard: **Space** jump (duck input disabled).
-- Touch / mouse: tap anywhere or the jump button.
-- Duck button is hidden.
-
-## Art vs logic
-
-Runner sprite is still the upstream dino placeholder. Swap textures later without renaming the three hazard objects if possible.
+Space / tap anywhere / jump button. Duck control hidden.
