@@ -18,6 +18,20 @@ import { resolveRunnerAsset } from "./runner-pack.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const { flags, gameRel } = parseLabArgs(process.argv.slice(2));
 const skipExport = flags.has("--skip-export");
+const vpIdx = process.argv.indexOf("--viewport");
+let viewW = 540;
+let viewH = 960;
+if (vpIdx >= 0) {
+  const spec = process.argv[vpIdx + 1] || "";
+  const m = /^(\d+)x(\d+)$/.exec(spec);
+  if (!m) {
+    console.error("RUNNER_REGRESSION: FAIL");
+    console.error("--viewport requires WIDTHxHEIGHT, e.g. 390x844");
+    process.exit(1);
+  }
+  viewW = Number(m[1]);
+  viewH = Number(m[2]);
+}
 
 function fail(message) {
   console.error("RUNNER_REGRESSION: FAIL");
@@ -310,7 +324,7 @@ async function main() {
       "--disable-extensions",
       "--no-first-run",
       "--no-default-browser-check",
-      "--window-size=540,960",
+      `--window-size=${viewW},${viewH}`,
       "about:blank",
     ],
     { stdio: ["pipe", "pipe", "pipe"] }
@@ -328,8 +342,8 @@ async function main() {
     await cdp.send("Page.enable");
     await cdp.send("Runtime.enable");
     await cdp.send("Emulation.setDeviceMetricsOverride", {
-      width: 540,
-      height: 960,
+      width: viewW,
+      height: viewH,
       deviceScaleFactor: 1,
       mobile: true,
     });
@@ -377,7 +391,7 @@ async function main() {
     pass([
       `game: ${gameRel}`,
       "export: skipped=" + skipExport,
-      "cycles: 10 in-place retries, score 0, hazards cleared",
+      `viewport: ${viewW}x${viewH}`,
       "normal mode: no dev HUD / invincibility / ?dev=1",
     ]);
   } finally {
