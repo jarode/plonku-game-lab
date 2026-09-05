@@ -11,6 +11,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseLabArgs, resolveGameDir, findProjectJson } from "./game-dir.mjs";
+import { resolveRunnerAsset } from "./runner-pack.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SLOT_MAP_PATH = path.join(
@@ -73,12 +74,9 @@ function restoreFrom(snapshotPath) {
 }
 
 function resolveExistingFile(rel) {
-  const full = path.normalize(path.join(gameDir, rel));
-  if (!full.startsWith(path.normalize(gameDir))) {
-    fail("Path escapes game dir: " + rel);
-  }
-  if (!fs.existsSync(full)) fail("Missing file for slot/resource: " + rel);
-  return rel.replace(/\\/g, "/");
+  const hit = resolveRunnerAsset(root, gameDir, rel);
+  if (!hit) fail("Missing file for slot/resource: " + rel);
+  return hit.projectRel;
 }
 
 function loadSlotMap() {

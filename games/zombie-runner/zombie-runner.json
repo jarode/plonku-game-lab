@@ -102,7 +102,7 @@
   "resources": {
     "resources": [
       {
-        "file": "assets/Desert Background.png",
+        "file": "../../templates/runner-v1/assets/Desert Background.png",
         "kind": "image",
         "metadata": "",
         "name": "Desert Background.png",
@@ -114,7 +114,7 @@
         }
       },
       {
-        "file": "assets/9patch_Desert Tile_all_64.png",
+        "file": "../../templates/runner-v1/assets/9patch_Desert Tile_all_64.png",
         "kind": "image",
         "metadata": "",
         "name": "9patch_Desert Tile_all_64.png",
@@ -126,7 +126,7 @@
         }
       },
       {
-        "file": "assets/9patch_Desert Tile_north.png",
+        "file": "../../templates/runner-v1/assets/9patch_Desert Tile_north.png",
         "kind": "image",
         "metadata": "",
         "name": "9patch_Desert Tile_north.png",
@@ -138,7 +138,7 @@
         }
       },
       {
-        "file": "assets/Obstacles/Cactus3-1.png",
+        "file": "../../templates/runner-v1/assets/Obstacles/Cactus3-1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Cactus3-1.png",
@@ -146,7 +146,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Obstacles/Duck_Island.png",
+        "file": "../../templates/runner-v1/assets/Obstacles/Duck_Island.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Duck_Island.png",
@@ -154,7 +154,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Tutorial/tutorial.png",
+        "file": "../../templates/runner-v1/assets/Tutorial/tutorial.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/tutorial.png",
@@ -162,7 +162,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/CarGirlWheel-1.png",
+        "file": "../../templates/runner-v1/assets/CarGirlWheel-1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/CarGirlWheel-1.png",
@@ -170,7 +170,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Sounds/jump.mp3",
+        "file": "../../templates/runner-v1/assets/Sounds/jump.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "Jump.mp3",
@@ -180,7 +180,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Sounds/skid.mp3",
+        "file": "../../templates/runner-v1/assets/Sounds/skid.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "Skid.mp3",
@@ -190,7 +190,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Sounds/bonus.mp3",
+        "file": "../../templates/runner-v1/assets/Sounds/bonus.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "Bonus.mp3",
@@ -200,7 +200,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Sounds/DesertMusic.mp3",
+        "file": "../../templates/runner-v1/assets/Sounds/DesertMusic.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "DesertMusic.mp3",
@@ -210,7 +210,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Sounds/LeaderboardMusic.mp3",
+        "file": "../../templates/runner-v1/assets/Sounds/LeaderboardMusic.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "LeaderboardMusic.mp3",
@@ -220,7 +220,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Scenery/Sign-1.png",
+        "file": "../../templates/runner-v1/assets/Scenery/Sign-1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Sign-1.png",
@@ -228,7 +228,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Scenery/SignArrow.png",
+        "file": "../../templates/runner-v1/assets/Scenery/SignArrow.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/SignArrow.png",
@@ -236,7 +236,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Scenery/Desert Tile Platform Right.png",
+        "file": "../../templates/runner-v1/assets/Scenery/Desert Tile Platform Right.png",
         "kind": "image",
         "metadata": "",
         "name": "Desert Tile Platform Right.png",
@@ -248,7 +248,7 @@
         }
       },
       {
-        "file": "assets/Scenery/Desert Tile Platform Left.png",
+        "file": "../../templates/runner-v1/assets/Scenery/Desert Tile Platform Left.png",
         "kind": "image",
         "metadata": "",
         "name": "Desert Tile Platform Left.png",
@@ -260,14 +260,14 @@
         }
       },
       {
-        "file": "assets/Nathaniel-19.otf",
+        "file": "../../templates/runner-v1/assets/Nathaniel-19.otf",
         "kind": "font",
         "metadata": "",
         "name": "Nathaniel-19.otf",
         "userAdded": true
       },
       {
-        "file": "assets/Scenery/Cactus (2).png",
+        "file": "../../templates/runner-v1/assets/Scenery/Cactus (2).png",
         "kind": "image",
         "metadata": "",
         "name": "Cactus (2).png",
@@ -279,7 +279,7 @@
         }
       },
       {
-        "file": "assets/Scenery/tiled_Desert Tile Platform Center.png",
+        "file": "../../templates/runner-v1/assets/Scenery/tiled_Desert Tile Platform Center.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/tiled_Desert Tile Platform Center.png",
@@ -287,7 +287,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Scenery/Skeleton.png",
+        "file": "../../templates/runner-v1/assets/Scenery/Skeleton.png",
         "kind": "image",
         "metadata": "",
         "name": "Skeleton.png",
@@ -299,7 +299,7 @@
         }
       },
       {
-        "file": "assets/Scenery/Grass (2).png",
+        "file": "../../templates/runner-v1/assets/Scenery/Grass (2).png",
         "kind": "image",
         "metadata": "",
         "name": "Grass (2).png",
@@ -311,7 +311,7 @@
         }
       },
       {
-        "file": "assets/Obstacles/Cactus3-1.png",
+        "file": "../../templates/runner-v1/assets/Obstacles/Cactus3-1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Obstacles/Cactus3-1.png",
@@ -319,7 +319,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Scenery/Tree.png",
+        "file": "../../templates/runner-v1/assets/Scenery/Tree.png",
         "kind": "image",
         "metadata": "",
         "name": "Tree.png",
@@ -331,7 +331,7 @@
         }
       },
       {
-        "file": "assets/Obstacles/Duck_Island.png",
+        "file": "../../templates/runner-v1/assets/Obstacles/Duck_Island.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Obstacles/Duck_Island.png",
@@ -339,7 +339,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Tutorial/tutorialTouchScreen_1.png",
+        "file": "../../templates/runner-v1/assets/Tutorial/tutorialTouchScreen_1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/tutorialTouchScreen_1.png",
@@ -347,7 +347,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Tutorial/tutorialTouchScreen_2.png",
+        "file": "../../templates/runner-v1/assets/Tutorial/tutorialTouchScreen_2.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/tutorialTouchScreen_2.png",
@@ -355,7 +355,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Tutorial/tutorialTouchScreen_3.png",
+        "file": "../../templates/runner-v1/assets/Tutorial/tutorialTouchScreen_3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/tutorialTouchScreen_3.png",
@@ -363,7 +363,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Tutorial/tutorialTouchScreen_duck_1.png",
+        "file": "../../templates/runner-v1/assets/Tutorial/tutorialTouchScreen_duck_1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/tutorialTouchScreen_duck_1.png",
@@ -371,7 +371,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Tutorial/tutorialTouchScreen_duck_2.png",
+        "file": "../../templates/runner-v1/assets/Tutorial/tutorialTouchScreen_duck_2.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/tutorialTouchScreen_duck_2.png",
@@ -379,7 +379,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Tutorial/tutorialTouchScreen_duck_3.png",
+        "file": "../../templates/runner-v1/assets/Tutorial/tutorialTouchScreen_duck_3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/tutorialTouchScreen_duck_3.png",
@@ -387,7 +387,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Buttons/DuckButton-1.png",
+        "file": "../../templates/runner-v1/assets/Buttons/DuckButton-1.png",
         "kind": "image",
         "metadata": "",
         "name": "DuckButton-1.png",
@@ -395,7 +395,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Buttons/JumpButton-1-0.png",
+        "file": "../../templates/runner-v1/assets/Buttons/JumpButton-1-0.png",
         "kind": "image",
         "metadata": "",
         "name": "JumpButton-1-0.png",
@@ -403,7 +403,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Tutorial/NewFile-1.png",
+        "file": "../../templates/runner-v1/assets/Tutorial/NewFile-1.png",
         "kind": "image",
         "metadata": "",
         "name": "NewFile-1.png",
@@ -411,7 +411,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Run_1.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_1.png",
@@ -419,7 +419,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Run_2.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_2.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_2.png",
@@ -427,7 +427,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Run_3.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_3.png",
@@ -435,7 +435,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Run_4.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_4.png",
@@ -443,7 +443,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Run_5.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_5.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_5.png",
@@ -451,7 +451,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Run_6.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_6.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_6.png",
@@ -459,7 +459,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Run_7.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_7.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_7.png",
@@ -467,7 +467,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Run_8.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Run_8.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Run_8.png",
@@ -475,7 +475,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_1.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_1.png",
@@ -483,7 +483,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_2.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_2.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_2.png",
@@ -491,7 +491,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Idle_3.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_3.png",
@@ -499,7 +499,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_4.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_4.png",
@@ -507,7 +507,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Idle_5.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_5.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_5.png",
@@ -515,7 +515,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Idle_6.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_6.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_6.png",
@@ -523,7 +523,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Idle_7.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_7.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_7.png",
@@ -531,7 +531,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_8.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_8.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_8.png",
@@ -539,7 +539,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_9.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_9.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_9.png",
@@ -547,7 +547,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Idle_10.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Idle_10.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Idle_10.png",
@@ -555,7 +555,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Jump_1.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_1.png",
@@ -563,7 +563,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Jump_4.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_4.png",
@@ -571,7 +571,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Jump_5.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_5.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_5.png",
@@ -579,7 +579,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Jump_6.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_6.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_6.png",
@@ -587,7 +587,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Jump_10.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_10.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_10.png",
@@ -595,7 +595,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dino_Jump_11.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_11.png",
@@ -603,7 +603,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dino_Jump_12.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dino_Jump_12.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dino_Jump_12.png",
@@ -611,7 +611,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Duck-3.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-3.png",
@@ -619,7 +619,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Duck-4.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-4.png",
@@ -627,7 +627,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Duck-5-0.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-5-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-5-0.png",
@@ -635,7 +635,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Duck-6-0.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-6-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-6-0.png",
@@ -643,7 +643,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Duck-6.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-6.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-6.png",
@@ -651,7 +651,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Duck-9-0.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-9-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-9-0.png",
@@ -659,7 +659,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Duck-9.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-9.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-9.png",
@@ -667,7 +667,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Duck-10-0.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-10-0.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-10-0.png",
@@ -675,7 +675,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Duck-11.png",
+        "file": "../../templates/runner-v1/assets/Dino/Duck-11.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Duck-11.png",
@@ -683,7 +683,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dead-1.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dead-1.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-1.png",
@@ -691,7 +691,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dead-2.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dead-2.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-2.png",
@@ -699,7 +699,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dead-3.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dead-3.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-3.png",
@@ -707,7 +707,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dead-4.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dead-4.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-4.png",
@@ -715,7 +715,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dead-5.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dead-5.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-5.png",
@@ -723,7 +723,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dead-6.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dead-6.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-6.png",
@@ -731,7 +731,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Dino/Dead-7.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dead-7.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-7.png",
@@ -739,7 +739,7 @@
         "userAdded": false
       },
       {
-        "file": "assets/Dino/Dead-8.png",
+        "file": "../../templates/runner-v1/assets/Dino/Dead-8.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/Dino/Dead-8.png",
@@ -747,7 +747,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Sounds/death.mp3",
+        "file": "../../templates/runner-v1/assets/Sounds/death.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "Death.mp3",
@@ -757,7 +757,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Buttons/SubmitButton.png",
+        "file": "../../templates/runner-v1/assets/Buttons/SubmitButton.png",
         "kind": "image",
         "metadata": "",
         "name": "assets\\Buttons\\SubmitButton.png",
@@ -765,7 +765,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/Buttons/RestartButton.png",
+        "file": "../../templates/runner-v1/assets/Buttons/RestartButton.png",
         "kind": "image",
         "metadata": "",
         "name": "assets\\Buttons\\RestartButton.png",
@@ -773,7 +773,7 @@
         "userAdded": true
       },
       {
-        "file": "assets/thumbnail-game.png",
+        "file": "../../templates/runner-v1/assets/thumbnail-game.png",
         "kind": "image",
         "metadata": "",
         "name": "assets/thumbnail-game.png",

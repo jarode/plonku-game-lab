@@ -9,7 +9,8 @@ Reusable portrait endless-runner seed extracted from the proven Zombie Runner cl
 | Jump / collision / score / state events | Each game's GDevelop JSON (seeded from this template) | Only if the template is defective |
 | Chunk sequencer, retry, `?dev=1` | `templates/runner-v1/runtime/chunk-runtime.template.js` | Template (then `sync-chunk-catalog`) |
 | Chunk data | `<game>/chunks.json` | Each game |
-| Skins | `<game>/skins/` | Each game |
+| Placeholder art pack | `templates/runner-v1/assets/` | Shared; instantiate does **not** copy it |
+| Per-game art | `<game>/assets/` optional overrides | Each game |
 | Export / preview / skin / sync tools | `tools/` with `--game` | Shared |
 
 **Zombie Runner** (`games/zombie-runner/`) is the golden *client*: Wrocław copy, skins, and chunk ids. Do not copy that folder to start a new game.

@@ -42,4 +42,10 @@ See `templates/runner-v1/ASSET-CONTRACT.md`. Missing required slots or files exi
 node tools/instantiate-runner.mjs my-runner --title "My Runner"
 ```
 
+Does not copy `templates/runner-v1/assets/` into the game. Relink existing clones:
+
+```text
+node tools/relink-runner-pack.mjs --game games/zombie-runner
+```
+
 See `templates/runner-v1/README.md`.

@@ -7,6 +7,10 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import {
+  rewriteProjectResourcesToPack,
+  rewriteSnapshotToPack,
+} from "./runner-pack.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -28,7 +32,14 @@ if (fs.existsSync(dest)) {
 function copyFiltered(from, to) {
   fs.mkdirSync(to, { recursive: true });
   for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
-    if (entry.name === "build" || entry.name === "export" || entry.name === "README.md" || entry.name === "runtime") {
+    if (
+      entry.name === "build" ||
+      entry.name === "export" ||
+      entry.name === "README.md" ||
+      entry.name === "runtime" ||
+      entry.name === "assets" ||
+      entry.name === "preview.png"
+    ) {
       continue;
     }
     const s = path.join(from, entry.name);
@@ -54,7 +65,18 @@ project.properties.name = display;
 project.properties.description = "Portrait endless runner instantiated from templates/runner-v1.";
 project.properties.packageName = "com.plonku." + slug.replace(/-/g, "");
 project.properties.projectUuid = crypto.randomUUID();
+rewriteProjectResourcesToPack(root, dest, project);
 fs.writeFileSync(newJson, JSON.stringify(project, null, 2) + "\n");
+
+for (const snapName of ["default", "wroclaw-v1"]) {
+  const snapPath = path.join(dest, "skins", snapName, "resource-files.json");
+  if (!fs.existsSync(snapPath)) continue;
+  const snap = JSON.parse(fs.readFileSync(snapPath, "utf8"));
+  fs.writeFileSync(
+    snapPath,
+    JSON.stringify(rewriteSnapshotToPack(root, dest, snap), null, 2) + "\n"
+  );
+}
 
 const readme = `# ${display}
 
