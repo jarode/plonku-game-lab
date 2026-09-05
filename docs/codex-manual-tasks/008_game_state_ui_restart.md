@@ -42,4 +42,8 @@ PASS only if at least ten consecutive start -> play -> game-over -> retry cycles
 
 ## Result
 
-Create `008_game_state_ui_restart-RESULT.md` with state-flow summary, validation evidence, known limitations, changed files, and commit SHA. Stop after push.
+Create `008_game_state_ui_restart-RESULT.md` with state-flow summary, validation evidence, known limitations, changed files, and commit SHA.
+
+## Chain behavior
+
+When executed under `GOAL-001_zombie_runner_mvp.md`, push implementation + RESULT, then inspect the RESULT status. Continue to task 009 only when status is exactly `PASS`. For any other status, STOP and do not start task 009.
