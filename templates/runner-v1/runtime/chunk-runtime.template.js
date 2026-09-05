@@ -150,6 +150,21 @@ if (typeof window !== "undefined") {
     if (hud.length) hud[0].hide(true);
   }
 
+  try {
+    if (typeof window !== "undefined") {
+      if (window.__zrMuted === undefined) {
+        window.__zrMuted = localStorage.getItem("zr-muted") === "1";
+      }
+      if (zrJustPressed(runtimeScene, "U")) {
+        window.__zrMuted = !window.__zrMuted;
+        localStorage.setItem("zr-muted", window.__zrMuted ? "1" : "0");
+      }
+      if (gdjs.evtTools.sound && typeof gdjs.evtTools.sound.setGlobalVolume === "function") {
+        gdjs.evtTools.sound.setGlobalVolume(runtimeScene, window.__zrMuted ? 0 : 100);
+      }
+    }
+  } catch (eMute) {}
+
   const status = sceneVars.get("GameStatus").getAsString();
   if (status === "Dead") {
     const retry =

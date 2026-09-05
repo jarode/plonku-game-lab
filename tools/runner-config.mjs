@@ -10,7 +10,7 @@ export const HUD_TITLE_EXPR = "VariableString(HudTitle)";
 export const SCORE_PLAYING_EXPR =
   "VariableString(ScorePrefix) + GlobalVariableString(Score)";
 export const SCORE_DEAD_EXPR =
-  '"GAME OVER - tap or Space" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)';
+  '"GAME OVER" + NewLine() + "Tap to retry" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)';
 
 export function runnerConfigPath(gameDir) {
   return path.join(gameDir, "runner.json");
@@ -147,7 +147,7 @@ export function defaultRunnerConfig({ title, obstacleSpeed = 550, scorePrefix = 
   return {
     version: 1,
     title,
-    startPrompt: "Tap or Space to run",
+    startPrompt: "Tap to run · U mutes audio",
     scorePrefix,
     obstacleSpeed,
     obstacleSpawnDelay: 1.2,

@@ -10,3 +10,8 @@
 | Look | Brick / dusk teal / cartoon zombie hoodie per `PRODUCT.md` |
 
 Re-run: `python tools/generate-wroclaw-v1-art.py`
+
+## Audio
+
+`assets/wroclaw-v1/audio/*.wav` from `tools/generate-wroclaw-v1-audio.py` — procedural PCM, not desert/leaderboard loops.
+

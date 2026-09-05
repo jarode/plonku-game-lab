@@ -170,7 +170,7 @@
         "userAdded": false
       },
       {
-        "file": "../../templates/runner-v1/assets/Sounds/jump.mp3",
+        "file": "assets/wroclaw-v1/audio/jump.wav",
         "kind": "audio",
         "metadata": "",
         "name": "Jump.mp3",
@@ -200,7 +200,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Sounds/DesertMusic.mp3",
+        "file": "assets/wroclaw-v1/audio/dusk_loop.wav",
         "kind": "audio",
         "metadata": "",
         "name": "DesertMusic.mp3",
@@ -210,7 +210,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Sounds/LeaderboardMusic.mp3",
+        "file": "assets/wroclaw-v1/audio/silence.wav",
         "kind": "audio",
         "metadata": "",
         "name": "LeaderboardMusic.mp3",
@@ -747,7 +747,7 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Sounds/death.mp3",
+        "file": "assets/wroclaw-v1/audio/death.wav",
         "kind": "audio",
         "metadata": "",
         "name": "Death.mp3",
@@ -2033,7 +2033,7 @@
                 "",
                 "LeaderboardMusic.mp3",
                 "yes",
-                "30",
+                "0",
                 ""
               ]
             }
@@ -2460,7 +2460,7 @@
         {
           "name": "HudTitle",
           "type": "string",
-          "value": "Zombie Runner — Wrocław\nTap or Space to run"
+          "value": "Zombie Runner — Wrocław\nTap to run · U mutes audio"
         },
         {
           "name": "ScorePrefix",
@@ -2492,8 +2492,8 @@
           "name": "ScoreText",
           "persistentUuid": "b4cdf63a-8d7e-4bd0-83ee-8dfd60fd49dd",
           "width": 0,
-          "x": 20,
-          "y": 52,
+          "x": 16,
+          "y": 72,
           "zOrder": 14,
           "numberProperties": [],
           "stringProperties": [],
@@ -2522,8 +2522,8 @@
           "name": "TutorialSprite",
           "persistentUuid": "20ccb8d2-a0f4-4d6b-a908-74bb4a0149fe",
           "width": 0,
-          "x": 24,
-          "y": 160,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 27,
           "numberProperties": [],
           "stringProperties": [],
@@ -2538,7 +2538,7 @@
           "persistentUuid": "e5f23674-5d6a-451c-b857-44c5a0f9ff51",
           "width": 170,
           "x": 350,
-          "y": 760,
+          "y": 710,
           "zOrder": 29,
           "numberProperties": [],
           "stringProperties": [],
@@ -2567,8 +2567,8 @@
           "name": "TutorialTouchscreenJump",
           "persistentUuid": "f007fe19-0b98-419e-a9d4-3911b45fbbcb",
           "width": 0,
-          "x": 40,
-          "y": 200,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 31,
           "numberProperties": [],
           "stringProperties": [],
@@ -2582,8 +2582,8 @@
           "name": "TutorialTouchscreenDuck",
           "persistentUuid": "b5dec053-e367-4c4c-a9c9-4b98ee19087a",
           "width": 0,
-          "x": -2000,
-          "y": -2000,
+          "x": -4000,
+          "y": -4000,
           "zOrder": 32,
           "numberProperties": [],
           "stringProperties": [],
@@ -2803,21 +2803,21 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Press any key to start running.",
+          "string": "Zombie Runner — Wroclaw",
           "font": "Nathaniel-19.otf",
           "textAlignment": "",
-          "characterSize": 28,
+          "characterSize": 32,
           "color": {
-            "b": 42,
-            "g": 87,
-            "r": 139
+            "r": 184,
+            "g": 74,
+            "b": 58
           },
           "content": {
             "bold": false,
-            "isOutlineEnabled": false,
+            "isOutlineEnabled": true,
             "isShadowEnabled": false,
             "italic": false,
-            "outlineColor": "255;255;255",
+            "outlineColor": "26;21;16",
             "outlineThickness": 2,
             "shadowAngle": 90,
             "shadowBlurRadius": 2,
@@ -2826,13 +2826,13 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "Press any key to start running.",
+            "text": "Zombie Runner — Wroclaw",
             "font": "Nathaniel-19.otf",
             "textAlignment": "",
             "verticalTextAlignment": "top",
-            "characterSize": 28,
+            "characterSize": 32,
             "lineHeight": 0,
-            "color": "139;87;42"
+            "color": "184;74;58"
           }
         },
         {
@@ -5683,6 +5683,21 @@
                 "    if (hud.length) hud[0].hide(true);\r",
                 "  }\r",
                 "\r",
+                "  try {\r",
+                "    if (typeof window !== \"undefined\") {\r",
+                "      if (window.__zrMuted === undefined) {\r",
+                "        window.__zrMuted = localStorage.getItem(\"zr-muted\") === \"1\";\r",
+                "      }\r",
+                "      if (zrJustPressed(runtimeScene, \"U\")) {\r",
+                "        window.__zrMuted = !window.__zrMuted;\r",
+                "        localStorage.setItem(\"zr-muted\", window.__zrMuted ? \"1\" : \"0\");\r",
+                "      }\r",
+                "      if (gdjs.evtTools.sound && typeof gdjs.evtTools.sound.setGlobalVolume === \"function\") {\r",
+                "        gdjs.evtTools.sound.setGlobalVolume(runtimeScene, window.__zrMuted ? 0 : 100);\r",
+                "      }\r",
+                "    }\r",
+                "  } catch (eMute) {}\r",
+                "\r",
                 "  const status = sceneVars.get(\"GameStatus\").getAsString();\r",
                 "  if (status === \"Dead\") {\r",
                 "    const retry =\r",
@@ -7324,7 +7339,7 @@
                         "ScoreText",
                         "Text",
                         "=",
-                        "\"GAME OVER - tap or Space\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
+                        "\"GAME OVER\" + NewLine() + \"Tap to retry\" + NewLine() + VariableString(ScorePrefix) + GlobalVariableString(Score)"
                       ]
                     }
                   ],
@@ -7671,7 +7686,7 @@
                 "",
                 "LeaderboardMusic.mp3",
                 "yes",
-                "70",
+                "0",
                 ""
               ]
             },
