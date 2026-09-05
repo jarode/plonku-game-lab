@@ -197,12 +197,12 @@ if (wanted.has("start")) {
   defs.push({
     res: ["assets/wroclaw-v1/ui/cta_start.png", "plonku-ui-cta-start.png"],
     obj: spriteObject("StartCta", "plonku-ui-cta-start.png"),
-    inst: instance("StartCta", { x: 40, y: 640, w: 460, h: 88, z: 42 }),
+    inst: instance("StartCta", { x: 40, y: 628, w: 460, h: 88, z: 42 }),
   });
   defs.push({
     res: ["assets/wroclaw-v1/ui/cta_city.png", "plonku-ui-cta-city.png"],
     obj: spriteObject("CityCta", "plonku-ui-cta-city.png"),
-    inst: instance("CityCta", { x: 40, y: 744, w: 460, h: 76, z: 42 }),
+    inst: instance("CityCta", { x: 40, y: 736, w: 460, h: 80, z: 42 }),
   });
 }
 if (wanted.has("hud")) {
@@ -226,7 +226,7 @@ if (wanted.has("city")) {
   defs.push({
     res: ["assets/wroclaw-v1/ui/city_soon.png", "plonku-ui-city-soon.png"],
     obj: spriteObject("CitySoon", "plonku-ui-city-soon.png"),
-    inst: instance("CitySoon", { x: 40, y: 372, w: 460, h: 72, z: 72 }),
+    inst: instance("CitySoon", { x: 40, y: 376, w: 460, h: 80, z: 72 }),
   });
   setSceneVarPicker();
 }

@@ -228,10 +228,10 @@ def pack_ui() -> None:
         return im
 
     cta(460, 88, LIME, PINK, "ROZPOCZNIJ GRĘ   →").save(UI / "cta_start.png")
-    city_btn = Image.new("RGBA", (460, 76), (0, 0, 0, 0))
+    city_btn = Image.new("RGBA", (460, 80), (0, 0, 0, 0))
     d = ImageDraw.Draw(city_btn)
-    d.rectangle([0, 0, 459, 75], outline=CYAN, width=3, fill=(26, 29, 35, 220))
-    d.text((22, 22), "WYBIERZ MIASTO", font=font(22), fill=OFF)
+    d.rectangle([0, 0, 459, 79], outline=CYAN, width=3, fill=(26, 29, 35, 220))
+    d.text((22, 24), "WYBIERZ MIASTO", font=font(22), fill=OFF)
     city_btn.save(UI / "cta_city.png")
 
     hud = Image.new("RGBA", (516, 96), (0, 0, 0, 0))
@@ -265,10 +265,10 @@ def pack_ui() -> None:
     d.text((24, 360), "Wkrótce więcej miast", font=font(14), fill=(180, 180, 176, 255))
     panel.save(UI / "city_panel.png")
     cta(460, 80, LIME, PINK, "WROCŁAW   ·  GRAJ").save(UI / "city_play.png")
-    soon = Image.new("RGBA", (460, 72), (0, 0, 0, 0))
+    soon = Image.new("RGBA", (460, 80), (0, 0, 0, 0))
     d = ImageDraw.Draw(soon)
-    d.rectangle([0, 0, 459, 71], outline=(80, 84, 92, 255), width=3, fill=(26, 29, 35, 220))
-    d.text((22, 22), "INNE MIASTA  ·  WKRÓTCE", font=font(18), fill=(160, 160, 156, 255))
+    d.rectangle([0, 0, 459, 79], outline=(80, 84, 92, 255), width=3, fill=(26, 29, 35, 220))
+    d.text((22, 26), "INNE MIASTA  ·  WKRÓTCE", font=font(18), fill=(160, 160, 156, 255))
     soon.save(UI / "city_soon.png")
 
     (SVG / "README.md").write_text(

@@ -119,7 +119,7 @@ function zrSyncPlonkuUi(scene) {
   if (play && pick) zrSetPicker(scene, false);
   zrHide(scene, "UiStart", !start);
   zrHide(scene, "StartCta", !(start && !pick));
-  zrHide(scene, "CityCta", !(start || dead));
+  zrHide(scene, "CityCta", !((start || dead) && !pick));
   zrHide(scene, "UiHud", !play);
   zrHide(scene, "UiGo", !dead || pick);
   zrHide(scene, "GoRetry", !dead || pick);
