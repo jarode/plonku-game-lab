@@ -34,4 +34,8 @@ PASS only if a tester can launch directly into each difficulty group, alter spee
 
 ## Result
 
-Create `006_dev_test_mode-RESULT.md` with controls implemented, usage instructions, validations, limitations, and commit SHA. Stop after push.
+Create `006_dev_test_mode-RESULT.md` with controls implemented, usage instructions, validations, limitations, and commit SHA.
+
+## Chain behavior
+
+When executed under `GOAL-001_zombie_runner_mvp.md`, push implementation + RESULT, then inspect the RESULT status. Continue to task 007 only when status is exactly `PASS`. For any other status, STOP and do not start task 007.
