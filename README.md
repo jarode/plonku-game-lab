@@ -17,6 +17,14 @@ Build **Zombie Runner — Wrocław** in GDevelop, then extract a reusable runner
 
 See `.ai/WORKFLOW.md` for the full contract.
 
+## Reusable production playbook
+
+The validated end-to-end workflow from idea -> engine -> graphics -> gameplay -> regression -> mobile -> handoff -> Plonku integration is documented in:
+
+`docs/GAME-PRODUCTION-PLAYBOOK.md`
+
+Use this as the default starting point for the next Plonku game experiment instead of rediscovering the Zombie workflow.
+
 ## Repository layout
 
 ```text
