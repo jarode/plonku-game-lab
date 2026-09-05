@@ -18,7 +18,11 @@ Short. Tag-like. City as character. Retry is invitation, not an error. No gore j
 | Score meaning | Integer **seconds** survived this run. Arcade clock, not live open data. |
 | Game over title | KONIEC GRY |
 | Game over retry | Spróbuj jeszcze |
+| City picker open | WYBIERZ MIASTO |
+| City playable | WROCŁAW · GRAJ |
+| City placeholder | INNE MIASTA · WKRÓTCE |
 | Mute (desktop) | U wycisza |
+| Music | Cybernyczny Zmrok (loop, one instance) |
 
 ## For screens 028–030 (do not invent alternatives)
 

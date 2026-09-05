@@ -137,6 +137,16 @@ function zrSyncPlonkuUi(scene) {
   }
 }
 
+function zrEnsureRunMusic(scene) {
+  if (scene._zrMusic === "run") return;
+  try {
+    const snd = gdjs.evtTools.sound;
+    if (!snd || typeof snd.playMusicOnChannel !== "function") return;
+    snd.playMusicOnChannel(scene, "DesertMusic.mp3", 1, true, 50, 1);
+    scene._zrMusic = "run";
+  } catch (eMus) {}
+}
+
 (function runChunkAndDev(runtimeScene) {
   const sceneVars = runtimeScene.getScene().getVariables();
   const gameVars = runtimeScene.getGame().getVariables();
@@ -239,6 +249,7 @@ function zrSyncPlonkuUi(scene) {
   zrSyncPlonkuUi(runtimeScene);
 
   const status = sceneVars.get("GameStatus").getAsString();
+  if (status === "Playing") zrEnsureRunMusic(runtimeScene);
   const click = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
   const im = runtimeScene.getGame().getInputManager();
   const cx = im.getCursorX();
@@ -253,26 +264,19 @@ function zrSyncPlonkuUi(scene) {
     if (click && zrHit(runtimeScene, "CityPlay", cx, cy)) {
       zrSetPicker(runtimeScene, false);
       zrSyncPlonkuUi(runtimeScene);
-      return;
     }
-    if (click && (zrHit(runtimeScene, "CitySoon", cx, cy) || zrHit(runtimeScene, "CityPanel", cx, cy))) {
-      return;
-    }
+    return;
   }
 
   if (status === "Dead") {
-    let cityHit = false;
-    if (click) {
-      cityHit =
-        zrHit(runtimeScene, "CityCta", cx, cy) ||
-        zrHit(runtimeScene, "CityPlay", cx, cy) ||
-        zrHit(runtimeScene, "CitySoon", cx, cy) ||
-        zrHit(runtimeScene, "CityPanel", cx, cy);
-    }
     const retry =
       zrJustPressed(runtimeScene, "Space") ||
       zrJustPressed(runtimeScene, "R") ||
-      (click && !cityHit);
+      (click &&
+        !zrHit(runtimeScene, "CityCta", cx, cy) &&
+        !zrHit(runtimeScene, "CityPlay", cx, cy) &&
+        !zrHit(runtimeScene, "CitySoon", cx, cy) &&
+        !zrHit(runtimeScene, "CityPanel", cx, cy));
     if (retry) {
       zrSoftReset(runtimeScene);
       return;

@@ -16,6 +16,9 @@
   "icon": "assets/wroclaw-v1/logo.png",
   "thumbnail": "assets/wroclaw-v1/bg_far.png",
   "muteHint": "Desktop: U toggles mute (localStorage zr-muted). Phone: system volume.",
+  "musicLoop": "assets/wroclaw-v1/audio/cybernyczny-zmrok.mp3",
+  "musicResourceName": "DesertMusic.mp3",
+  "cityPicker": "Wrocław playable only; other cities placeholder",
   "devModeQuery": "dev=1",
   "notes": "Serve the packaged folder as the HTTP document root for this game (or a subpath that contains index.html plus its relative siblings). Do not strip directory structure. No Plonku-site deploy in this repo."
 }

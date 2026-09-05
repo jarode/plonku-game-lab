@@ -47,10 +47,11 @@ City references are **silhouette + palette + wordmark**, not a tourist checklist
 
 ## Scoring / fail / retry
 
-1. Preparing → tap/Space → Playing (world auto-scrolls).
-2. Score counts up while Playing.
-3. Collision → Dead, big **GAME OVER**, score still readable, **Tap to retry**.
-4. Retry = in-place `zrSoftReset` (no reload). Same as factory.
+1. Preparing → **ROZPOCZNIJ GRĘ** or Space → Playing (world auto-scrolls). A tap on `WYBIERZ MIASTO` must **not** start the run.
+2. **WYBIERZ MIASTO** opens a picker: `WROCŁAW · GRAJ` closes it (Wrocław is the only playable city). `INNE MIASTA · WKRÓTCE` is a no-op. Same flow from game over.
+3. Score counts up while Playing (integer seconds).
+4. Collision → Dead, `KONIEC GRY`, score still readable, **SPRÓBUJ JESZCZE**.
+5. Retry = in-place `zrSoftReset` (no reload). Clicks on city chrome do not retry.
 
 No accounts, ads, or leaderboards in MVP.
 
@@ -72,9 +73,9 @@ Bold **cut-out sprites**, 3–5 flat colors, 4–8 px outline, side view. Prefer
 
 Integrate **only** via `skins/wroclaw-v1` slot ids. Client files live under `games/zombie-runner/assets/wroclaw-v1/` (game-local overrides; do not dump product art into the shared factory pack).
 
-## Audio direction (task 022)
+## Audio direction (task 022 + post-006)
 
-Replace desert/leaderboard loops. MVP: **original or clearly permissive** jump + death SFX and a short non-desert loop, **plus a mute control**. If a loop cannot be cleared for rights, ship SFX-only and document silence for music. No licensed pop songs.
+Gameplay loop is original Suno track **Cybernyczny Zmrok**, file `assets/wroclaw-v1/audio/cybernyczny-zmrok.mp3`. GDevelop resource name remains `DesertMusic.mp3`. Runtime plays it **once per session on music channel 1** (retries must not stack loops). Jump/death SFX stay factory files. Desktop mute: **U** (`localStorage zr-muted`). Unused Intro/Leaderboard layouts may still reference `LeaderboardMusic.mp3`; they are not `firstLayout`. No licensed pop songs.
 
 ## Mobile-first (task 023)
 
@@ -97,7 +98,7 @@ A stranger must see **zombie + brick city at night**, not “dino in a desert wi
 | Player frames | `Dino_Idle/Run/Jump/Dead` from shared pack |
 | Hazards | Cactus, duck island, skeleton |
 | World | Desert background, desert 9-patch / sand tiles |
-| Audio | `DesertMusic.mp3`, `LeaderboardMusic.mp3` |
+| Audio | Shipped loop: `cybernyczny-zmrok.mp3` on channel 1. Unused layouts may still name `LeaderboardMusic.mp3`. |
 | Skin | `wroclaw-v1` empty slots → restores dino baseline |
 | Scenes | `Intro` + `Leaderboard` still in JSON (`firstLayout` is already `Game`) |
 | Copy | README/GAMEPLAY still say “placeholder / Run, Dino run” |

@@ -200,11 +200,11 @@
         "userAdded": true
       },
       {
-        "file": "../../templates/runner-v1/assets/Sounds/DesertMusic.mp3",
+        "file": "assets/wroclaw-v1/audio/cybernyczny-zmrok.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "DesertMusic.mp3",
-        "preloadAsMusic": false,
+        "preloadAsMusic": true,
         "preloadAsSound": false,
         "preloadInCache": false,
         "userAdded": true
@@ -2095,18 +2095,6 @@
               "parameters": [
                 "ScoreText",
                 "\"center\""
-              ]
-            },
-            {
-              "type": {
-                "value": "PlayMusic"
-              },
-              "parameters": [
-                "",
-                "LeaderboardMusic.mp3",
-                "yes",
-                "0",
-                ""
               ]
             }
           ]
@@ -6339,6 +6327,16 @@
                 "  }\r",
                 "}\r",
                 "\r",
+                "function zrEnsureRunMusic(scene) {\r",
+                "  if (scene._zrMusic === \"run\") return;\r",
+                "  try {\r",
+                "    const snd = gdjs.evtTools.sound;\r",
+                "    if (!snd || typeof snd.playMusicOnChannel !== \"function\") return;\r",
+                "    snd.playMusicOnChannel(scene, \"DesertMusic.mp3\", 1, true, 50, 1);\r",
+                "    scene._zrMusic = \"run\";\r",
+                "  } catch (eMus) {}\r",
+                "}\r",
+                "\r",
                 "(function runChunkAndDev(runtimeScene) {\r",
                 "  const sceneVars = runtimeScene.getScene().getVariables();\r",
                 "  const gameVars = runtimeScene.getGame().getVariables();\r",
@@ -6441,6 +6439,7 @@
                 "  zrSyncPlonkuUi(runtimeScene);\r",
                 "\r",
                 "  const status = sceneVars.get(\"GameStatus\").getAsString();\r",
+                "  if (status === \"Playing\") zrEnsureRunMusic(runtimeScene);\r",
                 "  const click = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, \"Left\");\r",
                 "  const im = runtimeScene.getGame().getInputManager();\r",
                 "  const cx = im.getCursorX();\r",
@@ -6455,26 +6454,19 @@
                 "    if (click && zrHit(runtimeScene, \"CityPlay\", cx, cy)) {\r",
                 "      zrSetPicker(runtimeScene, false);\r",
                 "      zrSyncPlonkuUi(runtimeScene);\r",
-                "      return;\r",
                 "    }\r",
-                "    if (click && (zrHit(runtimeScene, \"CitySoon\", cx, cy) || zrHit(runtimeScene, \"CityPanel\", cx, cy))) {\r",
-                "      return;\r",
-                "    }\r",
+                "    return;\r",
                 "  }\r",
                 "\r",
                 "  if (status === \"Dead\") {\r",
-                "    let cityHit = false;\r",
-                "    if (click) {\r",
-                "      cityHit =\r",
-                "        zrHit(runtimeScene, \"CityCta\", cx, cy) ||\r",
-                "        zrHit(runtimeScene, \"CityPlay\", cx, cy) ||\r",
-                "        zrHit(runtimeScene, \"CitySoon\", cx, cy) ||\r",
-                "        zrHit(runtimeScene, \"CityPanel\", cx, cy);\r",
-                "    }\r",
                 "    const retry =\r",
                 "      zrJustPressed(runtimeScene, \"Space\") ||\r",
                 "      zrJustPressed(runtimeScene, \"R\") ||\r",
-                "      (click && !cityHit);\r",
+                "      (click &&\r",
+                "        !zrHit(runtimeScene, \"CityCta\", cx, cy) &&\r",
+                "        !zrHit(runtimeScene, \"CityPlay\", cx, cy) &&\r",
+                "        !zrHit(runtimeScene, \"CitySoon\", cx, cy) &&\r",
+                "        !zrHit(runtimeScene, \"CityPanel\", cx, cy));\r",
                 "    if (retry) {\r",
                 "      zrSoftReset(runtimeScene);\r",
                 "      return;\r",
@@ -6599,6 +6591,16 @@
                       "conditions": [
                         {
                           "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "CityPicker",
+                            "=",
+                            "0"
+                          ]
+                        },
+                        {
+                          "type": {
                             "value": "BuiltinCommonInstructions::Or"
                           },
                           "parameters": [],
@@ -6613,11 +6615,30 @@
                             },
                             {
                               "type": {
-                                "value": "MouseButtonFromTextPressed"
+                                "value": "BuiltinCommonInstructions::And"
                               },
-                              "parameters": [
-                                "StartCta",
-                                "\"Left\""
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "value": "IsCursorOnObject"
+                                  },
+                                  "parameters": [
+                                    "StartCta",
+                                    "",
+                                    "",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "MouseButtonFromTextPressed"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "\"Left\""
+                                  ]
+                                }
                               ]
                             }
                           ]
@@ -6676,18 +6697,6 @@
                                 "Dino",
                                 "PlatformerObject",
                                 "yes"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "PlayMusic"
-                              },
-                              "parameters": [
-                                "",
-                                "DesertMusic.mp3",
-                                "yes",
-                                "50",
-                                ""
                               ]
                             }
                           ]

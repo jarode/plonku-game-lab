@@ -10,3 +10,12 @@
 Do **not** re-run `generate-wroclaw-v1-art.py`.
 
 Minimum drop: `bg.png`, `ground.png`, `runner-{run,idle,jump,dead}-01.png`, `barricade.png`, `pigeon.png`, `tram.png`, `jump-button.png`.
+
+## Audio
+
+| File | Source |
+| --- | --- |
+| `audio/cybernyczny-zmrok.mp3` | Operator Suno original (“Cybernyczny Zmrok”), gameplay loop |
+| `audio/*.wav` | Lab-generated SFX / silence leftovers |
+
+GDevelop still addresses the loop as resource `DesertMusic.mp3`.

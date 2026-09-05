@@ -54,8 +54,15 @@ GDevelop HTML5 uses **relative** `src`/`href` (no leading `/`). Host the **entir
 ## Runtime dependencies
 
 - **None** beyond a static file server. No GDevelop cloud APIs required for play.
-- Audio is local `.wav` / leftover named `.mp3` resources pointing at those files.
+- Gameplay music: export copies `cybernyczny-zmrok.mp3` (project resource name `DesertMusic.mp3`). One loop per session; do not start a second Howler instance on retry.
+- Desktop mute: `U` → `localStorage zr-muted`. Phone: system volume.
 - Optional `?dev=1` is **not** for production embeds.
+
+## Player flow (embed QA)
+
+- Start: `ROZPOCZNIJ GRĘ` or Space. `WYBIERZ MIASTO` opens picker; `WROCŁAW · GRAJ` returns to start/GO without starting a run.
+- Jump: Space / tap / jump button while Playing.
+- Dead: Space, R, or tap except city chrome → in-place retry.
 
 ## Branding files (in this repo, not the HTML5 folder until export copies used resources)
 

@@ -281,14 +281,40 @@ function findGroup(events, name) {
 if (wanted.has("start")) {
   const preparing = findGroup(game.events, "Preparing to start");
   walkEvents(preparing ? [preparing] : [], (event) => {
-    walkConds(event.conditions, (c) => {
-      if (
-        c.type?.value === "MouseButtonFromTextPressed" &&
-        (c.parameters?.[0] === "Dino" || c.parameters?.[0] === "StartCta")
-      ) {
-        c.parameters[0] = "StartCta";
-      }
-    });
+    const or = (event.conditions || []).find((c) => c.type?.value === "BuiltinCommonInstructions::Or");
+    if (!or?.subInstructions) return;
+    const hasAnyKey = or.subInstructions.some((c) => c.type?.value === "AnyKeyReleased");
+    const hasMouse = or.subInstructions.some((c) => c.type?.value === "MouseButtonFromTextPressed");
+    if (!hasAnyKey || !hasMouse) return;
+    const hasPicker = (event.conditions || []).some(
+      (c) => c.type?.value === "NumberVariable" && c.parameters?.[0] === "CityPicker"
+    );
+    if (!hasPicker) {
+      event.conditions.unshift({
+        type: { value: "NumberVariable" },
+        parameters: ["CityPicker", "=", "0"],
+      });
+    }
+    or.subInstructions = [
+      {
+        type: { value: "AnyKeyReleased" },
+        parameters: [""],
+      },
+      {
+        type: { value: "BuiltinCommonInstructions::And" },
+        parameters: [],
+        subInstructions: [
+          {
+            type: { value: "IsCursorOnObject" },
+            parameters: ["StartCta", "", "", ""],
+          },
+          {
+            type: { value: "MouseButtonFromTextPressed" },
+            parameters: ["", "\"Left\""],
+          },
+        ],
+      },
+    ];
   });
 }
 

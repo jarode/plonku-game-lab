@@ -9,7 +9,7 @@
   "Jump.mp3": "../../templates/runner-v1/assets/Sounds/jump.mp3",
   "Skid.mp3": "../../templates/runner-v1/assets/Sounds/skid.mp3",
   "Bonus.mp3": "../../templates/runner-v1/assets/Sounds/bonus.mp3",
-  "DesertMusic.mp3": "../../templates/runner-v1/assets/Sounds/DesertMusic.mp3",
+  "DesertMusic.mp3": "assets/wroclaw-v1/audio/cybernyczny-zmrok.mp3",
   "LeaderboardMusic.mp3": "../../templates/runner-v1/assets/Sounds/LeaderboardMusic.mp3",
   "assets/Sign-1.png": "../../templates/runner-v1/assets/Scenery/Sign-1.png",
   "assets/SignArrow.png": "../../templates/runner-v1/assets/Scenery/SignArrow.png",

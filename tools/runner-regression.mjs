@@ -198,10 +198,15 @@ function snapshotExpr() {
     let hudText = "";
     if (hud.length && typeof hud[0].getString === "function") hudText = hud[0].getString();
     const hidden = hud.length ? hud[0].isHidden() : true;
+    let cityPicker = 0;
+    try {
+      cityPicker = sv.get("CityPicker").getAsNumber();
+    } catch (e) {}
     return {
       ready: true,
       scene: scene.getName(),
       status: sv.get("GameStatus").getAsString(),
+      cityPicker,
       score: game.getVariables().get("Score").getAsNumber(),
       invincible: sv.get("Invincible").getAsNumber(),
       devMode: sv.get("DevMode").getAsNumber(),
@@ -225,6 +230,22 @@ async function waitSnapshot(cdp, pred, timeoutMs, label) {
     await new Promise((r) => setTimeout(r, 50));
   }
   throw new Error(`${label}: timed out last=${JSON.stringify(last)}`);
+}
+
+async function tapGame(cdp, x, y) {
+  await cdp.evaluate(`(() => {
+    const im = window.__zrGame.getInputManager();
+    im.onMouseMove(${Number(x)}, ${Number(y)});
+    im.onMouseButtonPressed(0);
+    return true;
+  })()`);
+  await new Promise((r) => setTimeout(r, 80));
+  await cdp.evaluate(`(() => {
+    const im = window.__zrGame.getInputManager();
+    im.onMouseButtonReleased(0);
+    return true;
+  })()`);
+  await new Promise((r) => setTimeout(r, 80));
 }
 
 async function tapSpace(cdp) {
@@ -362,6 +383,23 @@ async function main() {
     if (/DEV I=inv/.test(preparing.devHudText || "")) fail("DevHud exposes invincibility in normal mode");
     if (/[?&#]dev=1\b/.test(preparing.href)) fail("URL exposes ?dev=1");
     if (preparing.height < preparing.width) fail("viewport is not portrait-like");
+
+    await tapGame(cdp, 270, 770);
+    const afterCityOpen = await waitSnapshot(
+      cdp,
+      (s) => s.status === "Preparing" && s.cityPicker === 1,
+      4000,
+      "CityCta opens picker"
+    );
+    if (afterCityOpen.status !== "Preparing") fail("CityCta started the run");
+    await tapGame(cdp, 270, 320);
+    const afterCityPlay = await waitSnapshot(
+      cdp,
+      (s) => s.status === "Preparing" && s.cityPicker === 0,
+      4000,
+      "CityPlay closes picker"
+    );
+    if (afterCityPlay.status !== "Preparing") fail("CityPlay started the run");
 
     await tapSpace(cdp);
     await waitSnapshot(cdp, (s) => s.status === "Playing", 5000, "Preparing -> Playing");
