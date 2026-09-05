@@ -1,0 +1,39 @@
+# GDevelop editor
+*.autosave
+*.autosave.json
+.gdevelop/
+
+# Generated web/native exports (task 003 defines the reproducible export path)
+games/**/export/
+games/**/exports/
+games/**/html5-export/
+dist/
+build/
+out/
+
+# Caches and temp
+.cache/
+.tmp/
+tmp/
+temp/
+*.log
+*.tmp
+
+# Local-only tooling (downloaded editor, CLI binaries, caches)
+tools/local/
+tools/.cache/
+
+# Node / JS helpers if added later
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*~

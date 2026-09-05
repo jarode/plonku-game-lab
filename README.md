@@ -17,6 +17,18 @@ Build **Zombie Runner — Wrocław** in GDevelop, then extract a reusable runner
 
 See `.ai/WORKFLOW.md` for the full contract.
 
+## Repository layout
+
+```text
+games/zombie-runner/   canonical GDevelop project (see games/zombie-runner/README.md)
+tools/                 shared scripts; machine-local binaries stay in tools/local/
+docs/decisions/        architecture decision records
+docs/codex-manual-tasks/  numbered tasks and -RESULT.md files
+```
+
+Canonical project file: `games/zombie-runner/zombie-runner.json` (created in task 002).
+Preview/export workflow: `docs/decisions/001-gdevelop-project-file-convention.md`.
+
 ## Initial task chain
 
 1. `001` — GDevelop toolchain preflight
