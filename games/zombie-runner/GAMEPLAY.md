@@ -21,7 +21,7 @@ Gameplay objects (not tied to final Wrocław art):
 | `IslandObstacle` | Overhead obstacle | Stay low (do not jump) |
 | `WreckObstacle` | Wide ground wreck (skeleton placeholder) | Jump earlier / further |
 
-Spawns pick `ObstacleType` 0–3 (0 cactus, 1 island, 2 cactus pack, 3 wreck).
+Spawns come from `chunks.json` (nine EASY/MEDIUM/HARD chunks). See `CHUNK-CONTRACT.md`.
 
 ## Controls
 

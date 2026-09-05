@@ -26,3 +26,14 @@ Optional env:
 Output directory (gitignored): `games/zombie-runner/build/`
 
 The script prints `WEB_EXPORT: PASS` or `WEB_EXPORT: FAIL` and exits 0 or 1.
+
+## Chunk catalog (task 005)
+
+Edit `games/zombie-runner/chunks.json`, then:
+
+```text
+node tools/sync-chunk-catalog.mjs
+```
+
+See `games/zombie-runner/CHUNK-CONTRACT.md`. Do not edit jump/collision events to add a chunk.
+

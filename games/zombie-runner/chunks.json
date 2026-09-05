@@ -1,0 +1,81 @@
+{
+  "safeEntry": 200,
+  "safeExit": 200,
+  "chunks": [
+    {
+      "id": "easy-cactus",
+      "group": "EASY",
+      "width": 720,
+      "hazards": [{ "object": "CactusObstacle", "x": 320 }]
+    },
+    {
+      "id": "easy-island",
+      "group": "EASY",
+      "width": 720,
+      "hazards": [{ "object": "IslandObstacle", "x": 340 }]
+    },
+    {
+      "id": "easy-wreck",
+      "group": "EASY",
+      "width": 760,
+      "hazards": [{ "object": "WreckObstacle", "x": 300 }]
+    },
+    {
+      "id": "med-cactus-island",
+      "group": "MEDIUM",
+      "width": 880,
+      "hazards": [
+        { "object": "CactusObstacle", "x": 280 },
+        { "object": "IslandObstacle", "x": 560 }
+      ]
+    },
+    {
+      "id": "med-double-cactus",
+      "group": "MEDIUM",
+      "width": 860,
+      "hazards": [
+        { "object": "CactusObstacle", "x": 260 },
+        { "object": "CactusObstacle", "x": 460 }
+      ]
+    },
+    {
+      "id": "med-wreck-island",
+      "group": "MEDIUM",
+      "width": 900,
+      "hazards": [
+        { "object": "WreckObstacle", "x": 260 },
+        { "object": "IslandObstacle", "x": 580 }
+      ]
+    },
+    {
+      "id": "hard-gauntlet",
+      "group": "HARD",
+      "width": 1040,
+      "hazards": [
+        { "object": "IslandObstacle", "x": 240 },
+        { "object": "CactusObstacle", "x": 520 },
+        { "object": "WreckObstacle", "x": 760 }
+      ]
+    },
+    {
+      "id": "hard-wreck-cactus",
+      "group": "HARD",
+      "width": 960,
+      "hazards": [
+        { "object": "WreckObstacle", "x": 240 },
+        { "object": "CactusObstacle", "x": 520 },
+        { "object": "CactusObstacle", "x": 680 }
+      ]
+    },
+    {
+      "id": "hard-island-pack",
+      "group": "HARD",
+      "width": 1000,
+      "hazards": [
+        { "object": "CactusObstacle", "x": 240 },
+        { "object": "IslandObstacle", "x": 480 },
+        { "object": "WreckObstacle", "x": 760 }
+      ]
+    }
+  ]
+}
