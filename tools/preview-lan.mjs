@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Serve games/zombie-runner/build on all interfaces for phone testing.
- * Usage: node tools/preview-lan.mjs
+ * Serve a game HTML5 export on all interfaces for phone testing.
+ * Usage: node tools/preview-lan.mjs [--game games/zombie-runner]
  * Then open http://<this-pc-lan-ip>:8765/ from a phone on the same Wi-Fi.
  * Dev mode: http://<ip>:8765/?dev=1
  */
@@ -11,8 +11,11 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { parseLabArgs, resolveGameDir } from "./game-dir.mjs";
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const dir = path.join(root, "games", "zombie-runner", "build");
+const { gameRel } = parseLabArgs(process.argv.slice(2));
+const dir = path.join(resolveGameDir(root, gameRel), "build");
 const port = Number(process.env.PREVIEW_PORT || 8765);
 
 if (!fs.existsSync(path.join(dir, "index.html"))) {

@@ -20,13 +20,15 @@ See `.ai/WORKFLOW.md` for the full contract.
 ## Repository layout
 
 ```text
-games/zombie-runner/   canonical GDevelop project (see games/zombie-runner/README.md)
+games/zombie-runner/   golden Zombie Runner client (Wrocław)
+templates/runner-v1/   reusable runner seed (task 010)
 tools/                 shared scripts; machine-local binaries stay in tools/local/
 docs/decisions/        architecture decision records
 docs/codex-manual-tasks/  numbered tasks and -RESULT.md files
 ```
 
-Canonical project file: `games/zombie-runner/zombie-runner.json` (created in task 002).
+Canonical Zombie project file: `games/zombie-runner/zombie-runner.json` (created in task 002).
+New runners: `node tools/instantiate-runner.mjs <slug>` from `templates/runner-v1/` (see that folder's README).
 Preview/export workflow: `docs/decisions/001-gdevelop-project-file-convention.md`.
 
 ## Initial task chain

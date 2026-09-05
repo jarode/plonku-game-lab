@@ -5,12 +5,13 @@
  * Usage (from repo root):
  *   node tools/gdevelop-web-export.mjs
  *   node tools/gdevelop-web-export.mjs --smoke-only
+ *   node tools/gdevelop-web-export.mjs --game templates/runner-v1
  *
  * Env:
  *   GDEVELOP_HOME  Directory that contains GDevelop.exe (default: F:\\gry\\GDevelop-5)
  *   GDEVELOP_EXE   Full path to GDevelop.exe (overrides GDEVELOP_HOME)
  *
- * Output: games/zombie-runner/build/  (gitignored; GDevelop default next to the project)
+ * Output: <gameDir>/build/  (gitignored; GDevelop default next to the project)
  * Exit 0 = WEB_EXPORT: PASS   Exit 1 = WEB_EXPORT: FAIL
  */
 
@@ -18,27 +19,16 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseLabArgs, resolveGameDir, findProjectJson } from "./game-dir.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 
-const DEFAULT_PROJECT = path.join(
-  repoRoot,
-  "games",
-  "zombie-runner",
-  "zombie-runner.json"
-);
-const DEFAULT_EXPORT_DIR = path.join(
-  repoRoot,
-  "games",
-  "zombie-runner",
-  "build"
-);
 const DEFAULT_GDEVELOP_HOME = "F:\\gry\\GDevelop-5";
 const EXPORT_TIMEOUT_MS = 180_000;
 const SUCCESS_MARK = '[CLI] Command "EXPORT_HTML5_EXTERNAL" finished successfully.';
 
-const args = new Set(process.argv.slice(2));
+const { flags: args, gameRel } = parseLabArgs(process.argv.slice(2));
 const smokeOnly = args.has("--smoke-only");
 const noClean = args.has("--no-clean");
 
@@ -181,8 +171,9 @@ function runGdevelopExport(exe, projectPath) {
 }
 
 async function main() {
-  const projectPath = DEFAULT_PROJECT;
-  const exportDir = DEFAULT_EXPORT_DIR;
+  const gameDir = resolveGameDir(repoRoot, gameRel);
+  const projectPath = findProjectJson(gameDir);
+  const exportDir = path.join(gameDir, "build");
 
   if (!fs.existsSync(projectPath)) {
     fail(`Project not found: ${projectPath}`);

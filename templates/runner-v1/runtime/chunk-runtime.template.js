@@ -1,4 +1,4 @@
-// Zombie Runner chunk sequencer (task 005) + dev controls (task 006).
+// Runner v1 chunk sequencer + dev controls.
 const CHUNK_CATALOG = __CHUNK_CATALOG__;
 
 function zrIsDev() {
@@ -14,6 +14,10 @@ function zrIsDev() {
 
 function zrJustPressed(runtimeScene, key) {
   return gdjs.evtTools.input.wasKeyJustPressed(runtimeScene, key);
+}
+
+function zrReplaceGame(runtimeScene) {
+  gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Game", false);
 }
 
 function zrSoftReset(runtimeScene) {
@@ -49,9 +53,7 @@ function zrSoftReset(runtimeScene) {
   }
   const texts = runtimeScene.getObjects("ScoreText");
   if (texts.length && typeof texts[0].setString === "function") {
-    texts[0].setString(
-      "Zombie Runner - Wroclaw" + "\n" + "Tap or Space to run"
-    );
+    texts[0].setString("Tap or Space to run");
   }
 }
 

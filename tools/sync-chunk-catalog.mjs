@@ -1,22 +1,26 @@
 #!/usr/bin/env node
 /**
  * Copy chunks.json into the Game-scene JsCode event.
- * Adding a chunk: edit chunks.json, run this, do not edit jump/collision events.
+ * Usage: node tools/sync-chunk-catalog.mjs [--game games/zombie-runner]
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseLabArgs, resolveGameDir, findProjectJson } from "./game-dir.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const catalogPath = path.join(root, "games", "zombie-runner", "chunks.json");
-const templatePath = path.join(root, "tools", "chunk-runtime.template.js");
-const projectPath = path.join(
+const { gameRel } = parseLabArgs(process.argv.slice(2));
+const gameDir = resolveGameDir(root, gameRel);
+const catalogPath = path.join(gameDir, "chunks.json");
+const templatePath = path.join(
   root,
-  "games",
-  "zombie-runner",
-  "zombie-runner.json"
+  "templates",
+  "runner-v1",
+  "runtime",
+  "chunk-runtime.template.js"
 );
-const MARK = "Zombie Runner chunk sequencer (task 005)";
+const projectPath = findProjectJson(gameDir);
+const MARK = "zrSoftReset";
 
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
 if (!Array.isArray(catalog.chunks) || catalog.chunks.length < 9) {
@@ -24,12 +28,7 @@ if (!Array.isArray(catalog.chunks) || catalog.chunks.length < 9) {
   process.exit(1);
 }
 const template = fs.readFileSync(templatePath, "utf8");
-const code =
-  template.replace("__CHUNK_CATALOG__", JSON.stringify(catalog)) + "\n";
-const lines = code.split("\n").map((line, i, arr) =>
-  i === arr.length - 1 && line === "" ? line : line + (i === arr.length - 1 ? "" : "\r")
-);
-// GDevelop stores JS as array of lines ending with \r except possibly last
+const code = template.replace("__CHUNK_CATALOG__", JSON.stringify(catalog)) + "\n";
 const inlineCode = code.replace(/\r\n/g, "\n").split("\n");
 if (inlineCode[inlineCode.length - 1] === "") inlineCode.pop();
 const gdLines = inlineCode.map((line) => line + "\r");
@@ -92,8 +91,4 @@ function findGroup(events, name) {
 }
 
 fs.writeFileSync(projectPath, JSON.stringify(project, null, 2) + "\n");
-console.log(
-  found
-    ? `Synced ${catalog.chunks.length} chunks into Game JsCode event`
-    : "failed"
-);
+console.log(`Synced ${catalog.chunks.length} chunks into ${path.relative(root, projectPath)}`);

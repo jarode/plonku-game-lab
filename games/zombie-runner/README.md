@@ -23,3 +23,5 @@ Success: `WEB_EXPORT: PASS`. See `tools/README.md`.
 LAN phone preview: `node tools/preview-lan.mjs` (see `MOBILE-PREVIEW.md`).
 
 Do not add a second `.json` project in this folder.
+
+Reusable runner seed for new games: `templates/runner-v1/` (`node tools/instantiate-runner.mjs <slug>`). Do not copy this Wrocław client as a template.
