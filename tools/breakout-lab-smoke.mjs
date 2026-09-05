@@ -14,6 +14,16 @@ import { spawnSync } from "node:child_process";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const skipExport = process.argv.includes("--skip-export");
+const vpIdx = process.argv.indexOf("--viewport");
+let viewW = 1280;
+let viewH = 720;
+if (vpIdx >= 0) {
+  const spec = process.argv[vpIdx + 1] || "";
+  const m = /^(\d+)x(\d+)$/.exec(spec);
+  if (!m) fail("--viewport requires WIDTHxHEIGHT");
+  viewW = Number(m[1]);
+  viewH = Number(m[2]);
+}
 const gameDir = path.join(root, "games", "breakout-lab");
 const buildDir = path.join(gameDir, "build");
 
@@ -201,7 +211,7 @@ async function main() {
       "--disable-gpu",
       "--disable-extensions",
       "--no-first-run",
-      `--window-size=1280,720`,
+      `--window-size=${viewW},${viewH}`,
       "about:blank",
     ],
     { stdio: ["pipe", "pipe", "pipe"] }
@@ -218,6 +228,12 @@ async function main() {
     const cdp = new Cdp(ws);
     await cdp.send("Page.enable");
     await cdp.send("Runtime.enable");
+    await cdp.send("Emulation.setDeviceMetricsOverride", {
+      width: viewW,
+      height: viewH,
+      deviceScaleFactor: 1,
+      mobile: viewH > viewW,
+    });
     await cdp.send("Page.navigate", { url: `http://127.0.0.1:${httpPort}/` });
     const gameEarly = await waitSnap(
       cdp,
@@ -291,25 +307,29 @@ async function main() {
     }
 
     const r1 = await failAndRestart("restart1");
-    await cdp.evaluate(`(() => {
-      window.__boGame.getInputManager().onKeyPressed(32);
-      return true;
-    })()`);
-    await new Promise((r) => setTimeout(r, 80));
-    await cdp.evaluate(`(() => {
-      window.__boGame.getInputManager().onKeyReleased(32);
-      return true;
-    })()`);
-    await waitSnap(cdp, (s) => s.gameState === "GamePlay", 5000, "second Space -> GamePlay");
-    const r2 = await failAndRestart("restart2");
-    if (r1.counts.Ball !== 1 || r2.counts.Ball !== 1) fail("ball count not 1 after restart");
-    if (r1.counts.bricks < 20 || r2.counts.bricks < 20) fail("missing bricks after restart");
-    if (r1.counts.bricks > 120 || r2.counts.bricks > 120) fail("brick count looks accumulated");
+    let lastBricks = r1.counts.bricks;
+    for (let i = 2; i <= 10; i++) {
+      await cdp.evaluate(`(() => {
+        window.__boGame.getInputManager().onKeyPressed(32);
+        return true;
+      })()`);
+      await new Promise((r) => setTimeout(r, 80));
+      await cdp.evaluate(`(() => {
+        window.__boGame.getInputManager().onKeyReleased(32);
+        return true;
+      })()`);
+      await waitSnap(cdp, (s) => s.gameState === "GamePlay", 5000, `cycle ${i} GamePlay`);
+      const rx = await failAndRestart("restart" + i);
+      if (rx.counts.Ball !== 1) fail("ball count not 1 after restart " + i);
+      if (rx.counts.bricks < 20 || rx.counts.bricks > 120) fail("bad brick count " + rx.counts.bricks);
+      lastBricks = rx.counts.bricks;
+    }
 
     console.log("BREAKOUT_SMOKE: PASS");
+    console.log("viewport", `${viewW}x${viewH}`);
     console.log("boot", gameEarly.scene, JSON.stringify(game.counts));
     console.log("play", playing.gameState);
-    console.log("restart1", r1.counts.bricks, "restart2", r2.counts.bricks);
+    console.log("restarts", 10, "lastBricks", lastBricks);
   } finally {
     try {
       ws?.close();

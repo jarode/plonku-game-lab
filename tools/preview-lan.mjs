@@ -30,6 +30,7 @@ const types = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".mp3": "audio/mpeg",
+  ".ogg": "audio/ogg",
   ".wav": "audio/wav",
   ".otf": "font/otf",
   ".woff": "font/woff",
