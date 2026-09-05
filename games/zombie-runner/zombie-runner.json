@@ -2508,7 +2508,7 @@
         {
           "name": "HudTitle",
           "type": "string",
-          "value": "Zombie Survival Score\nPrzetrwaj Wrocław. Dotknij, żeby biec."
+          "value": "Zombie Survival Score\nPrzetrwaj Wrocław. Wynik = sekundy w mieście."
         },
         {
           "name": "ScorePrefix",

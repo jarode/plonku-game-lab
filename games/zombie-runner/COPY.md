@@ -13,8 +13,9 @@ Short. Tag-like. City as character. Retry is invitation, not an error. No gore j
 | Slot | PL |
 | --- | --- |
 | Title | Zombie Survival Score |
-| Start helper | Przetrwaj Wrocław. Dotknij, żeby biec. |
+| Start helper | Przetrwaj Wrocław. Wynik = sekundy w mieście. |
 | Score prefix | WYNIK |
+| Score meaning | Integer **seconds** survived this run. Arcade clock, not live open data. |
 | Game over title | KONIEC GRY |
 | Game over retry | Spróbuj jeszcze |
 | Mute (desktop) | U wycisza |

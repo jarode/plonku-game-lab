@@ -239,7 +239,7 @@ def pack_ui() -> None:
     d.rectangle([0, 8, 300, 88], fill=(26, 29, 35, 210), outline=LIME, width=3)
     d.text((14, 14), "WYNIK", font=font(14), fill=LIME)
     draw_tag(d, (318, 18), "WROCŁAW", PINK, OFF, 16)
-    draw_tag(d, (318, 54), "FAKTY", CYAN, INK, 14)
+    draw_tag(d, (318, 54), "SEK", CYAN, INK, 14)
     hud.save(UI / "hud_bar.png")
 
     go = Image.new("RGBA", (492, 420), (18, 20, 26, 230))
@@ -251,6 +251,7 @@ def pack_ui() -> None:
     d.text((24, 98), "GRY", font=font(44), fill=PINK)
     d.text((24, 160), "TWÓJ WYNIK", font=font(18), fill=OFF)
     d.text((24, 280), "Wrocław nie śpi. Ty możesz wrócić.", font=font(16), fill=CYAN)
+    d.text((24, 312), "Liczba = sekundy w tym mieście.", font=font(14), fill=(180, 180, 176, 255))
     d.text((24, 360), "51.1079° N, 17.0385° E", font=font(13), fill=CYAN)
     go.save(UI / "go_panel.png")
     cta(460, 84, LIME, PINK, "SPRÓBUJ JESZCZE   ↺").save(UI / "cta_retry.png")

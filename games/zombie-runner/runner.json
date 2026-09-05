@@ -1,7 +1,7 @@
 {
   "version": 1,
   "title": "Zombie Survival Score",
-  "startPrompt": "Przetrwaj Wrocław. Dotknij, żeby biec.",
+  "startPrompt": "Przetrwaj Wrocław. Wynik = sekundy w mieście.",
   "scorePrefix": "WYNIK  ",
   "gameOverTitle": "KONIEC GRY",
   "gameOverRetry": "Spróbuj jeszcze",
