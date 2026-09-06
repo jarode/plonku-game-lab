@@ -51,6 +51,7 @@
     lives = runtimeScene.getScene().getVariables().get("Lifes").getAsNumber();
   } catch (eLf) {}
   updatePlonkuShell(st, score, lives);
+  pulseHitJuice(runtimeScene, st);
 
   if (st === "NotStarted" || st === "GamePlay") {
     const pads = runtimeScene.getObjects("Paddle");
@@ -89,6 +90,57 @@
       "high-edge": "MAXIMUM",
     };
     return map[id] || "BALANS";
+  }
+
+  function pulseHitJuice(scene, gameState) {
+    let bricks = 0;
+    const names = ["Block_1", "Block_2", "Block_3"];
+    for (let n = 0; n < names.length; n++) bricks += scene.getObjects(names[n]).length;
+    if (scene._boBrickN == null) scene._boBrickN = bricks;
+    if (typeof document === "undefined") {
+      scene._boBrickN = bricks;
+      return;
+    }
+    const stage = document.getElementById("cb-stage");
+    if (gameState === "GamePlay" && bricks < scene._boBrickN) {
+      if (stage) {
+        stage.style.boxShadow = "inset 0 0 28px #C8FF00, inset 0 0 8px #FF2D95";
+        setTimeout(function () {
+          if (stage) stage.style.boxShadow = "";
+        }, 90);
+      }
+      const hud = document.getElementById("bo-hud-chip");
+      if (hud) {
+        hud.style.background = "#C8FF00";
+        hud.style.color = "#1A1410";
+        setTimeout(function () {
+          hud.style.background = "transparent";
+          hud.style.color = "#00E5FF";
+        }, 90);
+      }
+    }
+    scene._boBrickN = bricks;
+    if (gameState === "GamePlay") {
+      const balls = scene.getObjects("Ball");
+      const pads = scene.getObjects("Paddle");
+      if (balls.length && pads.length) {
+        const b = balls[0];
+        const p = pads[0];
+        const hit =
+          b.getX() < p.getX() + p.getWidth() &&
+          b.getX() + b.getWidth() > p.getX() &&
+          b.getY() + b.getHeight() > p.getY() - 4 &&
+          b.getY() < p.getY() + p.getHeight();
+        if (hit && !scene._boPadFlash) {
+          scene._boPadFlash = true;
+          if (stage) stage.style.outline = "1px solid #00E5FF";
+          setTimeout(function () {
+            scene._boPadFlash = false;
+            if (stage) stage.style.outline = "";
+          }, 60);
+        }
+      }
+    }
   }
 
   function startCityGenSequence(label) {
