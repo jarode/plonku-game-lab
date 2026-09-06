@@ -120,12 +120,22 @@
           '<div id="bo-result" style="pointer-events:auto;display:none;margin:0 10px 10px;border:1px solid #FF2D95;background:rgba(7,11,20,0.95);padding:8px;font-size:11px;color:#00E5FF;text-align:center;"></div>';
         host.insertBefore(root, canvas);
         const stage = document.getElementById("cb-stage");
-        const grid = document.createElement("div");
-        grid.id = "cb-grid";
-        grid.style.cssText =
-          "pointer-events:none;position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(0,229,255,0.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.12) 1px,transparent 1px);background-size:32px 32px;";
+        const world = document.createElement("div");
+        world.id = "cb-world";
+        world.style.cssText = "pointer-events:none;position:absolute;inset:0;z-index:3;";
+        world.innerHTML =
+          '<div id="cb-grid" style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,255,0.10) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.10) 1px,transparent 1px);background-size:28px 28px;"></div>' +
+          '<div id="cb-radar" style="position:absolute;right:10px;top:10px;width:72px;height:72px;border:1px solid rgba(0,229,255,0.5);border-radius:50%;box-shadow:0 0 0 10px rgba(0,229,255,0.08),inset 0 0 18px rgba(200,255,0,0.12);"></div>' +
+          '<div id="cb-radar-dot" style="position:absolute;right:42px;top:28px;width:6px;height:6px;background:#C8FF00;border-radius:50%;"></div>' +
+          '<div id="cb-callouts" style="position:absolute;left:8px;top:8px;font-size:9px;letter-spacing:0.1em;line-height:1.5;">' +
+          '<div style="color:#C8FF00;">→ GĘSTOŚĆ</div><div style="color:#3DFF9A;">→ ZIELEŃ</div>' +
+          '<div style="color:#00E5FF;">→ ZABUDOWA</div><div style="color:#FF2D95;">→ PODMIOTY</div></div>' +
+          '<div id="cb-arena-tag" style="position:absolute;left:8px;bottom:8px;font-size:9px;letter-spacing:0.12em;color:rgba(0,229,255,0.85);">ARENA · PROFIL PUBLICZNY · NIE STATYSTYKA 2012</div>' +
+          '<div id="cb-scan" style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(7,11,20,0.14) 3px);"></div>';
+        canvas.style.cssText =
+          "position:relative;z-index:2;width:100%;height:100%;object-fit:contain;touch-action:none;display:block;";
         stage.appendChild(canvas);
-        stage.appendChild(grid);
+        stage.appendChild(world);
         canvas.style.cssText = "position:relative;z-index:2;width:100%;height:100%;object-fit:contain;touch-action:none;display:block;";
         const bar = document.getElementById("bo-profiles");
         const specs = [
@@ -182,6 +192,15 @@
     if (shareEl) shareEl.style.display = gameState === "Lost" || gameState === "Won" ? "inline-flex" : "none";
     const chip = document.getElementById("bo-profile-chip");
     if (chip) chip.textContent = "PROFIL: " + profileLabel(pid);
+    const arena = document.getElementById("cb-arena-tag");
+    if (arena) arena.textContent = "ARENA · " + profileLabel(pid) + " · NIE STATYSTYKA 2012";
+    const narrow = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 380px)").matches;
+    const call = document.getElementById("cb-callouts");
+    const radar = document.getElementById("cb-radar");
+    const rdot = document.getElementById("cb-radar-dot");
+    if (call) call.style.display = narrow ? "none" : "block";
+    if (radar) radar.style.opacity = narrow ? "0.35" : "1";
+    if (rdot) rdot.style.display = narrow ? "none" : "block";
     const mantra = document.getElementById("bo-mantra");
     if (mantra && window.matchMedia) {
       mantra.style.display = window.matchMedia("(max-width: 430px)").matches && gameState !== "NotStarted" ? "none" : "block";
@@ -264,7 +283,7 @@
     const cellH = 40;
     const gw = board.columns * cellW;
     const ox = (scene.getGame().getGameResolutionWidth() - gw) / 2;
-    const oy = 56;
+    const oy = 168;
     for (let r = 0; r < board.rows; r++) {
       for (let c = 0; c < board.columns; c++) {
         const cell = board.cells[r][c];

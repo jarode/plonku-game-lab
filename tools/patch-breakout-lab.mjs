@@ -126,6 +126,59 @@ function applyCitybrkSprites(project, layout) {
   }
   swapSprite(byName.Paddle, "Assets/citybrk-2012/paddle.png");
   swapSprite(byName.Ball, "Assets/citybrk-2012/ball.png");
+  if (!byName.CitySkyline) {
+    layout.objects.push({
+      adaptCollisionMaskAutomatically: false,
+      assetStoreId: "",
+      name: "CitySkyline",
+      type: "Sprite",
+      updateIfNotVisible: false,
+      variables: [],
+      effects: [],
+      behaviors: [],
+      animations: [
+        {
+          name: "",
+          useMultipleDirections: false,
+          directions: [
+            {
+              looping: false,
+              timeBetweenFrames: 0.08,
+              sprites: [
+                {
+                  hasCustomCollisionMask: true,
+                  image: "Assets/citybrk-2012/skyline.png",
+                  points: [],
+                  originPoint: { name: "origine", x: 0, y: 0 },
+                  centerPoint: { automatic: true, name: "centre", x: 0, y: 0 },
+                  customCollisionMask: [],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    });
+  }
+  const insts = layout.instances || [];
+  if (!insts.some((i) => i.name === "CitySkyline")) {
+    insts.push({
+      angle: 0,
+      customSize: true,
+      height: 150,
+      layer: "",
+      name: "CitySkyline",
+      persistentUuid: "a7c2e910-2012-4cb0-9e11-skyline000001",
+      width: 1920,
+      x: 0,
+      y: 8,
+      zOrder: 0,
+      numberProperties: [],
+      stringProperties: [],
+      initialVariables: [],
+    });
+    layout.instances = insts;
+  }
 }
 
 function restyleGameLayout(layout) {

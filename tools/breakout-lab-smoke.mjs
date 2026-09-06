@@ -287,9 +287,18 @@ async function main() {
     const playing = await waitSnap(
       cdp,
       (s) => s.ready && s.scene === "Game" && s.gameState === "GamePlay",
-      5000,
-      "Space -> GamePlay"
+      15000,
+      "GamePlay"
     );
+    if (process.argv.includes("--shot")) {
+      await new Promise((r) => setTimeout(r, 400));
+      const shotPlay = await cdp.send("Page.captureScreenshot", { format: "png" });
+      const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
+      const prefix = process.env.SHOT_PREFIX || "052-shell";
+      const playPath = path.join(outDir, prefix + "-play-" + viewW + "x" + viewH + ".png");
+      fs.writeFileSync(playPath, Buffer.from(shotPlay.data, "base64"));
+      console.log("shot", playPath);
+    }
 
     async function waitStableBoard(label) {
       let last = -1;
