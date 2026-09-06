@@ -1,0 +1,21 @@
+{
+  "schema": "plonku-web-handoff/v1",
+  "slug": "city-breaker-2012",
+  "displayTitle": "CITY BREAKER 2012",
+  "packageName": "com.plonku.breakoutlab",
+  "version": "1.0.0",
+  "orientation": "portrait-embed",
+  "designResolution": { "width": 1920, "height": 1080 },
+  "sizeOnStartupMode": "adaptGameResolutionAtRuntime",
+  "entryFile": "index.html",
+  "exportCommand": "node tools/gdevelop-web-export.mjs --game games/breakout-lab",
+  "packageCommand": "node tools/package-plonku-handoff.mjs --game games/breakout-lab",
+  "sourceDir": "games/breakout-lab",
+  "generatedExportDir": "games/breakout-lab/build",
+  "handoffOutputDir": "dist/plonku-handoff/city-breaker-2012",
+  "devModeQuery": "profile=dense-spike",
+  "dataContractVersion": "city-breaker-v1",
+  "boardInputContract": "breakout-lab values[4..16] in [0,100]",
+  "liveVgeFetch": false,
+  "notes": "v1 uses offline normalized fixtures/profiles. The game does not fetch live VGE data. Serve the packaged folder as a unit; do not flatten GDevelop files. Embed 9:16; the table inside is landscape 1920×1080."
+}

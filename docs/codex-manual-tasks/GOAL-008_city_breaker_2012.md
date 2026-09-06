@@ -1,7 +1,7 @@
 # GOAL 008 — CITY BREAKER 2012
 
 ## Status
-PLANNED
+ACCEPTED — CITY BREAKER 2012 ready for Plonku integration review
 
 ## Goal
 Turn the accepted neutral Data-Driven Breakout Lab into the first themed Plonku data-game product: **CITY BREAKER 2012**.
