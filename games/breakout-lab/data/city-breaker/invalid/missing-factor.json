@@ -1,0 +1,8 @@
+{
+  "id": "missing-factor",
+  "factors": {
+    "populationDensity": 10,
+    "forestCover": 10,
+    "dwellingsPer1000": 10
+  }
+}

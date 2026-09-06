@@ -1,0 +1,11 @@
+{
+  "id": "high-edge",
+  "label": "High edge (QA)",
+  "notes": "Not a real city.",
+  "factors": {
+    "populationDensity": 100,
+    "forestCover": 100,
+    "dwellingsPer1000": 100,
+    "entitiesPer1000": 100
+  }
+}

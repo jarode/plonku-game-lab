@@ -1,0 +1,11 @@
+{
+  "id": "low-edge",
+  "label": "Low edge (QA)",
+  "notes": "Explicit zeros are real lows, not missing data.",
+  "factors": {
+    "populationDensity": 0,
+    "forestCover": 0,
+    "dwellingsPer1000": 0,
+    "entitiesPer1000": 0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "balanced-mid",
+  "label": "Balanced mid (QA)",
+  "notes": "Not a real city. Mid values on all four factors.",
+  "factors": {
+    "populationDensity": 50,
+    "forestCover": 50,
+    "dwellingsPer1000": 50,
+    "entitiesPer1000": 50
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "null-factor",
+  "factors": {
+    "populationDensity": 10,
+    "forestCover": null,
+    "dwellingsPer1000": 10,
+    "entitiesPer1000": 10
+  }
+}

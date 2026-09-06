@@ -1,0 +1,11 @@
+{
+  "id": "mixed-spike",
+  "label": "Mixed with entities spike (QA)",
+  "notes": "Not a real city.",
+  "factors": {
+    "populationDensity": 42,
+    "forestCover": 24,
+    "dwellingsPer1000": 48,
+    "entitiesPer1000": 96
+  }
+}

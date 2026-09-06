@@ -1,0 +1,11 @@
+{
+  "id": "green-open",
+  "label": "Greener / lower density (QA)",
+  "notes": "Not a real city.",
+  "factors": {
+    "populationDensity": 18,
+    "forestCover": 86,
+    "dwellingsPer1000": 28,
+    "entitiesPer1000": 22
+  }
+}

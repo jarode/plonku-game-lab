@@ -1,0 +1,11 @@
+{
+  "id": "dense-spike",
+  "label": "Dense urban (QA)",
+  "notes": "046 dense-urban mood. Not a real city.",
+  "factors": {
+    "populationDensity": 94,
+    "forestCover": 8,
+    "dwellingsPer1000": 88,
+    "entitiesPer1000": 72
+  }
+}
