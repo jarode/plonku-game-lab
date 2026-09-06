@@ -2208,9 +2208,9 @@
             {
               "name": "TopDownMovement",
               "type": "TopDownMovementBehavior::TopDownMovementBehavior",
-              "acceleration": 1600,
-              "maxSpeed": 700,
-              "deceleration": 1600,
+              "acceleration": 2400,
+              "maxSpeed": 980,
+              "deceleration": 2000,
               "allowDiagonals": false,
               "angleOffset": 0,
               "angularMaxSpeed": 180,
@@ -4651,8 +4651,8 @@
                   },
                   "parameters": [
                     "Ball",
-                    "RandomInRange(200,250)",
-                    "400",
+                    "RandomInRange(208,248)",
+                    "560",
                     "1"
                   ]
                 }

@@ -208,6 +208,26 @@ function restyleGameLayout(layout) {
   });
 }
 
+function tuneFeel(layout) {
+  const paddle = (layout.objects || []).find((o) => o.name === "Paddle");
+  const td = paddle?.behaviors?.find((b) => String(b.type || "").includes("TopDownMovement"));
+  if (td) {
+    td.maxSpeed = 980;
+    td.acceleration = 2400;
+    td.deceleration = 2000;
+  }
+  walkEvents(layout.events, (ev) => {
+    if (!Array.isArray(ev.actions)) return;
+    for (const a of ev.actions) {
+      if (a?.type?.value !== "AddForceAL") continue;
+      const p = a.parameters || [];
+      if (p[0] !== "Ball") continue;
+      if (p[2] === "400") p[2] = "560";
+      if (p[1] === "RandomInRange(200,250)") p[1] = "RandomInRange(208,248)";
+    }
+  });
+}
+
 const game = project.layouts.find((l) => l.name === "Game");
 if (!game) {
   console.error("Game layout missing");
@@ -215,6 +235,7 @@ if (!game) {
 }
 restyleGameLayout(game);
 applyCitybrkSprites(project, game);
+tuneFeel(game);
 stripRandomBrickLayout(game.events);
 game.events = game.events || [];
 const marker = "Breakout Lab hooks";
