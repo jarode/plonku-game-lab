@@ -26,7 +26,7 @@ Smoke log in this task: 10 restarts, signatures golden (`da07a685…` balanced-m
 
 ## Commit SHA
 
-Implementation: `PENDING`
+Implementation: `352c440` (QA/result; pacing uses 058 retry init + 060 launch)
 
 ## Operator actions required
 

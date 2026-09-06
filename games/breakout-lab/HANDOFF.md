@@ -32,4 +32,4 @@ Dev: `?profile=dense-spike` (city) or `?fixture=sparse-low` (neutral lab).
 
 ## Limitations
 
-Kenney brick sprites remain. `2012` is style, not a data year. Physical phone not gated in 052.
+Kenney bricks are no longer the player-facing cells (original `citybrk-2012` families). `2012` is style, not a data year. Physical phone not gated in 052.
