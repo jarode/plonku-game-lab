@@ -124,12 +124,45 @@
             "pointer-events:auto;border:1px solid #c8ff00;background:#c8ff00;color:#1a1410;padding:8px 10px;font-size:11px;letter-spacing:0.08em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;";
           bar.appendChild(a);
         }
+        const shareBtn = document.createElement("button");
+        shareBtn.id = "bo-share";
+        shareBtn.type = "button";
+        shareBtn.textContent = "UDOSTEPNIJ";
+        shareBtn.style.cssText =
+          "pointer-events:auto;display:none;position:absolute;right:8px;bottom:8px;z-index:7;border:1px solid #ff2d95;background:#0a1020;color:#ff2d95;padding:8px 10px;font-size:11px;letter-spacing:0.08em;min-height:44px;";
+        shareBtn.onclick = function (ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          const text =
+            window.__boShareText ||
+            "CITY BREAKER 2012 · level z danych publicznych · to interpretacja gry, nie werdykt o miescie.";
+          function fallback() {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text);
+            }
+            shareBtn.textContent = "SKOPIOWANO";
+          }
+          if (navigator.share) {
+            navigator.share({ text: text }).catch(fallback);
+          } else fallback();
+        };
+        root.appendChild(shareBtn);
       } catch (eShell) {
         return;
       }
     }
+    if (typeof window !== "undefined") {
+      window.__boShareText =
+        "Rozbilam/em level CITY BREAKER 2012 · profil " +
+        profileLabel(pid) +
+        " · wynik " +
+        Math.floor(scoreVal) +
+        " · to interpretacja gry, nie dane z 2012.";
+    }
     const hud = document.getElementById("bo-hud-chip");
     if (hud) hud.textContent = "WYNIK " + Math.floor(scoreVal) + " · ZYCIA " + Math.floor(livesVal);
+    const shareEl = document.getElementById("bo-share");
+    if (shareEl) shareEl.style.display = gameState === "Lost" || gameState === "Won" ? "inline-flex" : "none";
     const chip = document.getElementById("bo-profile-chip");
     if (chip) chip.textContent = "PROFIL · " + profileLabel(pid);
     const legend = document.getElementById("bo-legend");

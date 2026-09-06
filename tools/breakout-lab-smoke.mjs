@@ -181,6 +181,7 @@ function snap() {
       expectedBricks: window.__boBoard ? window.__boBoard.brickCount : -1,
       mapping: window.__boBoard && window.__boBoard.mapping ? window.__boBoard.mapping : "",
       factorDebug: !!window.__boFactorDebug,
+      shareText: window.__boShareText || "",
     };
   })()`;
 }
@@ -268,7 +269,7 @@ async function main() {
       const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
       const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
       fs.mkdirSync(outDir, { recursive: true });
-      const shotPath = path.join(outDir, "050-city-breaker-default.png");
+      const shotPath = path.join(outDir, "052-shell-" + viewW + "x" + viewH + ".png");
       fs.writeFileSync(shotPath, Buffer.from(shot.data, "base64"));
       console.log("shot", shotPath);
     }
