@@ -72,6 +72,21 @@ function trimMaximum(cells, max) {
   }
 }
 
+function annotateFamilies(cells, corridors, rowsUsed) {
+  for (let r = 0; r < cells.length; r++) {
+    for (let c = 0; c < cells[r].length; c++) {
+      const cell = cells[r][c];
+      if (!cell) continue;
+      const nearGap =
+        corridors.includes(c - 1) || corridors.includes(c + 1) || corridors.includes(c);
+      if (cell.hp >= 3) cell.family = "podmioty";
+      else if (nearGap) cell.family = "zielen";
+      else if (r >= Math.max(0, rowsUsed - 1)) cell.family = "zabudowa";
+      else cell.family = "gestosc";
+    }
+  }
+}
+
 /**
  * City-breaker geometry from a 4-factor profile (or {id,values}).
  * Bottom brick row (index 4) stays empty so the ball has an opening.
@@ -100,6 +115,16 @@ export function cityBoardFromProfile(profile) {
   trimMaximum(cells, MAX_BRICKS);
 
   const brickCount = countBricks(cells);
+  const signature = crypto.createHash("sha256")
+    .update(
+      JSON.stringify({
+        cells: cells.map((row) => row.map((c) => (c ? { hp: c.hp } : null))),
+        columns: COLS,
+        rows: ROWS,
+      })
+    )
+    .digest("hex");
+  annotateFamilies(cells, corridors, rowsUsed);
   const debug = {
     rawValues: raw,
     playable: { density, forest, dwellings, entities },
@@ -119,6 +144,5 @@ export function cityBoardFromProfile(profile) {
     paddleWidthScale: Math.max(0.8, Math.min(1.1, 1.08 - density / 400)),
     debug,
   };
-  const signature = crypto.createHash("sha256").update(JSON.stringify({ cells, columns: COLS, rows: ROWS })).digest("hex");
   return { ...body, signature };
 }

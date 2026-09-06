@@ -406,6 +406,177 @@
         "name": "Assets/PlayPhysics_Pressed.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/ball.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/ball.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-gestosc-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-gestosc-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-gestosc-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-gestosc-2.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-gestosc-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-gestosc-3.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-gestosc-hit.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-gestosc-hit.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-podmioty-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-podmioty-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-podmioty-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-podmioty-2.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-podmioty-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-podmioty-3.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-podmioty-hit.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-podmioty-hit.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-zabudowa-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-zabudowa-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-zabudowa-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-zabudowa-2.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-zabudowa-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-zabudowa-3.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-zabudowa-hit.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-zabudowa-hit.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-zielen-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-zielen-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-zielen-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-zielen-2.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-zielen-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-zielen-3.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/cell-zielen-hit.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/cell-zielen-hit.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/paddle.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/paddle.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/citybrk-2012/skyline.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/citybrk-2012/skyline.png",
+        "smoothed": false,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -1954,7 +2125,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Ball.png",
+                      "image": "Assets/citybrk-2012/ball.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2050,7 +2221,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Paddle.png",
+                      "image": "Assets/citybrk-2012/paddle.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2129,7 +2300,7 @@
           ],
           "animations": [
             {
-              "name": "White",
+              "name": "gestosc",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2138,7 +2309,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_White.png",
+                      "image": "Assets/citybrk-2012/cell-gestosc-1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2177,7 +2348,7 @@
               ]
             },
             {
-              "name": "Yellow",
+              "name": "zielen",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2186,7 +2357,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_Yellow.png",
+                      "image": "Assets/citybrk-2012/cell-zielen-1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2225,7 +2396,7 @@
               ]
             },
             {
-              "name": "Red",
+              "name": "zabudowa",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2234,7 +2405,55 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_Red.png",
+                      "image": "Assets/citybrk-2012/cell-zabudowa-1.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 39,
+                        "y": 10
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0.03454079478979111,
+                            "y": 0.10048231482505798
+                          },
+                          {
+                            "x": 76.7742691040039,
+                            "y": 0.16290181875228882
+                          },
+                          {
+                            "x": 76.7742691040039,
+                            "y": 20.362728118896484
+                          },
+                          {
+                            "x": 0,
+                            "y": 19.276716232299805
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "podmioty",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Assets/citybrk-2012/cell-podmioty-1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2297,7 +2516,7 @@
           ],
           "animations": [
             {
-              "name": "White",
+              "name": "gestosc",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2306,7 +2525,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_White.png",
+                      "image": "Assets/citybrk-2012/cell-gestosc-2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2345,7 +2564,7 @@
               ]
             },
             {
-              "name": "Yellow",
+              "name": "zielen",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2354,7 +2573,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_Yellow.png",
+                      "image": "Assets/citybrk-2012/cell-zielen-2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2393,7 +2612,7 @@
               ]
             },
             {
-              "name": "Red",
+              "name": "zabudowa",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2402,7 +2621,55 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_Red.png",
+                      "image": "Assets/citybrk-2012/cell-zabudowa-2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 39,
+                        "y": 10
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0.4784688949584961,
+                            "y": 0.5980861186981201
+                          },
+                          {
+                            "x": 76.86528015136719,
+                            "y": 0
+                          },
+                          {
+                            "x": 77.1045150756836,
+                            "y": 19.29949188232422
+                          },
+                          {
+                            "x": 0.07102272659540176,
+                            "y": 19.29949188232422
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "podmioty",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Assets/citybrk-2012/cell-podmioty-2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2465,7 +2732,7 @@
           ],
           "animations": [
             {
-              "name": "White",
+              "name": "gestosc",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2474,7 +2741,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_White.png",
+                      "image": "Assets/citybrk-2012/cell-gestosc-3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2513,7 +2780,7 @@
               ]
             },
             {
-              "name": "Yellow",
+              "name": "zielen",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2522,7 +2789,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_Yellow.png",
+                      "image": "Assets/citybrk-2012/cell-zielen-3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2561,7 +2828,7 @@
               ]
             },
             {
-              "name": "Red",
+              "name": "zabudowa",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -2570,7 +2837,55 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "Assets/Block_Red.png",
+                      "image": "Assets/citybrk-2012/cell-zabudowa-3.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 39,
+                        "y": 10
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0.6756756901741028,
+                            "y": 0.5791505575180054
+                          },
+                          {
+                            "x": 77.4258804321289,
+                            "y": 0
+                          },
+                          {
+                            "x": 77.20867919921875,
+                            "y": 19.276716232299805
+                          },
+                          {
+                            "x": 0,
+                            "y": 19.062002182006836
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "podmioty",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Assets/citybrk-2012/cell-podmioty-3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -6514,7 +6829,7 @@
             "// Breakout Lab hooks (injected into Game JsCode). Restart is scene replace, not a second Game instance.\r",
             "(function (runtimeScene) {\r",
             "  var BO_BOARDS = {\"balanced-mid\":{\"id\":\"balanced-mid\",\"columns\":4,\"rows\":5,\"cells\":[[{\"hp\":1},{\"hp\":2},{\"hp\":3},{\"hp\":3}],[null,{\"hp\":2},{\"hp\":3},{\"hp\":3}],[null,{\"hp\":2},{\"hp\":3},{\"hp\":3}],[null,null,{\"hp\":3},{\"hp\":3}],[null,null,null,{\"hp\":3}]],\"brickCount\":13,\"bonusSlots\":1,\"ballSpeed\":420,\"paddleWidthScale\":0.9937499999999999,\"signature\":\"7c837642c177a8b3c3f939981df40212bb92c83519704c326c721dc3a4186db6\"},\"dense-high\":{\"id\":\"dense-high\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3}],[{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3}],[{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3}],[{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3}],[{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3}]],\"brickCount\":40,\"bonusSlots\":8,\"ballSpeed\":473,\"paddleWidthScale\":0.9112499999999999,\"signature\":\"18ae1f83c1a9a6e2398bb5ee1f3cc7cb425326b7eba84d8f5e1be20e4838b485\"},\"mixed-corridor\":{\"id\":\"mixed-corridor\",\"columns\":6,\"rows\":5,\"cells\":[[null,{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}],[null,{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}],[null,{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}],[null,{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}],[null,{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}]],\"brickCount\":15,\"bonusSlots\":1,\"ballSpeed\":400,\"paddleWidthScale\":1.0254166666666666,\"signature\":\"3d50c084c6cd0f3c337432117db2e8878e383c646e9387312f415f58c702807e\"},\"mixed-spike\":{\"id\":\"mixed-spike\",\"columns\":6,\"rows\":5,\"cells\":[[null,null,{\"hp\":3},null,null,{\"hp\":2}],[null,null,{\"hp\":3},null,null,{\"hp\":2}],[null,null,{\"hp\":3},null,null,{\"hp\":2}],[null,null,{\"hp\":3},null,null,null],[null,null,{\"hp\":3},null,null,null]],\"brickCount\":8,\"bonusSlots\":1,\"ballSpeed\":360,\"paddleWidthScale\":1.0875,\"signature\":\"d6511ad964d86d674376d374504b123a617ab7d691799175755a4f31ed7cbf52\"},\"sparse-low\":{\"id\":\"sparse-low\",\"columns\":6,\"rows\":5,\"cells\":[[{\"hp\":1},{\"hp\":1},{\"hp\":1},{\"hp\":1},{\"hp\":1},{\"hp\":1}],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null]],\"brickCount\":6,\"bonusSlots\":0,\"ballSpeed\":354,\"paddleWidthScale\":1.0975,\"signature\":\"65946b7f6c78a26942b27952ec4d3f07798273627ab0e2c085c9aef14e1130e3\"}};\r",
-            "  var BO_CITY_BOARDS = {\"balanced-mid\":{\"id\":\"balanced-mid\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3},{\"hp\":2},null,{\"hp\":2},null,null,null,null],[{\"hp\":2},{\"hp\":2},null,null,null,null,{\"hp\":2},{\"hp\":3}],[null,null,null,null,{\"hp\":2},null,{\"hp\":3},{\"hp\":2}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":10,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":0.9550000000000001,\"debug\":{\"rawValues\":[50,50,50,50],\"playable\":{\"density\":50,\"forest\":50,\"dwellings\":50,\"entities\":50},\"populationDensity\":{\"occupyThreshold\":50,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[2,5],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":3,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":2,\"clusterStride\":4,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"da07a685159ad738ff9bc7db1b23654c9001b258682a94cd6f625e259b6cdea4\"},\"dense-spike\":{\"id\":\"dense-spike\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3}],[{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},null,{\"hp\":3},{\"hp\":3}],[{\"hp\":3},{\"hp\":3},{\"hp\":3},null,{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3}],[{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},{\"hp\":3},null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":28,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":0.8450000000000001,\"debug\":{\"rawValues\":[94,8,88,72],\"playable\":{\"density\":94,\"forest\":8,\"dwellings\":88,\"entities\":72},\"populationDensity\":{\"occupyThreshold\":94,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":4,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":3,\"clusterStride\":2,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"8336f9ea3e2d7dcfd6572086be52fc0713c85f4fa564b31775c8e25f7a840a9c\"},\"green-open\":{\"id\":\"green-open\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":1},null,{\"hp\":1},{\"hp\":1},null,{\"hp\":1},null,{\"hp\":1}],[{\"hp\":1},null,{\"hp\":1},null,null,null,null,{\"hp\":1}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":8,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":1.0250000000000001,\"debug\":{\"rawValues\":[18,86,28,22],\"playable\":{\"density\":22,\"forest\":86,\"dwellings\":28,\"entities\":22},\"populationDensity\":{\"occupyThreshold\":22,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[1,4,6],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":2,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":1,\"clusterStride\":0,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"48ee1800c9c22fd6e2b62c989c6d607b0f531f648045ffa07fa9026b689266bb\"},\"high-edge\":{\"id\":\"high-edge\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3},null,{\"hp\":3},{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}],[{\"hp\":3},null,{\"hp\":3},{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}],[{\"hp\":3},null,{\"hp\":3},{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}],[{\"hp\":3},null,{\"hp\":3},{\"hp\":3},null,{\"hp\":3},null,{\"hp\":3}],[null,null,null,null,null,null,null,null]],\"brickCount\":20,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":0.8300000000000001,\"debug\":{\"rawValues\":[100,100,100,100],\"playable\":{\"density\":100,\"forest\":100,\"dwellings\":100,\"entities\":100},\"populationDensity\":{\"occupyThreshold\":100,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[1,4,6],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":4,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":3,\"clusterStride\":2,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"39c7df387246cfca153c386d25360b02675a9ec1f945b47a4560a567069c3c2f\"},\"low-edge\":{\"id\":\"low-edge\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":1},{\"hp\":1},{\"hp\":1},{\"hp\":1},{\"hp\":1},{\"hp\":1},null,null],[null,null,null,null,null,null,{\"hp\":1},{\"hp\":1}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":8,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":1.0250000000000001,\"debug\":{\"rawValues\":[0,0,0,0],\"playable\":{\"density\":22,\"forest\":0,\"dwellings\":20,\"entities\":0},\"populationDensity\":{\"occupyThreshold\":22,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":2,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":1,\"clusterStride\":0,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"e048f33feffd2d2355e4f9c01e5eb94445fa1aff64bd496b9c4a9ffa57b2a5c0\"},\"mixed-spike\":{\"id\":\"mixed-spike\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3},{\"hp\":3},{\"hp\":3},null,null,null,null,null],[{\"hp\":3},null,null,null,null,null,{\"hp\":3},{\"hp\":3}],[null,null,null,null,{\"hp\":3},{\"hp\":3},{\"hp\":3},null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":9,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":0.9750000000000001,\"debug\":{\"rawValues\":[42,24,48,96],\"playable\":{\"density\":42,\"forest\":24,\"dwellings\":48,\"entities\":96},\"populationDensity\":{\"occupyThreshold\":42,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[3],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":3,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":3,\"clusterStride\":2,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"2fcf2c3a6d2b57dd53e5eeb73a3d6f9d1a3b5df2863e91fe0cb677b21790bae3\"}};\r",
+            "  var BO_CITY_BOARDS = {\"balanced-mid\":{\"id\":\"balanced-mid\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":2,\"family\":\"zielen\"},null,{\"hp\":2,\"family\":\"zielen\"},null,null,null,null],[{\"hp\":2,\"family\":\"gestosc\"},{\"hp\":2,\"family\":\"zielen\"},null,null,null,null,{\"hp\":2,\"family\":\"zielen\"},{\"hp\":3,\"family\":\"podmioty\"}],[null,null,null,null,{\"hp\":2,\"family\":\"zielen\"},null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":2,\"family\":\"zabudowa\"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":10,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":0.9550000000000001,\"debug\":{\"rawValues\":[50,50,50,50],\"playable\":{\"density\":50,\"forest\":50,\"dwellings\":50,\"entities\":50},\"populationDensity\":{\"occupyThreshold\":50,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[2,5],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":3,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":2,\"clusterStride\":4,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"da07a685159ad738ff9bc7db1b23654c9001b258682a94cd6f625e259b6cdea4\"},\"dense-spike\":{\"id\":\"dense-spike\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"}],[{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"}],[{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"}],[{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":28,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":0.8450000000000001,\"debug\":{\"rawValues\":[94,8,88,72],\"playable\":{\"density\":94,\"forest\":8,\"dwellings\":88,\"entities\":72},\"populationDensity\":{\"occupyThreshold\":94,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":4,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":3,\"clusterStride\":2,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"8336f9ea3e2d7dcfd6572086be52fc0713c85f4fa564b31775c8e25f7a840a9c\"},\"green-open\":{\"id\":\"green-open\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":1,\"family\":\"zielen\"},null,{\"hp\":1,\"family\":\"zielen\"},{\"hp\":1,\"family\":\"zielen\"},null,{\"hp\":1,\"family\":\"zielen\"},null,{\"hp\":1,\"family\":\"zielen\"}],[{\"hp\":1,\"family\":\"zielen\"},null,{\"hp\":1,\"family\":\"zielen\"},null,null,null,null,{\"hp\":1,\"family\":\"zielen\"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":8,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":1.0250000000000001,\"debug\":{\"rawValues\":[18,86,28,22],\"playable\":{\"density\":22,\"forest\":86,\"dwellings\":28,\"entities\":22},\"populationDensity\":{\"occupyThreshold\":22,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[1,4,6],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":2,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":1,\"clusterStride\":0,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"48ee1800c9c22fd6e2b62c989c6d607b0f531f648045ffa07fa9026b689266bb\"},\"high-edge\":{\"id\":\"high-edge\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"}],[{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"}],[{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"}],[{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"},null,{\"hp\":3,\"family\":\"podmioty\"}],[null,null,null,null,null,null,null,null]],\"brickCount\":20,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":0.8300000000000001,\"debug\":{\"rawValues\":[100,100,100,100],\"playable\":{\"density\":100,\"forest\":100,\"dwellings\":100,\"entities\":100},\"populationDensity\":{\"occupyThreshold\":100,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[1,4,6],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":4,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":3,\"clusterStride\":2,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"39c7df387246cfca153c386d25360b02675a9ec1f945b47a4560a567069c3c2f\"},\"low-edge\":{\"id\":\"low-edge\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":1,\"family\":\"gestosc\"},{\"hp\":1,\"family\":\"gestosc\"},{\"hp\":1,\"family\":\"gestosc\"},{\"hp\":1,\"family\":\"gestosc\"},{\"hp\":1,\"family\":\"gestosc\"},{\"hp\":1,\"family\":\"gestosc\"},null,null],[null,null,null,null,null,null,{\"hp\":1,\"family\":\"zabudowa\"},{\"hp\":1,\"family\":\"zabudowa\"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":8,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":1.0250000000000001,\"debug\":{\"rawValues\":[0,0,0,0],\"playable\":{\"density\":22,\"forest\":0,\"dwellings\":20,\"entities\":0},\"populationDensity\":{\"occupyThreshold\":22,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":2,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":1,\"clusterStride\":0,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"e048f33feffd2d2355e4f9c01e5eb94445fa1aff64bd496b9c4a9ffa57b2a5c0\"},\"mixed-spike\":{\"id\":\"mixed-spike\",\"columns\":8,\"rows\":5,\"cells\":[[{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null,null,null,null,null],[{\"hp\":3,\"family\":\"podmioty\"},null,null,null,null,null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"}],[null,null,null,null,{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},{\"hp\":3,\"family\":\"podmioty\"},null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],\"brickCount\":9,\"mapping\":\"city-breaker-v1\",\"paddleWidthScale\":0.9750000000000001,\"debug\":{\"rawValues\":[42,24,48,96],\"playable\":{\"density\":42,\"forest\":24,\"dwellings\":48,\"entities\":96},\"populationDensity\":{\"occupyThreshold\":42,\"note\":\"higher → more occupied cells\"},\"forestCover\":{\"corridorColumns\":[3],\"note\":\"higher → more vertical openings\"},\"dwellingsPer1000\":{\"brickRows\":3,\"note\":\"higher → more vertical mass (row 4 always clear)\"},\"entitiesPer1000\":{\"hp\":3,\"clusterStride\":2,\"note\":\"higher → tougher / clustered HP\"}},\"signature\":\"2fcf2c3a6d2b57dd53e5eeb73a3d6f9d1a3b5df2863e91fe0cb677b21790bae3\"}};\r",
             "\r",
             "  function hideAll(name) {\r",
             "    const list = runtimeScene.getObjects(name);\r",
@@ -6536,6 +6851,12 @@
             "  hideAll(\"StartCard_title\");\r",
             "  hideAll(\"StartCard_Sub_title\");\r",
             "  hideAll(\"ScoreLabel\");\r",
+            "  hideAll(\"GUIBackGround\");\r",
+            "  try {\r",
+            "    if (gdjs.evtTools.camera && typeof gdjs.evtTools.camera.hideLayer === \"function\") {\r",
+            "      gdjs.evtTools.camera.hideLayer(runtimeScene, \"PreStartCard\");\r",
+            "    }\r",
+            "  } catch (eLayer) {}\r",
             "\r",
             "  let st = \"\";\r",
             "  let score = 0;\r",
@@ -6767,8 +7088,8 @@
             "    }\r",
             "\r",
             "    const objNames = [\"\", \"Block_1\", \"Block_2\", \"Block_3\"];\r",
-            "    const cellW = 100;\r",
-            "    const cellH = 32;\r",
+            "    const cellW = 160;\r",
+            "    const cellH = 40;\r",
             "    const gw = board.columns * cellW;\r",
             "    const ox = (scene.getGame().getGameResolutionWidth() - gw) / 2;\r",
             "    const oy = 56;\r",
@@ -6776,16 +7097,27 @@
             "      for (let c = 0; c < board.columns; c++) {\r",
             "        const cell = board.cells[r][c];\r",
             "        if (!cell) continue;\r",
+            "        const fam = cell.family || \"gestosc\";\r",
+            "        const famIdx = { gestosc: 0, zielen: 1, zabudowa: 2, podmioty: 3 }[fam] || 0;\r",
             "        const obj = scene.createObject(objNames[cell.hp]);\r",
             "        if (!obj) continue;\r",
             "        obj.setPosition(ox + c * cellW, oy + r * cellH);\r",
             "        try {\r",
+            "          if (typeof obj.setSize === \"function\") obj.setSize(cellW - 8, cellH - 6);\r",
+            "          else {\r",
+            "            if (typeof obj.setWidth === \"function\") obj.setWidth(cellW - 8);\r",
+            "            if (typeof obj.setHeight === \"function\") obj.setHeight(cellH - 6);\r",
+            "          }\r",
+            "        } catch (eSz) {}\r",
+            "        try {\r",
             "          obj.getVariables().get(\"Health\").setNumber(cell.hp);\r",
             "        } catch (eH) {}\r",
             "        try {\r",
-            "          const anim = typeof obj.getBehavior === \"function\" ? obj.getBehavior(\"Animation\") : null;\r",
-            "          if (anim && typeof anim.setAnimationIndex === \"function\") anim.setAnimationIndex(cell.hp - 1);\r",
-            "          else if (typeof obj.setAnimation === \"function\") obj.setAnimation(cell.hp - 1);\r",
+            "          if (typeof obj.setAnimation === \"function\") obj.setAnimation(famIdx);\r",
+            "          else {\r",
+            "            const anim = typeof obj.getBehavior === \"function\" ? obj.getBehavior(\"Animation\") : null;\r",
+            "            if (anim && typeof anim.setAnimationIndex === \"function\") anim.setAnimationIndex(famIdx);\r",
+            "          }\r",
             "        } catch (eA) {}\r",
             "      }\r",
             "    }\r",

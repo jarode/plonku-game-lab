@@ -81,6 +81,53 @@ function setTextObject(obj, { text, color }) {
   }
 }
 
+function ensureImageResource(project, file) {
+  const list = project.resources?.resources;
+  if (!Array.isArray(list)) return;
+  if (list.some((r) => r.file === file || r.name === file)) return;
+  list.push({
+    alwaysLoaded: false,
+    file,
+    kind: "image",
+    metadata: "",
+    name: file,
+    smoothed: false,
+    userAdded: true,
+  });
+}
+
+function applyCitybrkSprites(project, layout) {
+  const families = ["gestosc", "zielen", "zabudowa", "podmioty"];
+  const artDir = path.join(root, "games/breakout-lab/assets/citybrk-2012");
+  const destDir = path.join(root, "games/breakout-lab/Assets/citybrk-2012");
+  if (!fs.existsSync(artDir)) return;
+  fs.mkdirSync(destDir, { recursive: true });
+  for (const name of fs.readdirSync(artDir).filter((n) => n.endsWith(".png"))) {
+    fs.copyFileSync(path.join(artDir, name), path.join(destDir, name));
+    ensureImageResource(project, "Assets/citybrk-2012/" + name);
+  }
+  const byName = Object.fromEntries((layout.objects || []).map((o) => [o.name, o]));
+  for (const hp of [1, 2, 3]) {
+    const obj = byName["Block_" + hp];
+    if (!obj?.animations?.[0]) continue;
+    const tmpl = obj.animations[0];
+    obj.animations = families.map((f) => {
+      const a = JSON.parse(JSON.stringify(tmpl));
+      a.name = f;
+      if (a.directions?.[0]?.sprites?.[0]) {
+        a.directions[0].sprites[0].image = `Assets/citybrk-2012/cell-${f}-${hp}.png`;
+      }
+      return a;
+    });
+  }
+  function swapSprite(obj, file) {
+    const spr = obj?.animations?.[0]?.directions?.[0]?.sprites?.[0];
+    if (spr) spr.image = file;
+  }
+  swapSprite(byName.Paddle, "Assets/citybrk-2012/paddle.png");
+  swapSprite(byName.Ball, "Assets/citybrk-2012/ball.png");
+}
+
 function restyleGameLayout(layout) {
   layout.title = "CITY BREAKER 2012";
   layout.r = 8;
@@ -114,6 +161,7 @@ if (!game) {
   process.exit(1);
 }
 restyleGameLayout(game);
+applyCitybrkSprites(project, game);
 stripRandomBrickLayout(game.events);
 game.events = game.events || [];
 const marker = "Breakout Lab hooks";

@@ -63,6 +63,17 @@ test("raw zeros still playable via transform", () => {
   assert.ok(board.brickCount >= 8);
 });
 
+test("occupied cells have factor families", () => {
+  const board = cityBoardFromProfile(loadFix("dense-spike.json"));
+  const fams = new Set();
+  for (const row of board.cells) {
+    for (const c of row) {
+      if (c) fams.add(c.family);
+    }
+  }
+  assert.ok(fams.has("gestosc") || fams.has("zabudowa") || fams.has("podmioty"));
+});
+
 test("debug names each factor", () => {
   const d = cityBoardFromProfile(loadFix("mixed-spike.json")).debug;
   assert.ok(d.populationDensity && d.forestCover && d.dwellingsPer1000 && d.entitiesPer1000);

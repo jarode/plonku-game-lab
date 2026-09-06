@@ -419,7 +419,8 @@ async function main() {
         const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
         const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
         fs.mkdirSync(outDir, { recursive: true });
-        fs.writeFileSync(path.join(outDir, "050-profile-" + pid + ".png"), Buffer.from(shot.data, "base64"));
+        const prefix = process.env.SHOT_PREFIX || "profile";
+        fs.writeFileSync(path.join(outDir, prefix + "-" + pid + ".png"), Buffer.from(shot.data, "base64"));
       }
     }
     if (cityProfiles["dense-spike"].bricks < cityProfiles["green-open"].bricks + 10) {

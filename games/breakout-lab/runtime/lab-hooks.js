@@ -23,6 +23,12 @@
   hideAll("StartCard_title");
   hideAll("StartCard_Sub_title");
   hideAll("ScoreLabel");
+  hideAll("GUIBackGround");
+  try {
+    if (gdjs.evtTools.camera && typeof gdjs.evtTools.camera.hideLayer === "function") {
+      gdjs.evtTools.camera.hideLayer(runtimeScene, "PreStartCard");
+    }
+  } catch (eLayer) {}
 
   let st = "";
   let score = 0;
@@ -254,8 +260,8 @@
     }
 
     const objNames = ["", "Block_1", "Block_2", "Block_3"];
-    const cellW = 100;
-    const cellH = 32;
+    const cellW = 160;
+    const cellH = 40;
     const gw = board.columns * cellW;
     const ox = (scene.getGame().getGameResolutionWidth() - gw) / 2;
     const oy = 56;
@@ -263,16 +269,27 @@
       for (let c = 0; c < board.columns; c++) {
         const cell = board.cells[r][c];
         if (!cell) continue;
+        const fam = cell.family || "gestosc";
+        const famIdx = { gestosc: 0, zielen: 1, zabudowa: 2, podmioty: 3 }[fam] || 0;
         const obj = scene.createObject(objNames[cell.hp]);
         if (!obj) continue;
         obj.setPosition(ox + c * cellW, oy + r * cellH);
         try {
+          if (typeof obj.setSize === "function") obj.setSize(cellW - 8, cellH - 6);
+          else {
+            if (typeof obj.setWidth === "function") obj.setWidth(cellW - 8);
+            if (typeof obj.setHeight === "function") obj.setHeight(cellH - 6);
+          }
+        } catch (eSz) {}
+        try {
           obj.getVariables().get("Health").setNumber(cell.hp);
         } catch (eH) {}
         try {
-          const anim = typeof obj.getBehavior === "function" ? obj.getBehavior("Animation") : null;
-          if (anim && typeof anim.setAnimationIndex === "function") anim.setAnimationIndex(cell.hp - 1);
-          else if (typeof obj.setAnimation === "function") obj.setAnimation(cell.hp - 1);
+          if (typeof obj.setAnimation === "function") obj.setAnimation(famIdx);
+          else {
+            const anim = typeof obj.getBehavior === "function" ? obj.getBehavior("Animation") : null;
+            if (anim && typeof anim.setAnimationIndex === "function") anim.setAnimationIndex(famIdx);
+          }
         } catch (eA) {}
       }
     }
