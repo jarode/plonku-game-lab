@@ -38,7 +38,7 @@ New mapping `city-breaker-v1`: 8×5 grid, density→occupancy, forest→corridor
 
 ## Commit SHA
 
-Implementation: `PENDING`
+Implementation: `7ae5f0d2c04a9c12c6af04a3dff1d0a20cbd0f65`
 
 ## Operator actions required
 
