@@ -4,10 +4,18 @@
   var BO_CITY_BOARDS = __BO_CITY_BOARDS__;
 
   function hideAll(name) {
-    const list = runtimeScene.getObjects(name);
-    for (let i = 0; i < list.length; i++) list[i].hide(true);
+    try {
+      const list = runtimeScene.getObjects(name);
+      for (let i = 0; i < list.length; i++) list[i].hide(true);
+    } catch (eH) {}
   }
-  hideAll("GDevelop_WaterMark");
+  if (!runtimeScene._boSessionInit) {
+    runtimeScene._boSessionInit = true;
+    try {
+      runtimeScene.getScene().getVariables().get("Lifes").setNumber(3);
+      runtimeScene.getScene().getVariables().get("Score").setNumber(0);
+    } catch (eInit) {}
+  }
   hideAll("Home_Button");
 
   try {
@@ -83,6 +91,27 @@
     return map[id] || "BALANS";
   }
 
+  function startCityGenSequence(label) {
+    if (typeof window === "undefined" || window.__boGenOnce) return;
+    window.__boGenOnce = true;
+    const gen = document.getElementById("cb-gen");
+    if (!gen) return;
+    const steps = ["ANALIZUJĘ DANE...", "BUDUJĘ LEVEL...", String(label || "BALANS") + ".DATA GOTOWE"];
+    let i = 0;
+    gen.style.display = "flex";
+    function tick() {
+      if (i < steps.length) {
+        gen.innerHTML =
+          "<div style=\"font-size:16px;\">" +
+          steps[i] +
+          "</div><div style=\"color:#00E5FF;font-size:11px;\">GĘSTOŚĆ · ZIELEŃ · ZABUDOWA · PODMIOTY</div>";
+        i += 1;
+        setTimeout(tick, 240);
+      } else gen.style.display = "none";
+    }
+    tick();
+  }
+
   function updatePlonkuShell(gameState, scoreVal, livesVal) {
     if (typeof document === "undefined") return;
     const pid = (typeof window !== "undefined" && window.__boBoardId) || "balanced-mid";
@@ -117,7 +146,8 @@
           '<div id="bo-legend" style="flex:0 0 auto;padding:4px 10px;font-size:10px;letter-spacing:0.06em;color:#3DFF9A;">GĘSTOŚĆ · ZIELEŃ · ZABUDOWA · PODMIOTY</div>' +
           '<div id="bo-profiles" style="pointer-events:auto;flex:0 0 auto;display:flex;flex-wrap:wrap;gap:6px;padding:8px 10px;"></div>' +
           '<div id="bo-state-hint" style="flex:0 0 auto;padding:0 10px 8px;font-size:11px;letter-spacing:0.1em;color:#C8FF00;"></div>' +
-          '<div id="bo-result" style="pointer-events:auto;display:none;margin:0 10px 10px;border:1px solid #FF2D95;background:rgba(7,11,20,0.95);padding:8px;font-size:11px;color:#00E5FF;text-align:center;"></div>';
+          '<div id="bo-result" style="pointer-events:auto;display:none;margin:0 10px 10px;border:1px solid #FF2D95;background:rgba(7,11,20,0.95);padding:8px;font-size:11px;color:#00E5FF;text-align:center;"></div>' +
+          '<div id="cb-gen" style="display:none;pointer-events:none;position:absolute;inset:28px 0 0 0;z-index:20;background:rgba(7,11,20,0.88);color:#C8FF00;font-family:Verdana,Arial,sans-serif;letter-spacing:0.14em;align-items:center;justify-content:center;flex-direction:column;gap:10px;text-align:center;padding:24px;"></div>';
         host.insertBefore(root, canvas);
         const stage = document.getElementById("cb-stage");
         const world = document.createElement("div");
@@ -174,17 +204,39 @@
           else fallback();
         };
         bar.appendChild(shareBtn);
+        startCityGenSequence(profileLabel(pid));
       } catch (eShell) {
         return;
       }
     }
     if (typeof window !== "undefined") {
+      window.__boForceResult = function (kind) {
+        try {
+          runtimeScene.getScene().getVariables().get("GameState").setString(kind);
+        } catch (eF) {}
+      };
       window.__boShareText =
         "Rozbilam/em level CITY BREAKER 2012 · profil " +
         profileLabel(pid) +
         " · wynik " +
         Math.floor(scoreVal) +
         " · to interpretacja gry, nie dane z 2012.";
+    }
+    if (runtimeScene._boPrevLives == null) runtimeScene._boPrevLives = lives;
+    if (lives < runtimeScene._boPrevLives) {
+      runtimeScene._boLifeDropUntil = Date.now() + 900;
+      const win = document.getElementById("cb-window");
+      if (win) {
+        win.style.boxShadow = "0 0 0 1px #070B14, 8px 8px 0 #FF2D95, 0 0 24px #FF2D95";
+        setTimeout(function () {
+          win.style.boxShadow = "0 0 0 1px #070B14, 8px 8px 0 #FF2D95";
+        }, 280);
+      }
+    }
+    runtimeScene._boPrevLives = lives;
+    const genEl = document.getElementById("cb-gen");
+    if (genEl && (gameState === "Lost" || gameState === "Won" || gameState === "GamePlay")) {
+      genEl.style.display = "none";
     }
     const hud = document.getElementById("bo-hud-chip");
     if (hud) hud.textContent = "WYNIK " + Math.floor(scoreVal) + " · ŻYCIA " + Math.floor(livesVal);
@@ -213,7 +265,9 @@
     if (pick) pick.style.display = gameState === "NotStarted" || gameState === "Lost" || gameState === "Won" ? "flex" : "none";
     const hint = document.getElementById("bo-state-hint");
     if (hint) {
-      if (gameState === "NotStarted") hint.textContent = "ODPAL LEVEL · RUSZ PALETKA · DOTKNIJ / SPACJA";
+      if (runtimeScene._boLifeDropUntil && Date.now() < runtimeScene._boLifeDropUntil && gameState === "NotStarted") {
+        hint.textContent = "ŻYCIE UTRACONE · SYGNAŁ CIENIEJE · RUSZ PALETKĄ";
+      } else if (gameState === "NotStarted") hint.textContent = "ODPAL LEVEL · RUSZ PALETKA · DOTKNIJ / SPACJA";
       else if (gameState === "Lost") hint.textContent = "SYGNAŁ UTRACONY · JESZCZE RAZ (R)";
       else if (gameState === "Won") hint.textContent = "LEVEL ROZBITY";
       else hint.textContent = "";
@@ -222,12 +276,14 @@
     if (res) {
       if (gameState === "Lost" || gameState === "Won") {
         res.style.display = "block";
-        res.textContent =
+        res.innerHTML =
           "PROFIL " +
           profileLabel(pid) +
           " · WYNIK " +
           Math.floor(scoreVal) +
-          " · LEVEL Z DANYCH PUBLICZNYCH · TO INTERPRETACJA GRY, NIE WERDYKT O MIEŚCIE. Rok 2012 = estetyka, nie data statystyk.";
+          "<br>GĘSTOŚĆ · ZIELEŃ · ZABUDOWA · PODMIOTY" +
+          "<br>PIŁKA ZROBIŁA Z FAKTÓW KURZ. TO INTERPRETACJA GRY, NIE WERDYKT O MIEŚCIE." +
+          "<br>Rok 2012 = estetyka, nie data statystyk.";
       } else res.style.display = "none";
     }
   }

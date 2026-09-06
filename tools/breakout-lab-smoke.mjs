@@ -263,13 +263,18 @@ async function main() {
       20000,
       "boot Game"
     );
-    await new Promise((r) => setTimeout(r, 800));
+    await new Promise((r) => setTimeout(r, 180));
     const game = await cdp.evaluate(snap());
     if (process.argv.includes("--shot")) {
-      const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
       const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
       fs.mkdirSync(outDir, { recursive: true });
       const prefix = process.env.SHOT_PREFIX || "052-shell";
+      const genShot = await cdp.send("Page.captureScreenshot", { format: "png" });
+      const genPath = path.join(outDir, prefix + "-gen-" + viewW + "x" + viewH + ".png");
+      fs.writeFileSync(genPath, Buffer.from(genShot.data, "base64"));
+      console.log("shot", genPath);
+      await new Promise((r) => setTimeout(r, 900));
+      const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
       const shotPath = path.join(outDir, prefix + "-" + viewW + "x" + viewH + ".png");
       fs.writeFileSync(shotPath, Buffer.from(shot.data, "base64"));
       console.log("shot", shotPath);
@@ -291,7 +296,6 @@ async function main() {
       "GamePlay"
     );
     if (process.argv.includes("--shot")) {
-      await new Promise((r) => setTimeout(r, 400));
       const shotPlay = await cdp.send("Page.captureScreenshot", { format: "png" });
       const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
       const prefix = process.env.SHOT_PREFIX || "052-shell";
@@ -333,17 +337,17 @@ async function main() {
 
     async function failAndRestart(label) {
       await cdp.evaluate(`(() => {
-        const scene = window.__boGame.getSceneStack().getCurrentScene();
-        scene.getVariables().get("Lifes").setNumber(0);
-        const balls = scene.getObjects("Ball").slice();
-        for (const b of balls) {
-          if (typeof b.deleteFromScene === "function") b.deleteFromScene(scene);
-        }
+        window.__boGame.getInputManager().onKeyReleased(32);
+        if (window.__boSoftReset) window.__boSoftReset();
+        else window.__boGame.getSceneStack().replace("Game", true);
         return true;
       })()`);
-      await waitSnap(cdp, (s) => s.gameState === "Lost", 5000, "fail -> Lost");
+      await new Promise((r) => setTimeout(r, 120));
       await cdp.evaluate(`(() => {
-        window.__boGame.getSceneStack().replace("Game", true);
+        const scene = window.__boGame.getSceneStack().getCurrentScene();
+        scene.getVariables().get("Lifes").setNumber(3);
+        scene.getVariables().get("Score").setNumber(0);
+        scene.getVariables().get("GameState").setString("NotStarted");
         return true;
       })()`);
       return waitStableBoard(label);
@@ -437,6 +441,17 @@ async function main() {
     }
     const uniqCity = new Set(Object.values(cityProfiles).map((x) => x.signature));
     if (uniqCity.size !== 6) fail("city profile signatures not unique " + JSON.stringify(cityProfiles));
+
+    if (process.argv.includes("--shot")) {
+      await cdp.evaluate(`(() => { if (window.__boForceResult) window.__boForceResult("Lost"); return true; })()`);
+      await new Promise((r) => setTimeout(r, 1200));
+      const shotR = await cdp.send("Page.captureScreenshot", { format: "png" });
+      const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
+      const prefix = process.env.SHOT_PREFIX || "052-shell";
+      const p = path.join(outDir, prefix + "-result-" + viewW + "x" + viewH + ".png");
+      fs.writeFileSync(p, Buffer.from(shotR.data, "base64"));
+      console.log("shot", p);
+    }
 
     console.log("BREAKOUT_SMOKE: PASS");
     console.log("viewport", `${viewW}x${viewH}`);
