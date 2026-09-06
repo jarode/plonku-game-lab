@@ -80,33 +80,47 @@
   function updatePlonkuShell(gameState, scoreVal, livesVal) {
     if (typeof document === "undefined") return;
     const pid = (typeof window !== "undefined" && window.__boBoardId) || "balanced-mid";
-    let root = document.getElementById("bo-plonku-shell");
+    const canvas = runtimeScene.getGame().getRenderer().getCanvas();
+    if (!canvas || !canvas.parentElement) return;
+    let root = document.getElementById("cb-window");
     if (!root) {
       try {
-        const canvas = runtimeScene.getGame().getRenderer().getCanvas();
-        if (!canvas || !canvas.parentElement) return;
-        const parent = canvas.parentElement;
-        if (getComputedStyle(parent).position === "static") parent.style.position = "relative";
-        try {
-          document.body.style.background = "#0a1020";
-        } catch (eBg) {}
+        document.documentElement.style.height = "100%";
+        document.body.style.cssText = "margin:0;height:100%;background:#070B14;";
+        const host = canvas.parentElement;
+        host.style.cssText =
+          "margin:0;height:100%;background:#070B14;display:flex;align-items:center;justify-content:center;padding:8px;box-sizing:border-box;";
         root = document.createElement("div");
-        root.id = "bo-plonku-shell";
+        root.id = "cb-window";
         root.style.cssText =
-          "position:absolute;inset:0;z-index:6;font-family:Verdana,Arial,sans-serif;color:#c8ff00;pointer-events:none;";
+          "position:relative;width:min(1200px,100%);height:min(100%,100dvh);display:flex;flex-direction:column;background:#0A1020;border:2px solid #C8FF00;box-shadow:0 0 0 1px #070B14, 8px 8px 0 #FF2D95;font-family:Verdana,Arial,sans-serif;color:#C8FF00;";
         root.innerHTML =
-          '<div style="pointer-events:none;position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(200,255,0,0.04) 3px);opacity:0.9;"></div>' +
-          '<div style="pointer-events:none;position:absolute;top:8px;left:8px;right:8px;border:2px solid #1a1410;background:#d8d0c0;color:#1a1410;padding:4px 8px;font-size:11px;letter-spacing:0.12em;">CITYBRK.EXE — PUBLIC DATA / 2012 INTERNET ENERGY</div>' +
-          '<div style="pointer-events:none;position:absolute;top:36px;left:8px;right:8px;display:flex;flex-wrap:wrap;gap:6px;justify-content:space-between;">' +
-          '<div style="border:1px solid #c8ff00;padding:5px 8px;background:rgba(10,16,32,0.88);font-size:11px;letter-spacing:0.12em;color:#c8ff00;">CITY BREAKER 2012</div>' +
-          '<div id="bo-profile-chip" style="border:1px solid #ff2d95;padding:5px 8px;background:rgba(10,16,32,0.88);font-size:11px;letter-spacing:0.1em;color:#ff2d95;">PROFIL</div>' +
-          '<div id="bo-hud-chip" style="border:1px solid #00e5ff;padding:5px 8px;background:rgba(10,16,32,0.88);font-size:11px;letter-spacing:0.08em;color:#00e5ff;">WYNIK 0</div>' +
-          "</div>" +
-          '<div id="bo-hook" style="pointer-events:none;position:absolute;left:10px;right:10px;top:78px;text-align:center;font-size:13px;letter-spacing:0.06em;color:#c8ff00;text-shadow:0 0 8px #0a1020;">TWOJE MIASTO WŁAŚNIE WYGENEROWAŁO CI LEVEL.</div>' +
-          '<div id="bo-legend" style="pointer-events:none;position:absolute;left:8px;right:8px;bottom:118px;text-align:center;font-size:10px;letter-spacing:0.04em;color:#00e5ff;">gestosc → cegly · zielen → przeswity · zabudowa → masa · podmioty → HP</div>' +
-          '<div id="bo-state-hint" style="pointer-events:none;position:absolute;left:8px;right:8px;bottom:52px;text-align:center;font-size:12px;letter-spacing:0.1em;color:#c8ff00;"></div>' +
-          '<div id="bo-result" style="pointer-events:auto;display:none;position:absolute;left:12px;right:12px;bottom:8px;border:1px solid #ff2d95;background:rgba(10,16,32,0.92);padding:8px;font-size:11px;color:#00e5ff;text-align:center;"></div>';
-        parent.appendChild(root);
+          '<div style="pointer-events:none;position:absolute;left:-2px;top:-2px;width:10px;height:10px;border-top:2px solid #00E5FF;border-left:2px solid #00E5FF;"></div>' +
+          '<div style="pointer-events:none;position:absolute;right:-2px;top:-2px;width:10px;height:10px;border-top:2px solid #00E5FF;border-right:2px solid #00E5FF;"></div>' +
+          '<div style="pointer-events:none;position:absolute;left:-2px;bottom:-2px;width:10px;height:10px;border-bottom:2px solid #00E5FF;border-left:2px solid #00E5FF;"></div>' +
+          '<div style="pointer-events:none;position:absolute;right:-2px;bottom:-2px;width:10px;height:10px;border-bottom:2px solid #00E5FF;border-right:2px solid #00E5FF;"></div>' +
+          '<div id="cb-titlebar" style="flex:0 0 28px;background:#D8D0C0;color:#1A1410;display:flex;align-items:center;justify-content:space-between;padding:0 10px;font-size:11px;letter-spacing:0.14em;border-bottom:2px solid #C8FF00;">' +
+          "<span>CITYBRK.EXE — PUBLIC DATA / 2012 INTERNET ENERGY</span><span style=\"border:1px solid #1A1410;padding:0 6px;\">·</span></div>" +
+          '<div style="flex:0 0 40px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid rgba(0,229,255,0.35);background:repeating-linear-gradient(90deg,transparent,transparent 11px,rgba(0,229,255,0.06) 12px);">' +
+          '<div style="letter-spacing:0.16em;font-size:13px;color:#C8FF00;">CITY BREAKER 2012</div>' +
+          '<div id="bo-profile-chip" style="border:1px solid #FF2D95;color:#FF2D95;padding:4px 8px;font-size:11px;letter-spacing:0.1em;">PROFIL: BALANS</div>' +
+          '<div id="bo-hud-chip" style="border:1px solid #00E5FF;color:#00E5FF;padding:4px 8px;font-size:11px;letter-spacing:0.08em;margin-left:auto;">WYNIK 0 · ŻYCIA 3</div></div>' +
+          '<div id="bo-hook" style="flex:0 0 auto;padding:6px 10px;font-size:12px;letter-spacing:0.06em;color:#C8FF00;border-bottom:1px solid rgba(200,255,0,0.2);">TWOJE MIASTO WŁAŚNIE WYGENEROWAŁO CI LEVEL.</div>' +
+          '<div id="bo-mantra" style="flex:0 0 auto;padding:4px 10px;font-size:10px;letter-spacing:0.12em;color:#00E5FF;">BLOKI = FAKTY. PIŁKA = ZMIANA.</div>' +
+          '<div id="cb-stage" style="position:relative;flex:1;min-height:120px;background:#0A1020;overflow:hidden;"></div>' +
+          '<div id="bo-legend" style="flex:0 0 auto;padding:4px 10px;font-size:10px;letter-spacing:0.06em;color:#3DFF9A;">GĘSTOŚĆ · ZIELEŃ · ZABUDOWA · PODMIOTY</div>' +
+          '<div id="bo-profiles" style="pointer-events:auto;flex:0 0 auto;display:flex;flex-wrap:wrap;gap:6px;padding:8px 10px;"></div>' +
+          '<div id="bo-state-hint" style="flex:0 0 auto;padding:0 10px 8px;font-size:11px;letter-spacing:0.1em;color:#C8FF00;"></div>' +
+          '<div id="bo-result" style="pointer-events:auto;display:none;margin:0 10px 10px;border:1px solid #FF2D95;background:rgba(7,11,20,0.95);padding:8px;font-size:11px;color:#00E5FF;text-align:center;"></div>';
+        host.insertBefore(root, canvas);
+        const stage = document.getElementById("cb-stage");
+        const grid = document.createElement("div");
+        grid.id = "cb-grid";
+        grid.style.cssText =
+          "pointer-events:none;position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(0,229,255,0.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.12) 1px,transparent 1px);background-size:32px 32px;";
+        stage.appendChild(canvas);
+        stage.appendChild(grid);
+        canvas.style.cssText = "position:relative;z-index:2;width:100%;height:100%;object-fit:contain;touch-action:none;display:block;";
         const bar = document.getElementById("bo-profiles");
         const specs = [
           ["balanced-mid", "BALANS"],
@@ -121,15 +135,15 @@
           a.href = "?profile=" + specs[i][0];
           a.textContent = specs[i][1];
           a.style.cssText =
-            "pointer-events:auto;border:1px solid #c8ff00;background:#c8ff00;color:#1a1410;padding:8px 10px;font-size:11px;letter-spacing:0.08em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;";
+            "pointer-events:auto;border:1px solid #C8FF00;background:#C8FF00;color:#1A1410;padding:8px 10px;font-size:11px;letter-spacing:0.08em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box;";
           bar.appendChild(a);
         }
         const shareBtn = document.createElement("button");
         shareBtn.id = "bo-share";
         shareBtn.type = "button";
-        shareBtn.textContent = "UDOSTEPNIJ";
+        shareBtn.textContent = "UDOSTĘPNIJ";
         shareBtn.style.cssText =
-          "pointer-events:auto;display:none;position:absolute;right:8px;bottom:8px;z-index:7;border:1px solid #ff2d95;background:#0a1020;color:#ff2d95;padding:8px 10px;font-size:11px;letter-spacing:0.08em;min-height:44px;";
+          "pointer-events:auto;display:none;border:1px solid #FF2D95;background:#070B14;color:#FF2D95;padding:8px 10px;font-size:11px;min-height:44px;";
         shareBtn.onclick = function (ev) {
           ev.preventDefault();
           ev.stopPropagation();
@@ -137,16 +151,13 @@
             window.__boShareText ||
             "CITY BREAKER 2012 · level z danych publicznych · to interpretacja gry, nie werdykt o miescie.";
           function fallback() {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(text);
-            }
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text);
             shareBtn.textContent = "SKOPIOWANO";
           }
-          if (navigator.share) {
-            navigator.share({ text: text }).catch(fallback);
-          } else fallback();
+          if (navigator.share) navigator.share({ text: text }).catch(fallback);
+          else fallback();
         };
-        root.appendChild(shareBtn);
+        bar.appendChild(shareBtn);
       } catch (eShell) {
         return;
       }
@@ -160,21 +171,25 @@
         " · to interpretacja gry, nie dane z 2012.";
     }
     const hud = document.getElementById("bo-hud-chip");
-    if (hud) hud.textContent = "WYNIK " + Math.floor(scoreVal) + " · ZYCIA " + Math.floor(livesVal);
+    if (hud) hud.textContent = "WYNIK " + Math.floor(scoreVal) + " · ŻYCIA " + Math.floor(livesVal);
     const shareEl = document.getElementById("bo-share");
     if (shareEl) shareEl.style.display = gameState === "Lost" || gameState === "Won" ? "inline-flex" : "none";
     const chip = document.getElementById("bo-profile-chip");
-    if (chip) chip.textContent = "PROFIL · " + profileLabel(pid);
+    if (chip) chip.textContent = "PROFIL: " + profileLabel(pid);
+    const mantra = document.getElementById("bo-mantra");
+    if (mantra && window.matchMedia) {
+      mantra.style.display = window.matchMedia("(max-width: 430px)").matches && gameState !== "NotStarted" ? "none" : "block";
+    }
     const legend = document.getElementById("bo-legend");
     if (legend) legend.style.display = gameState === "NotStarted" ? "block" : "none";
     const hook = document.getElementById("bo-hook");
     if (hook) hook.style.display = gameState === "NotStarted" ? "block" : "none";
     const pick = document.getElementById("bo-profiles");
-    if (pick) pick.style.display = gameState === "NotStarted" ? "flex" : "none";
+    if (pick) pick.style.display = gameState === "NotStarted" || gameState === "Lost" || gameState === "Won" ? "flex" : "none";
     const hint = document.getElementById("bo-state-hint");
     if (hint) {
       if (gameState === "NotStarted") hint.textContent = "ODPAL LEVEL · RUSZ PALETKA · DOTKNIJ / SPACJA";
-      else if (gameState === "Lost") hint.textContent = "SYGNAL UTRACONY · JESZCZE RAZ (R)";
+      else if (gameState === "Lost") hint.textContent = "SYGNAŁ UTRACONY · JESZCZE RAZ (R)";
       else if (gameState === "Won") hint.textContent = "LEVEL ROZBITY";
       else hint.textContent = "";
     }
@@ -187,7 +202,7 @@
           profileLabel(pid) +
           " · WYNIK " +
           Math.floor(scoreVal) +
-          " · LEVEL Z DANYCH PUBLICZNYCH · TO INTERPRETACJA GRY, NIE WERDYKT O MIESCIE. Rok 2012 = estetyka, nie data statystyk.";
+          " · LEVEL Z DANYCH PUBLICZNYCH · TO INTERPRETACJA GRY, NIE WERDYKT O MIEŚCIE. Rok 2012 = estetyka, nie data statystyk.";
       } else res.style.display = "none";
     }
   }

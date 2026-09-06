@@ -269,7 +269,8 @@ async function main() {
       const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
       const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
       fs.mkdirSync(outDir, { recursive: true });
-      const shotPath = path.join(outDir, "052-shell-" + viewW + "x" + viewH + ".png");
+      const prefix = process.env.SHOT_PREFIX || "052-shell";
+      const shotPath = path.join(outDir, prefix + "-" + viewW + "x" + viewH + ".png");
       fs.writeFileSync(shotPath, Buffer.from(shot.data, "base64"));
       console.log("shot", shotPath);
     }
