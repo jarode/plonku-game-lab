@@ -30,7 +30,7 @@ Adapter `cityProfileToBoardInput` maps four approved normalized factors onto GOA
 
 ## Commit SHA
 
-Implementation: `PENDING`
+Implementation: `2fc6d2d1c566302c435efef1167a54cc1aa8827f`
 
 ## Operator actions required
 
