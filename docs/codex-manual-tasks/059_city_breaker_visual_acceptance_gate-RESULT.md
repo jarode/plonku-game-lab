@@ -40,7 +40,7 @@ First-glance identity is `CITY BREAKER 2012` / `CITYBRK.EXE`, not stock Breakout
 
 ## Commit SHA
 
-Implementation: `PENDING`
+Implementation: `57be5dadb062129bc3d36d00a65f5e9f4723c37d`
 
 ## Operator actions required
 
