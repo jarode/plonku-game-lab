@@ -1,6 +1,9 @@
-# Breakout Lab
+# Breakout Lab / CITY BREAKER 2012
 
-Lab client for GOAL 007. Upstream example README follows. Provenance: `PROVENANCE.md`.
+GOAL 007: neutral data-driven Breakout lab.  
+GOAL 008 product brief: [`PRODUCT.md`](PRODUCT.md) — **CITY BREAKER 2012**.
+
+Provenance: `PROVENANCE.md`.
 
 Export: `node tools/gdevelop-web-export.mjs --game games/breakout-lab`
 Smoke: `node tools/breakout-lab-smoke.mjs`
