@@ -27,7 +27,7 @@ Locked original retro-web + Plonku neon spec and Polish copy in `games/breakout-
 
 ## Commit SHA
 
-Implementation: `PENDING`
+Implementation: `fc8855887a23d73c148893f8b7298dbb54691808`
 
 ## Operator actions required
 
