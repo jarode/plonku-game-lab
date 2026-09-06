@@ -256,7 +256,8 @@ async function main() {
         s.scene === "Game" &&
         s.counts.Paddle >= 1 &&
         s.counts.Ball >= 1 &&
-        s.counts.bricks >= 1 &&
+        s.counts.bricks >= 8 &&
+        s.mapping === "city-breaker-v1" &&
         s.signature.length === 64,
       20000,
       "boot Game"
@@ -267,7 +268,7 @@ async function main() {
       const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
       const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
       fs.mkdirSync(outDir, { recursive: true });
-      const shotPath = path.join(outDir, "044-breakout-shell.png");
+      const shotPath = path.join(outDir, "050-city-breaker-default.png");
       fs.writeFileSync(shotPath, Buffer.from(shot.data, "base64"));
       console.log("shot", shotPath);
     }
@@ -303,7 +304,8 @@ async function main() {
           snapShot.counts.Ball === 1 &&
           snapShot.lives === 3 &&
           snapShot.counts.bricks === last &&
-          snapShot.counts.bricks >= 1 &&
+          snapShot.counts.bricks >= 8 &&
+          snapShot.counts.bricks <= 28 &&
           snapShot.expectedBricks === snapShot.counts.bricks &&
           snapShot.signature.length === 64
         ) {
@@ -411,6 +413,12 @@ async function main() {
         "profile " + pid
       );
       cityProfiles[pid] = { signature: px.signature, bricks: px.counts.bricks };
+      if (process.argv.includes("--shot")) {
+        const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
+        const outDir = path.join(root, "docs/codex-manual-tasks/evidence");
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(path.join(outDir, "050-profile-" + pid + ".png"), Buffer.from(shot.data, "base64"));
+      }
     }
     if (cityProfiles["dense-spike"].bricks < cityProfiles["green-open"].bricks + 10) {
       fail("city profiles not geometrically distinct " + JSON.stringify(cityProfiles));

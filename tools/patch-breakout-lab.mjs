@@ -35,7 +35,7 @@ const lines = hooksSrc.split(/\r?\n/).map((line) => line + "\r");
 
 project.firstLayout = "Game";
 project.properties = project.properties || {};
-project.properties.name = "Breakout Lab";
+project.properties.name = "CITY BREAKER 2012";
 project.properties.packageName = "com.plonku.breakoutlab";
 if (project.properties.loadingScreen) {
   project.properties.loadingScreen.showGDevelopSplash = false;
@@ -82,7 +82,7 @@ function setTextObject(obj, { text, color }) {
 }
 
 function restyleGameLayout(layout) {
-  layout.title = "Breakout Lab";
+  layout.title = "CITY BREAKER 2012";
   layout.r = 8;
   layout.g = 16;
   layout.b = 36;
@@ -90,20 +90,20 @@ function restyleGameLayout(layout) {
   const objects = layout.objects || [];
   const byName = Object.fromEntries(objects.map((o) => [o.name, o]));
   setTextObject(byName.ScoreLabel, { text: "SCORE 0", color: [0, 229, 255] });
-  setTextObject(byName.StartCard_title, { text: "LAUNCH", color: [200, 255, 0] });
+  setTextObject(byName.StartCard_title, { text: "ODPAL LEVEL", color: [200, 255, 0] });
   setTextObject(byName.StartCard_Sub_title, {
-    text: "MOVE THE PADDLE · TAP OR SPACE\nWHITE 1 HIT · YELLOW 2 · RED 3",
+    text: "TWOJE MIASTO WŁAŚNIE WYGENEROWAŁO CI LEVEL.",
     color: [0, 229, 255],
   });
-  setTextObject(byName.End_Card_Title, { text: "SIGNAL LOST", color: [255, 45, 149] });
+  setTextObject(byName.End_Card_Title, { text: "SYGNAL UTRACONY", color: [255, 45, 149] });
   walkEvents(layout.events, (ev) => {
     if (!Array.isArray(ev.actions)) return;
     for (const a of ev.actions) {
       if (a?.type?.value !== "TextContainerCapability::TextContainerBehavior::SetValue") continue;
       const params = a.parameters || [];
       if (params[0] !== "End_Card_Title") continue;
-      if (params[3] === '"YOU LOST"') params[3] = '"SIGNAL LOST"';
-      if (params[3] === '"YOU WON"') params[3] = '"BOARD CLEAR"';
+      if (params[3] === '"YOU LOST"' || params[3] === '"SIGNAL LOST"') params[3] = '"SYGNAL UTRACONY"';
+      if (params[3] === '"YOU WON"' || params[3] === '"BOARD CLEAR"') params[3] = '"LEVEL ROZBITY"';
     }
   });
 }

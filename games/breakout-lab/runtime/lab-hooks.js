@@ -20,6 +20,10 @@
     applyLabBoard(runtimeScene, BO_BOARDS, BO_CITY_BOARDS);
   }
 
+  hideAll("StartCard_title");
+  hideAll("StartCard_Sub_title");
+  hideAll("ScoreLabel");
+
   let st = "";
   let score = 0;
   let lives = 0;
@@ -61,8 +65,21 @@
     gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Game", true);
   }
 
+  function profileLabel(id) {
+    const map = {
+      "balanced-mid": "BALANS",
+      "dense-spike": "GESTE MIASTO",
+      "green-open": "ZIELONY OTWARTY",
+      "mixed-spike": "SPIKE",
+      "low-edge": "MINIMUM",
+      "high-edge": "MAXIMUM",
+    };
+    return map[id] || "BALANS";
+  }
+
   function updatePlonkuShell(gameState, scoreVal, livesVal) {
     if (typeof document === "undefined") return;
+    const pid = (typeof window !== "undefined" && window.__boBoardId) || "balanced-mid";
     let root = document.getElementById("bo-plonku-shell");
     if (!root) {
       try {
@@ -70,31 +87,70 @@
         if (!canvas || !canvas.parentElement) return;
         const parent = canvas.parentElement;
         if (getComputedStyle(parent).position === "static") parent.style.position = "relative";
+        try {
+          document.body.style.background = "#0a1020";
+        } catch (eBg) {}
         root = document.createElement("div");
         root.id = "bo-plonku-shell";
-        root.setAttribute("aria-hidden", "true");
         root.style.cssText =
-          "position:absolute;inset:0;pointer-events:none;z-index:6;font-family:'Arial Narrow',Arial,sans-serif;color:#e8fff0;";
+          "position:absolute;inset:0;z-index:6;font-family:Verdana,Arial,sans-serif;color:#c8ff00;pointer-events:none;";
         root.innerHTML =
-          '<div style="position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">' +
-          '<div style="border:1px solid #c8ff00;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.16em;font-size:12px;color:#c8ff00;">BREAKOUT LAB</div>' +
-          '<div id="bo-profile-chip" style="border:1px solid #ff2d95;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.14em;font-size:12px;color:#ff2d95;">DATA PROFILE</div>' +
-          '<div id="bo-hud-chip" style="border:1px solid #00e5ff;padding:6px 10px;background:rgba(6,12,28,0.82);letter-spacing:0.08em;font-size:12px;color:#00e5ff;">SCORE 0 · LIVES 3</div>' +
+          '<div style="pointer-events:none;position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(200,255,0,0.04) 3px);opacity:0.9;"></div>' +
+          '<div style="pointer-events:none;position:absolute;top:8px;left:8px;right:8px;border:2px solid #1a1410;background:#d8d0c0;color:#1a1410;padding:4px 8px;font-size:11px;letter-spacing:0.12em;">CITYBRK.EXE — PUBLIC DATA / 2012 INTERNET ENERGY</div>' +
+          '<div style="pointer-events:none;position:absolute;top:36px;left:8px;right:8px;display:flex;flex-wrap:wrap;gap:6px;justify-content:space-between;">' +
+          '<div style="border:1px solid #c8ff00;padding:5px 8px;background:rgba(10,16,32,0.88);font-size:11px;letter-spacing:0.12em;color:#c8ff00;">CITY BREAKER 2012</div>' +
+          '<div id="bo-profile-chip" style="border:1px solid #ff2d95;padding:5px 8px;background:rgba(10,16,32,0.88);font-size:11px;letter-spacing:0.1em;color:#ff2d95;">PROFIL</div>' +
+          '<div id="bo-hud-chip" style="border:1px solid #00e5ff;padding:5px 8px;background:rgba(10,16,32,0.88);font-size:11px;letter-spacing:0.08em;color:#00e5ff;">WYNIK 0</div>' +
           "</div>" +
-          '<div id="bo-state-hint" style="position:absolute;left:12px;right:12px;bottom:12px;text-align:center;letter-spacing:0.18em;font-size:13px;color:#c8ff00;text-shadow:0 0 12px #0b1020;"></div>';
+          '<div id="bo-hook" style="pointer-events:none;position:absolute;left:10px;right:10px;top:78px;text-align:center;font-size:13px;letter-spacing:0.06em;color:#c8ff00;text-shadow:0 0 8px #0a1020;">TWOJE MIASTO WŁAŚNIE WYGENEROWAŁO CI LEVEL.</div>' +
+          '<div id="bo-profiles" style="pointer-events:auto;position:absolute;left:8px;right:8px;bottom:88px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;"></div>' +
+          '<div id="bo-state-hint" style="pointer-events:none;position:absolute;left:8px;right:8px;bottom:52px;text-align:center;font-size:12px;letter-spacing:0.1em;color:#c8ff00;"></div>' +
+          '<div id="bo-result" style="pointer-events:auto;display:none;position:absolute;left:12px;right:12px;bottom:8px;border:1px solid #ff2d95;background:rgba(10,16,32,0.92);padding:8px;font-size:11px;color:#00e5ff;text-align:center;"></div>';
         parent.appendChild(root);
+        const bar = document.getElementById("bo-profiles");
+        const specs = [
+          ["balanced-mid", "BALANS"],
+          ["dense-spike", "GESTE"],
+          ["green-open", "ZIELONY"],
+        ];
+        for (let i = 0; i < specs.length; i++) {
+          const a = document.createElement("a");
+          a.href = "?profile=" + specs[i][0];
+          a.textContent = specs[i][1];
+          a.style.cssText =
+            "pointer-events:auto;border:1px solid #c8ff00;background:#c8ff00;color:#1a1410;padding:8px 10px;font-size:11px;letter-spacing:0.08em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;";
+          bar.appendChild(a);
+        }
       } catch (eShell) {
         return;
       }
     }
     const hud = document.getElementById("bo-hud-chip");
-    if (hud) hud.textContent = "SCORE " + Math.floor(scoreVal) + " · LIVES " + Math.floor(livesVal);
+    if (hud) hud.textContent = "WYNIK " + Math.floor(scoreVal) + " · ZYCIA " + Math.floor(livesVal);
+    const chip = document.getElementById("bo-profile-chip");
+    if (chip) chip.textContent = "PROFIL · " + profileLabel(pid);
+    const hook = document.getElementById("bo-hook");
+    if (hook) hook.style.display = gameState === "NotStarted" ? "block" : "none";
+    const pick = document.getElementById("bo-profiles");
+    if (pick) pick.style.display = gameState === "NotStarted" ? "flex" : "none";
     const hint = document.getElementById("bo-state-hint");
     if (hint) {
-      if (gameState === "NotStarted") hint.textContent = "MOVE · TAP / SPACE TO LAUNCH";
-      else if (gameState === "Lost") hint.textContent = "SIGNAL LOST · RETRY";
-      else if (gameState === "Won") hint.textContent = "BOARD CLEAR";
+      if (gameState === "NotStarted") hint.textContent = "ODPAL LEVEL · RUSZ PALETKA · DOTKNIJ / SPACJA";
+      else if (gameState === "Lost") hint.textContent = "SYGNAL UTRACONY · JESZCZE RAZ (R)";
+      else if (gameState === "Won") hint.textContent = "LEVEL ROZBITY";
       else hint.textContent = "";
+    }
+    const res = document.getElementById("bo-result");
+    if (res) {
+      if (gameState === "Lost" || gameState === "Won") {
+        res.style.display = "block";
+        res.textContent =
+          "PROFIL " +
+          profileLabel(pid) +
+          " · WYNIK " +
+          Math.floor(scoreVal) +
+          " · LEVEL Z DANYCH PUBLICZNYCH · TO INTERPRETACJA GRY, NIE WERDYKT O MIESCIE. Rok 2012 = estetyka, nie data statystyk.";
+      } else res.style.display = "none";
     }
   }
 
@@ -103,23 +159,25 @@
     let err = "";
     let board = null;
     try {
-      if (typeof window !== "undefined" && window.location && window.location.search) {
-        const params = new URLSearchParams(window.location.search);
-        const profile = params.get("profile");
-        const q = params.get("fixture");
-        if (profile) {
-          if (cityBoards && cityBoards[profile]) {
-            board = cityBoards[profile];
-            id = profile;
-          } else {
-            err = "unknown_profile";
-            board = (cityBoards && cityBoards["balanced-mid"]) || null;
-            id = "balanced-mid";
-          }
-        } else if (q) {
-          if (boards && boards[q]) id = q;
-          else err = "unknown_fixture";
+      const search = typeof window !== "undefined" && window.location ? window.location.search || "" : "";
+      const params = new URLSearchParams(search);
+      const profile = params.get("profile");
+      const q = params.get("fixture");
+      if (profile) {
+        if (cityBoards && cityBoards[profile]) {
+          board = cityBoards[profile];
+          id = profile;
+        } else {
+          err = "unknown_profile";
+          board = (cityBoards && cityBoards["balanced-mid"]) || null;
+          id = "balanced-mid";
         }
+      } else if (q) {
+        if (boards && boards[q]) id = q;
+        else err = "unknown_fixture";
+      } else if (cityBoards && cityBoards["balanced-mid"]) {
+        board = cityBoards["balanced-mid"];
+        id = "balanced-mid";
       }
     } catch (eQ) {
       err = "query_parse";
