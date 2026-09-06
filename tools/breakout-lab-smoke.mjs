@@ -396,7 +396,7 @@ async function main() {
     );
 
     const cityProfiles = {};
-    for (const pid of ["dense-spike", "green-open", "balanced-mid"]) {
+    for (const pid of ["dense-spike", "green-open", "balanced-mid", "mixed-spike", "low-edge", "high-edge"]) {
       await cdp.send("Page.navigate", { url: `${origin}/?profile=${pid}` });
       const px = await waitSnap(
         cdp,
@@ -423,9 +423,8 @@ async function main() {
     if (cityProfiles["dense-spike"].bricks < cityProfiles["green-open"].bricks + 10) {
       fail("city profiles not geometrically distinct " + JSON.stringify(cityProfiles));
     }
-    if (cityProfiles["dense-spike"].signature === cityProfiles["green-open"].signature) {
-      fail("city profile signatures collided");
-    }
+    const uniqCity = new Set(Object.values(cityProfiles).map((x) => x.signature));
+    if (uniqCity.size !== 6) fail("city profile signatures not unique " + JSON.stringify(cityProfiles));
 
     console.log("BREAKOUT_SMOKE: PASS");
     console.log("viewport", `${viewW}x${viewH}`);

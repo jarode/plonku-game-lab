@@ -103,7 +103,7 @@
           '<div id="bo-hud-chip" style="border:1px solid #00e5ff;padding:5px 8px;background:rgba(10,16,32,0.88);font-size:11px;letter-spacing:0.08em;color:#00e5ff;">WYNIK 0</div>' +
           "</div>" +
           '<div id="bo-hook" style="pointer-events:none;position:absolute;left:10px;right:10px;top:78px;text-align:center;font-size:13px;letter-spacing:0.06em;color:#c8ff00;text-shadow:0 0 8px #0a1020;">TWOJE MIASTO WŁAŚNIE WYGENEROWAŁO CI LEVEL.</div>' +
-          '<div id="bo-profiles" style="pointer-events:auto;position:absolute;left:8px;right:8px;bottom:88px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;"></div>' +
+          '<div id="bo-legend" style="pointer-events:none;position:absolute;left:8px;right:8px;bottom:118px;text-align:center;font-size:10px;letter-spacing:0.04em;color:#00e5ff;">gestosc → cegly · zielen → przeswity · zabudowa → masa · podmioty → HP</div>' +
           '<div id="bo-state-hint" style="pointer-events:none;position:absolute;left:8px;right:8px;bottom:52px;text-align:center;font-size:12px;letter-spacing:0.1em;color:#c8ff00;"></div>' +
           '<div id="bo-result" style="pointer-events:auto;display:none;position:absolute;left:12px;right:12px;bottom:8px;border:1px solid #ff2d95;background:rgba(10,16,32,0.92);padding:8px;font-size:11px;color:#00e5ff;text-align:center;"></div>';
         parent.appendChild(root);
@@ -112,6 +112,9 @@
           ["balanced-mid", "BALANS"],
           ["dense-spike", "GESTE"],
           ["green-open", "ZIELONY"],
+          ["mixed-spike", "SPIKE"],
+          ["low-edge", "MIN"],
+          ["high-edge", "MAX"],
         ];
         for (let i = 0; i < specs.length; i++) {
           const a = document.createElement("a");
@@ -129,6 +132,8 @@
     if (hud) hud.textContent = "WYNIK " + Math.floor(scoreVal) + " · ZYCIA " + Math.floor(livesVal);
     const chip = document.getElementById("bo-profile-chip");
     if (chip) chip.textContent = "PROFIL · " + profileLabel(pid);
+    const legend = document.getElementById("bo-legend");
+    if (legend) legend.style.display = gameState === "NotStarted" ? "block" : "none";
     const hook = document.getElementById("bo-hook");
     if (hook) hook.style.display = gameState === "NotStarted" ? "block" : "none";
     const pick = document.getElementById("bo-profiles");
