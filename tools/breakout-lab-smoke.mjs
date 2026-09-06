@@ -179,6 +179,8 @@ function snap() {
       signature: window.__boBoardSignature || "",
       boardError: window.__boBoardError || "",
       expectedBricks: window.__boBoard ? window.__boBoard.brickCount : -1,
+      mapping: window.__boBoard && window.__boBoard.mapping ? window.__boBoard.mapping : "",
+      factorDebug: !!window.__boFactorDebug,
     };
   })()`;
 }
@@ -391,6 +393,32 @@ async function main() {
       "invalid fixture fallback"
     );
 
+    const cityProfiles = {};
+    for (const pid of ["dense-spike", "green-open", "balanced-mid"]) {
+      await cdp.send("Page.navigate", { url: `${origin}/?profile=${pid}` });
+      const px = await waitSnap(
+        cdp,
+        (s) =>
+          s.ready &&
+          s.scene === "Game" &&
+          s.boardId === pid &&
+          s.mapping === "city-breaker-v1" &&
+          s.factorDebug &&
+          s.counts.bricks === s.expectedBricks &&
+          s.counts.bricks >= 8 &&
+          s.counts.bricks <= 28,
+        20000,
+        "profile " + pid
+      );
+      cityProfiles[pid] = { signature: px.signature, bricks: px.counts.bricks };
+    }
+    if (cityProfiles["dense-spike"].bricks < cityProfiles["green-open"].bricks + 10) {
+      fail("city profiles not geometrically distinct " + JSON.stringify(cityProfiles));
+    }
+    if (cityProfiles["dense-spike"].signature === cityProfiles["green-open"].signature) {
+      fail("city profile signatures collided");
+    }
+
     console.log("BREAKOUT_SMOKE: PASS");
     console.log("viewport", `${viewW}x${viewH}`);
     console.log("boot", gameEarly.scene, JSON.stringify(game.counts), gameEarly.boardId);
@@ -398,6 +426,7 @@ async function main() {
     console.log("restarts", 10, "lastBricks", lastBricks, "sig", r1.signature);
     console.log("fixtures", JSON.stringify(signatures));
     console.log("invalidFallback", bad.boardId, bad.boardError);
+    console.log("cityProfiles", JSON.stringify(cityProfiles));
   } finally {
     try {
       ws?.close();

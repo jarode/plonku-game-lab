@@ -1,6 +1,7 @@
 // Breakout Lab hooks (injected into Game JsCode). Restart is scene replace, not a second Game instance.
 (function (runtimeScene) {
   var BO_BOARDS = __BO_BOARDS__;
+  var BO_CITY_BOARDS = __BO_CITY_BOARDS__;
 
   function hideAll(name) {
     const list = runtimeScene.getObjects(name);
@@ -16,7 +17,7 @@
 
   if (!runtimeScene._boBoardApplied) {
     runtimeScene._boBoardApplied = true;
-    applyLabBoard(runtimeScene, BO_BOARDS);
+    applyLabBoard(runtimeScene, BO_BOARDS, BO_CITY_BOARDS);
   }
 
   let st = "";
@@ -97,13 +98,25 @@
     }
   }
 
-  function applyLabBoard(scene, boards) {
+  function applyLabBoard(scene, boards, cityBoards) {
     let id = "balanced-mid";
     let err = "";
+    let board = null;
     try {
       if (typeof window !== "undefined" && window.location && window.location.search) {
-        const q = new URLSearchParams(window.location.search).get("fixture");
-        if (q) {
+        const params = new URLSearchParams(window.location.search);
+        const profile = params.get("profile");
+        const q = params.get("fixture");
+        if (profile) {
+          if (cityBoards && cityBoards[profile]) {
+            board = cityBoards[profile];
+            id = profile;
+          } else {
+            err = "unknown_profile";
+            board = (cityBoards && cityBoards["balanced-mid"]) || null;
+            id = "balanced-mid";
+          }
+        } else if (q) {
           if (boards && boards[q]) id = q;
           else err = "unknown_fixture";
         }
@@ -111,12 +124,13 @@
     } catch (eQ) {
       err = "query_parse";
     }
-    const board = (boards && (boards[id] || boards["balanced-mid"])) || null;
+    if (!board) board = (boards && (boards[id] || boards["balanced-mid"])) || null;
     if (typeof window !== "undefined") {
       window.__boBoardError = err;
       window.__boBoard = board;
       window.__boBoardSignature = board ? board.signature : "";
       window.__boBoardId = board ? board.id : "";
+      window.__boFactorDebug = board && board.debug ? board.debug : null;
     }
     if (!board) return;
 
@@ -156,7 +170,7 @@
     if (pads.length && !scene._boPaddleScaled) {
       scene._boPaddleScaled = true;
       const p = pads[0];
-      p.setWidth(p.getWidth() * board.paddleWidthScale);
+      p.setWidth(p.getWidth() * (board.paddleWidthScale || 1));
     }
   }
 })(runtimeScene);

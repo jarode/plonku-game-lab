@@ -4,11 +4,13 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { boardFromInput } from "../games/breakout-lab/data/board-from-input.mjs";
+import { cityBoardFromProfile } from "../games/breakout-lab/data/city-board-from-factors.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const projectPath = path.join(root, "games/breakout-lab/breakout-lab.json");
 const hooksPath = path.join(root, "games/breakout-lab/runtime/lab-hooks.js");
 const fixturesDir = path.join(root, "games/breakout-lab/data/fixtures");
+const cityFixDir = path.join(root, "games/breakout-lab/data/city-breaker/fixtures");
 const project = JSON.parse(fs.readFileSync(projectPath, "utf8"));
 
 const catalog = {};
@@ -16,9 +18,17 @@ for (const name of fs.readdirSync(fixturesDir).filter((n) => n.endsWith(".json")
   const raw = JSON.parse(fs.readFileSync(path.join(fixturesDir, name), "utf8"));
   catalog[raw.id] = boardFromInput(raw);
 }
-const hooksSrc = fs.readFileSync(hooksPath, "utf8").replace("__BO_BOARDS__", JSON.stringify(catalog));
-if (hooksSrc.includes("__BO_BOARDS__")) {
-  console.error("lab-hooks.js missing __BO_BOARDS__ token");
+const cityCatalog = {};
+for (const name of fs.readdirSync(cityFixDir).filter((n) => n.endsWith(".json"))) {
+  const raw = JSON.parse(fs.readFileSync(path.join(cityFixDir, name), "utf8"));
+  cityCatalog[raw.id] = cityBoardFromProfile(raw);
+}
+const hooksSrc = fs
+  .readFileSync(hooksPath, "utf8")
+  .replace("__BO_BOARDS__", JSON.stringify(catalog))
+  .replace("__BO_CITY_BOARDS__", JSON.stringify(cityCatalog));
+if (hooksSrc.includes("__BO_BOARDS__") || hooksSrc.includes("__BO_CITY_BOARDS__")) {
+  console.error("lab-hooks.js missing catalog token");
   process.exit(1);
 }
 const lines = hooksSrc.split(/\r?\n/).map((line) => line + "\r");
@@ -121,4 +131,4 @@ if (existing) Object.assign(existing, jsEvent);
 else game.events.push(jsEvent);
 
 fs.writeFileSync(projectPath, JSON.stringify(project, null, 2) + "\n");
-console.log("PATCH_BREAKOUT_LAB fixtures", Object.keys(catalog).sort().join(","));
+console.log("PATCH_BREAKOUT_LAB city-profiles", Object.keys(cityCatalog).sort().join(","));
