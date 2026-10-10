@@ -182,6 +182,11 @@ function snap() {
       mapping: window.__boBoard && window.__boBoard.mapping ? window.__boBoard.mapping : "",
       factorDebug: !!window.__boFactorDebug,
       shareText: window.__boShareText || "",
+      museumReady: !!window.__boMuseumReady,
+      museumCount: window.__boMetRecords?.length || 0,
+      museumTitle: document.getElementById("bo-met-link")?.textContent || "",
+      museumImageSrc: document.getElementById("bo-met-image")?.getAttribute("src") || "",
+
     };
   })()`;
 }
@@ -249,6 +254,31 @@ async function main() {
       mobile: viewH > viewW,
     });
     const origin = `http://127.0.0.1:${httpPort}`;
+    if (process.argv.includes("--museum-only")) {
+      await cdp.send("Page.navigate", { url: `${origin}/?fixture=met-vase-open-data` });
+      const museum = await waitSnap(
+        cdp,
+        s => s.ready && s.scene === "Game" && s.boardId === "met-vase-open-data" &&
+          s.museumReady && s.museumCount === 11 && s.counts.bricks === 30 &&
+          s.expectedBricks === 30 && s.museumImageSrc.startsWith("https://"),
+        20000, "museum-only boot"
+      );
+      await cdp.evaluate(`(() => {
+        document.querySelector('#bo-museum-panel button[aria-label="Następny eksponat"]').click();
+        return true;
+      })()`);
+      const museumNext = await waitSnap(cdp,s=>s.museumTitle.startsWith("2/11 "),5000,"museum-only next");
+      const verifiedLink = await cdp.evaluate(`(() => document.getElementById("bo-met-link").href.startsWith("https://www.metmuseum.org/"))()`);
+      if (!verifiedLink) fail("museum official link missing");
+      if (process.argv.includes("--shot")) {
+        const shot = await cdp.send("Page.captureScreenshot", { format: "png" });
+        const filename = path.join(root, "experiments/open-data-met-breaker/museum-mobile-smoke.png");
+        fs.writeFileSync(filename, Buffer.from(shot.data, "base64"));
+        console.log("MUSEUM_SCREENSHOT", filename);
+      }
+      console.log("MUSEUM_BROWSER_SMOKE: PASS", museum.boardId, museum.museumCount, museum.counts.bricks, museumNext.museumTitle);
+      return;
+    }
     await cdp.send("Page.navigate", { url: `${origin}/` });
     const gameEarly = await waitSnap(
       cdp,
@@ -452,6 +482,45 @@ async function main() {
       fs.writeFileSync(p, Buffer.from(shotR.data, "base64"));
       console.log("shot", p);
     }
+
+    // Museum-specific regression: real Met data must be discoverable, not only hidden in board geometry.
+    await cdp.send("Page.navigate", { url: `${origin}/?fixture=met-vase-open-data` });
+    const museum = await waitSnap(
+      cdp,
+      (s) =>
+        s.ready &&
+        s.scene === "Game" &&
+        s.boardId === "met-vase-open-data" &&
+        s.museumReady &&
+        s.museumCount === 11 &&
+        s.expectedBricks === 30 &&
+        s.counts.bricks === 30 &&
+        s.museumTitle.includes("/11 ") &&
+        s.museumImageSrc.startsWith("https://"),
+      20000,
+      "museum fixture"
+    );
+    await cdp.evaluate(`(() => {
+      const button = document.querySelector('#bo-museum-panel button[aria-label="Następny eksponat"]');
+      if (!button) throw Error("missing next artifact button");
+      button.click();
+      return true;
+    })()`);
+    const museumNext = await waitSnap(
+      cdp, (s) => s.museumTitle.startsWith("2/11 "), 5000, "museum nav next"
+    );
+    const sourceOk = await cdp.evaluate(`(() => {
+      const link = document.getElementById("bo-met-link");
+      return !!link && link.href.startsWith("https://www.metmuseum.org/");
+    })()`);
+    if (!sourceOk) fail("missing official museum source link");
+    if (process.argv.includes("--shot")) {
+      const ss = await cdp.send("Page.captureScreenshot", { format: "png" });
+      const fn = path.join(root,"experiments/open-data-met-breaker/museum-mobile-smoke.png");
+      fs.writeFileSync(fn,Buffer.from(ss.data,"base64"));
+      console.log("MUSEUM_SCREENSHOT",fn);
+    }
+    console.log("MUSEUM_BROWSER_SMOKE: PASS",museum.boardId,museum.museumCount,museum.counts.bricks,museumNext.museumTitle);
 
     console.log("BREAKOUT_SMOKE: PASS");
     console.log("viewport", `${viewW}x${viewH}`);

@@ -56,3 +56,12 @@ node tools/breakout-lab-smoke.mjs --skip-export
 - Buttons browse all 11 artifacts. Data originates in `met-records.json` and is embedded into GDevelop project during patch; the museum images in this arcade implementation are still remote URL thumbnails.
 - Run `node tests/met-open-data-game.test.mjs` to verify the 11-column deterministic board, source eligibility, panel embed and Archive Heist level structure.
 - This remains a study with City Breaker baseline gameplay; to launch commercially, create an independent GDevelop client, give columns an explicit data legend, conduct license review for all packaged third-party sound/UI/font files, and pass browser/mobile smoke.
+
+
+## Browser smoke after export (2026-10-10)
+
+- Full GDevelop Linux export passed; runtime assets and source links were checked.
+- Dedicated Chromium 390×844 browser smoke: **MUSEUM_BROWSER_SMOKE PASS**, 11 records, 30 bricks, source link and museum navigation (second card displayed).
+- [Screenshot — portrait browser emulation](museum-mobile-smoke.png). The city-style letterboxed landscape playfield remains **too small for quality mobile portrait play**; must be redesigned as a portrait scene or supported primarily in landscape.
+- Command: `CHROME_PATH=<chromium executable> node tools/breakout-lab-smoke.mjs --skip-export --viewport 390x844 --museum-only --shot`.
+- Real Android/iOS tap QA and the **complete** legacy regression suite remain outstanding. Do not describe them as PASS.

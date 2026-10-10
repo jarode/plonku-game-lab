@@ -146,6 +146,12 @@
   }
 
   function startCityGenSequence(label) {
+    if (typeof window !== "undefined" && window.__boBoardId === "met-vase-open-data") {
+      window.__boGenOnce = true;
+      const intro = document.getElementById("cb-gen");
+      if (intro) intro.style.display = "none";
+      return;
+    }
     if (typeof window === "undefined" || window.__boGenOnce) return;
     window.__boGenOnce = true;
     const gen = document.getElementById("cb-gen");
@@ -359,6 +365,12 @@
     if (arena) arena.textContent = "ARCHIWUM THE MET · KOLUMNY WG DATY KATALOGOWEJ";
     const legend = document.getElementById("bo-legend");
     if (legend) legend.textContent = "WIEK STARSZEGO OBIEKTU = WYŻSZA KOLUMNA · INTERPRETACJA ARCADE";
+    const world = document.getElementById("cb-world");
+    if (world) world.style.display = "none";
+    const mantra = document.getElementById("bo-mantra");
+    if (mantra) mantra.textContent = "OBIEKTY I DATY THE MET → GEOMETRIA PLANSZY";
+    const intro = document.getElementById("cb-gen");
+    if (intro) intro.style.display = "none";
     const hook = document.getElementById("bo-hook");
     if (hook) hook.textContent = "11 AUTENTYCZNYCH OBIEKTÓW → JEDNA PLANSZA.";
     const bar = document.getElementById("bo-profiles");

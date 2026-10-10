@@ -9,7 +9,7 @@ Date: 2026-10-10. **Isolated feature branch**. Do not merge unreviewed changes i
 - `node tests/met-open-data-game.test.mjs`: PASS.
 - `node tools/gdevelop-web-export.mjs --game games/breakout-lab --smoke-only`: **WEB_EXPORT PASS** (GDevelop 5.6.283 Linux exported in isolated graphics container).
 - Download [Museum Breaker web preview ZIP](open-data-met-breaker/museum-breaker-web-preview.zip). Unzip, run `python3 -m http.server 8080` from the extracted folder and open `http://localhost:8080/`.
-- Browser runtime and real-phone tests: check the feature PR's evidence and status; **must not assume PASS from export alone**.
+- Browser Chromium smoke at **390×844 PASS**: 11 real records, 30 bricks, thumbnail and museum source link, next/previous object navigation. Screenshot: [museum-mobile-smoke.png](open-data-met-breaker/museum-mobile-smoke.png). **Visual limitation:** arena remains landscape 1920×1080 and is letterboxed heavily on a portrait phone; physical-device usability gate NOT PASSED. The complete legacy Breakout regression suite was not successfully completed in this isolated Chromium environment; museum-specific checks did pass.
 - Source of truth: [Open Data proof](open-data-met-breaker/README.md).
 
 ## Archive Heist (Godot / desktop game prototype)
