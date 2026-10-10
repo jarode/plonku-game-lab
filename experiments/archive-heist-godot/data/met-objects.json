@@ -1,0 +1,102 @@
+{
+  "source": "The Metropolitan Museum of Art Collection API",
+  "rights": "Artwork records filtered isPublicDomain true, Open Access CC0; review third-party trademark/privacy before public deployment",
+  "records": [
+    {
+      "objectID": 249072,
+      "title": "Vase",
+      "objectBeginDate": -900,
+      "objectEndDate": -30,
+      "department": "Greek and Roman Art",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/LC-16_75_3.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/249072",
+      "local_image": "res://assets/met-249072.jpg",
+      "sha256": "325c3b8c937431051f511c32e7edc3a65f95efbcf8a992d4780f3648bb731adc"
+    },
+    {
+      "objectID": 250238,
+      "title": "Vase",
+      "objectBeginDate": -670,
+      "objectEndDate": 330,
+      "department": "Greek and Roman Art",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/LC-17_194_1819.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/250238",
+      "local_image": "res://assets/met-250238.jpg",
+      "sha256": "685cf77c2db0f5a8272940c35a4e2d8644f4cce856fd8af2287b5be5745d268b"
+    },
+    {
+      "objectID": 244836,
+      "title": "Vase",
+      "objectBeginDate": -580,
+      "objectEndDate": -520,
+      "department": "Greek and Roman Art",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/sf75411.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/244836",
+      "local_image": "res://assets/met-244836.jpg",
+      "sha256": "44efceb8cff542a84d9df38c775ced007dcd3fa63bb3247496ab0a92ebb4422c"
+    },
+    {
+      "objectID": 205922,
+      "title": "Vase",
+      "objectBeginDate": 1730,
+      "objectEndDate": 1740,
+      "department": "European Sculpture and Decorative Arts",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/DP168387.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/205922",
+      "local_image": "res://assets/met-205922.jpg",
+      "sha256": "eaf491ba734d5812819a84e31d9152f5b8afa36ded89c96ae9b5f767fac0747a"
+    },
+    {
+      "objectID": 198685,
+      "title": "Vase",
+      "objectBeginDate": 1756,
+      "objectEndDate": 1760,
+      "department": "European Sculpture and Decorative Arts",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/DP-15275-023.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/198685",
+      "local_image": "res://assets/met-198685.jpg",
+      "sha256": "06ef43d98cdae31ba9869884eb58457bb1a7508f1bd0a8f0b5e60c492bf98ef9"
+    },
+    {
+      "objectID": 205482,
+      "title": "Vase (vase Indien)",
+      "objectBeginDate": 1760,
+      "objectEndDate": 1760,
+      "department": "European Sculpture and Decorative Arts",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/ES5991.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/205482",
+      "local_image": "res://assets/met-205482.jpg",
+      "sha256": "8675b846f387f0142737ae4ec85de265e9a21b15600815cb003a0b4fae952285"
+    },
+    {
+      "objectID": 208152,
+      "title": "Vase",
+      "objectBeginDate": 1820,
+      "objectEndDate": 1825,
+      "department": "European Sculpture and Decorative Arts",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/DP156496.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/208152",
+      "local_image": "res://assets/met-208152.jpg",
+      "sha256": "b301ec2c29a7a115b89ace9d7dbc63dec7476eaecedc95488db061c96c903f3b"
+    },
+    {
+      "objectID": 9284,
+      "title": "Vase",
+      "objectBeginDate": 1830,
+      "objectEndDate": 1870,
+      "department": "The American Wing",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ad/web-large/140930.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/9284",
+      "local_image": "res://assets/met-9284.jpg",
+      "sha256": "cd0b096551838bb20e7874ad00dda1cbd7bfb70275fcaba08d8bbda6384d7ba4"
+    }
+  ]
+}

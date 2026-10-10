@@ -49,3 +49,10 @@ node tools/breakout-lab-smoke.mjs --skip-export
 2. Replace City Breaker art/text in a separate game client, not the canonical `games/breakout-lab`.
 3. Add quality and retention tests; evaluate whether data-driven Breakout is actually engaging.
 4. In parallel evaluate the stronger creative fit: **Archive Heist in Godot** based on `fundacjakod/apps/kod-play/game/play/shape_match.*`, with unique logic puzzles to implement.
+
+## v1 museum UI integration (feature/open-data-games-v1)
+
+- A contextual museum panel appears **only** for `?fixture=met-vase-open-data`, with real record title, date, image and link.
+- Buttons browse all 11 artifacts. Data originates in `met-records.json` and is embedded into GDevelop project during patch; the museum images in this arcade implementation are still remote URL thumbnails.
+- Run `node tests/met-open-data-game.test.mjs` to verify the 11-column deterministic board, source eligibility, panel embed and Archive Heist level structure.
+- This remains a study with City Breaker baseline gameplay; to launch commercially, create an independent GDevelop client, give columns an explicit data legend, conduct license review for all packaged third-party sound/UI/font files, and pass browser/mobile smoke.
