@@ -2,6 +2,7 @@
 (function (runtimeScene) {
   var BO_BOARDS = __BO_BOARDS__;
   var BO_CITY_BOARDS = __BO_CITY_BOARDS__;
+  var BO_MET_RECORDS = __BO_MET_RECORDS__;
 
   function hideAll(name) {
     try {
@@ -51,6 +52,7 @@
     lives = runtimeScene.getScene().getVariables().get("Lifes").getAsNumber();
   } catch (eLf) {}
   updatePlonkuShell(st, score, lives);
+  updateMuseumPanel(BO_MET_RECORDS);
   pulseHitJuice(runtimeScene, st);
 
   if (st === "NotStarted" || st === "GamePlay") {
@@ -144,6 +146,12 @@
   }
 
   function startCityGenSequence(label) {
+    if (typeof window !== "undefined" && window.__boBoardId === "met-vase-open-data") {
+      window.__boGenOnce = true;
+      const intro = document.getElementById("cb-gen");
+      if (intro) intro.style.display = "none";
+      return;
+    }
     if (typeof window === "undefined" || window.__boGenOnce) return;
     window.__boGenOnce = true;
     const gen = document.getElementById("cb-gen");
@@ -338,6 +346,107 @@
           "<br>Rok 2012 = estetyka, nie data statystyk.";
       } else res.style.display = "none";
     }
+  }
+
+  // Public-domain museum records provide visible context for one isolated test fixture.
+  // Original City Breaker layouts remain unchanged for all other fixture/profile ids.
+  function updateMuseumPanel(items) {
+    if (typeof document === "undefined" || typeof window === "undefined") return;
+    if (window.__boBoardId !== "met-vase-open-data") return;
+    const root = document.getElementById("cb-window");
+    if (!root || !Array.isArray(items) || !items.length) return;
+    const title = document.getElementById("cb-titlebar");
+    if (title) title.firstElementChild.textContent = "MUSEUM BREAKER — THE MET / CC0 OPEN ACCESS";
+    const heading = root.querySelector('[style*="letter-spacing:0.16em"]');
+    if (heading) heading.textContent = "MUSEUM BREAKER";
+    const chip = document.getElementById("bo-profile-chip");
+    if (chip) chip.textContent = "THE MET · " + items.length + " EKSPONATÓW";
+    const arena = document.getElementById("cb-arena-tag");
+    if (arena) arena.textContent = "ARCHIWUM THE MET · KOLUMNY WG DATY KATALOGOWEJ";
+    const legend = document.getElementById("bo-legend");
+    if (legend) legend.textContent = "WIEK STARSZEGO OBIEKTU = WYŻSZA KOLUMNA · INTERPRETACJA ARCADE";
+    const world = document.getElementById("cb-world");
+    if (world) world.style.display = "none";
+    const mantra = document.getElementById("bo-mantra");
+    if (mantra) mantra.textContent = "OBIEKTY I DATY THE MET → GEOMETRIA PLANSZY";
+    const intro = document.getElementById("cb-gen");
+    if (intro) intro.style.display = "none";
+    const hook = document.getElementById("bo-hook");
+    if (hook) hook.textContent = "11 AUTENTYCZNYCH OBIEKTÓW → JEDNA PLANSZA.";
+    const bar = document.getElementById("bo-profiles");
+    if (bar) bar.style.display = "none";
+    let panel = document.getElementById("bo-museum-panel");
+    if (!panel) {
+      panel = document.createElement("div");
+      panel.id = "bo-museum-panel";
+      panel.style.cssText = "flex:0 0 auto;display:flex;align-items:center;gap:8px;min-height:92px;padding:6px 10px;background:#141b2c;border-top:1px solid #00e5ff;color:#e9e6de;";
+      const img = document.createElement("img");
+      img.id = "bo-met-image";
+      img.alt = "Wybrany obiekt muzealny The Met";
+      img.style.cssText = "width:82px;height:78px;object-fit:contain;background:#050915;flex-shrink:0;";
+      img.loading = "lazy";
+      panel.appendChild(img);
+      const description = document.createElement("div");
+      description.style.cssText = "flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;";
+      const a = document.createElement("a");
+      a.id = "bo-met-link";
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.style.cssText = "color:#c8ff00;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+      description.appendChild(a);
+      const year = document.createElement("span");
+      year.id = "bo-met-year";
+      year.style.cssText = "font-size:11px;color:#00e5ff;";
+      description.appendChild(year);
+      const source = document.createElement("span");
+      source.textContent = "Źródło: The Metropolitan Museum of Art · Open Access";
+      source.style.cssText = "font-size:9px;color:#b8c3d1;";
+      description.appendChild(source);
+      panel.appendChild(description);
+      const buttons = document.createElement("div");
+      buttons.style.cssText = "display:flex;flex-direction:column;gap:4px;flex-shrink:0;";
+      for (const [label, delta] of [["◀", -1], ["▶", 1]]) {
+        const btn = document.createElement("button");
+        btn.textContent = label;
+        btn.type = "button";
+        btn.setAttribute("aria-label", delta > 0 ? "Następny eksponat" : "Poprzedni eksponat");
+        btn.style.cssText = "background:#c8ff00;color:#111;padding:7px 12px;min-width:40px;border:0;min-height:35px;cursor:pointer;";
+        btn.onclick = function () {
+          window.__boMetIndex = ((window.__boMetIndex || 0) + delta + items.length) % items.length;
+          renderMuseumObject(items);
+        };
+        buttons.appendChild(btn);
+      }
+      panel.appendChild(buttons);
+      if (bar && bar.parentElement) bar.parentElement.insertBefore(panel, bar);
+      else root.appendChild(panel);
+      window.__boMetIndex = 0;
+      window.__boMetRecords = items;
+    }
+    const res = document.getElementById("bo-result");
+    if (res && res.style.display === "block") {
+      res.textContent = "PLANSZA THE MET · " + (window.__boBoard?.brickCount || 0) +
+        " BLOKÓW · DANE KATALOGOWE JAKO PARAMETRY GRY (NIE OCENA SZTUKI)";
+    }
+    window.__boMuseumReady = true;
+    renderMuseumObject(items);
+  }
+
+  function renderMuseumObject(items) {
+    const i = window.__boMetIndex || 0;
+    if (window.__boMetLastIndex === i) return;
+    window.__boMetLastIndex = i;
+    const item = items[i];
+    const img = document.getElementById("bo-met-image");
+    const link = document.getElementById("bo-met-link");
+    const year = document.getElementById("bo-met-year");
+    if (img) img.src = item.image;
+    if (link) {
+      link.textContent = (i + 1) + "/" + items.length + " " + item.title;
+      link.href = item.url;
+    }
+    if (year) year.textContent = "DATA WG KATALOGU: " + item.year +
+      " · ID " + item.id;
   }
 
   function applyLabBoard(scene, boards, cityBoards) {

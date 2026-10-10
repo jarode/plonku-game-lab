@@ -1,0 +1,374 @@
+{
+  "schema": "archive-heist.1",
+  "source": "The Met Open Access objects; all falsified dates are fictional gameplay artifacts",
+  "levels": [
+    {
+      "id": "case-01",
+      "cards": [
+        {
+          "object_id": 250238,
+          "title": "Vase",
+          "period": "7 w. p.n.e.",
+          "display_year": -910,
+          "catalog_year": -670,
+          "is_forged": true,
+          "image": "res://assets/met-250238.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/250238"
+        },
+        {
+          "object_id": 205922,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1730,
+          "catalog_year": 1730,
+          "is_forged": false,
+          "image": "res://assets/met-205922.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/205922"
+        },
+        {
+          "object_id": 9284,
+          "title": "Vase",
+          "period": "19 w. n.e.",
+          "display_year": 1830,
+          "catalog_year": 1830,
+          "is_forged": false,
+          "image": "res://assets/met-9284.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/9284"
+        },
+        {
+          "object_id": 244836,
+          "title": "Vase",
+          "period": "6 w. p.n.e.",
+          "display_year": -580,
+          "catalog_year": -580,
+          "is_forged": false,
+          "image": "res://assets/met-244836.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/244836"
+        }
+      ],
+      "answer_object_id": 250238
+    },
+    {
+      "id": "case-02",
+      "cards": [
+        {
+          "object_id": 250238,
+          "title": "Vase",
+          "period": "7 w. p.n.e.",
+          "display_year": -670,
+          "catalog_year": -670,
+          "is_forged": false,
+          "image": "res://assets/met-250238.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/250238"
+        },
+        {
+          "object_id": 198685,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1756,
+          "catalog_year": 1756,
+          "is_forged": false,
+          "image": "res://assets/met-198685.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/198685"
+        },
+        {
+          "object_id": 9284,
+          "title": "Vase",
+          "period": "19 w. n.e.",
+          "display_year": 1830,
+          "catalog_year": 1830,
+          "is_forged": false,
+          "image": "res://assets/met-9284.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/9284"
+        },
+        {
+          "object_id": 249072,
+          "title": "Vase",
+          "period": "9 w. p.n.e.",
+          "display_year": -1140,
+          "catalog_year": -900,
+          "is_forged": true,
+          "image": "res://assets/met-249072.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/249072"
+        }
+      ],
+      "answer_object_id": 249072
+    },
+    {
+      "id": "case-03",
+      "cards": [
+        {
+          "object_id": 205922,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1730,
+          "catalog_year": 1730,
+          "is_forged": false,
+          "image": "res://assets/met-205922.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/205922"
+        },
+        {
+          "object_id": 244836,
+          "title": "Vase",
+          "period": "6 w. p.n.e.",
+          "display_year": -580,
+          "catalog_year": -580,
+          "is_forged": false,
+          "image": "res://assets/met-244836.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/244836"
+        },
+        {
+          "object_id": 205482,
+          "title": "Vase (vase Indien)",
+          "period": "18 w. n.e.",
+          "display_year": 1760,
+          "catalog_year": 1760,
+          "is_forged": false,
+          "image": "res://assets/met-205482.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/205482"
+        },
+        {
+          "object_id": 249072,
+          "title": "Vase",
+          "period": "9 w. p.n.e.",
+          "display_year": -1140,
+          "catalog_year": -900,
+          "is_forged": true,
+          "image": "res://assets/met-249072.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/249072"
+        }
+      ],
+      "answer_object_id": 249072
+    },
+    {
+      "id": "case-04",
+      "cards": [
+        {
+          "object_id": 244836,
+          "title": "Vase",
+          "period": "6 w. p.n.e.",
+          "display_year": -820,
+          "catalog_year": -580,
+          "is_forged": true,
+          "image": "res://assets/met-244836.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/244836"
+        },
+        {
+          "object_id": 205482,
+          "title": "Vase (vase Indien)",
+          "period": "18 w. n.e.",
+          "display_year": 1760,
+          "catalog_year": 1760,
+          "is_forged": false,
+          "image": "res://assets/met-205482.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/205482"
+        },
+        {
+          "object_id": 205922,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1730,
+          "catalog_year": 1730,
+          "is_forged": false,
+          "image": "res://assets/met-205922.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/205922"
+        },
+        {
+          "object_id": 250238,
+          "title": "Vase",
+          "period": "7 w. p.n.e.",
+          "display_year": -670,
+          "catalog_year": -670,
+          "is_forged": false,
+          "image": "res://assets/met-250238.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/250238"
+        }
+      ],
+      "answer_object_id": 244836
+    },
+    {
+      "id": "case-05",
+      "cards": [
+        {
+          "object_id": 198685,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1756,
+          "catalog_year": 1756,
+          "is_forged": false,
+          "image": "res://assets/met-198685.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/198685"
+        },
+        {
+          "object_id": 208152,
+          "title": "Vase",
+          "period": "19 w. n.e.",
+          "display_year": 2060,
+          "catalog_year": 1820,
+          "is_forged": true,
+          "image": "res://assets/met-208152.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/208152"
+        },
+        {
+          "object_id": 249072,
+          "title": "Vase",
+          "period": "9 w. p.n.e.",
+          "display_year": -900,
+          "catalog_year": -900,
+          "is_forged": false,
+          "image": "res://assets/met-249072.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/249072"
+        },
+        {
+          "object_id": 250238,
+          "title": "Vase",
+          "period": "7 w. p.n.e.",
+          "display_year": -670,
+          "catalog_year": -670,
+          "is_forged": false,
+          "image": "res://assets/met-250238.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/250238"
+        }
+      ],
+      "answer_object_id": 208152
+    },
+    {
+      "id": "case-06",
+      "cards": [
+        {
+          "object_id": 249072,
+          "title": "Vase",
+          "period": "9 w. p.n.e.",
+          "display_year": -1140,
+          "catalog_year": -900,
+          "is_forged": true,
+          "image": "res://assets/met-249072.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/249072"
+        },
+        {
+          "object_id": 198685,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1756,
+          "catalog_year": 1756,
+          "is_forged": false,
+          "image": "res://assets/met-198685.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/198685"
+        },
+        {
+          "object_id": 9284,
+          "title": "Vase",
+          "period": "19 w. n.e.",
+          "display_year": 1830,
+          "catalog_year": 1830,
+          "is_forged": false,
+          "image": "res://assets/met-9284.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/9284"
+        },
+        {
+          "object_id": 250238,
+          "title": "Vase",
+          "period": "7 w. p.n.e.",
+          "display_year": -670,
+          "catalog_year": -670,
+          "is_forged": false,
+          "image": "res://assets/met-250238.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/250238"
+        }
+      ],
+      "answer_object_id": 249072
+    },
+    {
+      "id": "case-07",
+      "cards": [
+        {
+          "object_id": 205922,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1970,
+          "catalog_year": 1730,
+          "is_forged": true,
+          "image": "res://assets/met-205922.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/205922"
+        },
+        {
+          "object_id": 205482,
+          "title": "Vase (vase Indien)",
+          "period": "18 w. n.e.",
+          "display_year": 1760,
+          "catalog_year": 1760,
+          "is_forged": false,
+          "image": "res://assets/met-205482.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/205482"
+        },
+        {
+          "object_id": 198685,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1756,
+          "catalog_year": 1756,
+          "is_forged": false,
+          "image": "res://assets/met-198685.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/198685"
+        },
+        {
+          "object_id": 244836,
+          "title": "Vase",
+          "period": "6 w. p.n.e.",
+          "display_year": -580,
+          "catalog_year": -580,
+          "is_forged": false,
+          "image": "res://assets/met-244836.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/244836"
+        }
+      ],
+      "answer_object_id": 205922
+    },
+    {
+      "id": "case-08",
+      "cards": [
+        {
+          "object_id": 244836,
+          "title": "Vase",
+          "period": "6 w. p.n.e.",
+          "display_year": -820,
+          "catalog_year": -580,
+          "is_forged": true,
+          "image": "res://assets/met-244836.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/244836"
+        },
+        {
+          "object_id": 205922,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1730,
+          "catalog_year": 1730,
+          "is_forged": false,
+          "image": "res://assets/met-205922.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/205922"
+        },
+        {
+          "object_id": 9284,
+          "title": "Vase",
+          "period": "19 w. n.e.",
+          "display_year": 1830,
+          "catalog_year": 1830,
+          "is_forged": false,
+          "image": "res://assets/met-9284.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/9284"
+        },
+        {
+          "object_id": 198685,
+          "title": "Vase",
+          "period": "18 w. n.e.",
+          "display_year": 1756,
+          "catalog_year": 1756,
+          "is_forged": false,
+          "image": "res://assets/met-198685.jpg",
+          "object_url": "https://www.metmuseum.org/art/collection/search/198685"
+        }
+      ],
+      "answer_object_id": 244836
+    }
+  ]
+}

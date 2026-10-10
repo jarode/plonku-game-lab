@@ -1,0 +1,119 @@
+{
+  "dataset": "The Metropolitan Museum of Art Collection API",
+  "fetched_at": "2026-10-10",
+  "terms": "CC0 for The Met Open Access public-domain artworks; image rights must be checked per artwork",
+  "api_documentation": "https://metmuseum.github.io/",
+  "source_query": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=vase&hasImages=true&limit=75",
+  "records": [
+    {
+      "objectID": 205482,
+      "title": "Vase (vase Indien)",
+      "objectBeginDate": 1760,
+      "objectEndDate": 1760,
+      "department": "European Sculpture and Decorative Arts",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/ES5991.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/205482"
+    },
+    {
+      "objectID": 208152,
+      "title": "Vase",
+      "objectBeginDate": 1820,
+      "objectEndDate": 1825,
+      "department": "European Sculpture and Decorative Arts",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/DP156496.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/208152"
+    },
+    {
+      "objectID": 205922,
+      "title": "Vase",
+      "objectBeginDate": 1730,
+      "objectEndDate": 1740,
+      "department": "European Sculpture and Decorative Arts",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/DP168387.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/205922"
+    },
+    {
+      "objectID": 9316,
+      "title": "Vase",
+      "objectBeginDate": 1851,
+      "objectEndDate": 1851,
+      "department": "The American Wing",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ad/web-large/ADA5445.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/9316"
+    },
+    {
+      "objectID": 9284,
+      "title": "Vase",
+      "objectBeginDate": 1830,
+      "objectEndDate": 1870,
+      "department": "The American Wing",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ad/web-large/140930.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/9284"
+    },
+    {
+      "objectID": 198685,
+      "title": "Vase",
+      "objectBeginDate": 1756,
+      "objectEndDate": 1760,
+      "department": "European Sculpture and Decorative Arts",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/DP-15275-023.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/198685"
+    },
+    {
+      "objectID": 9563,
+      "title": "Vase",
+      "objectBeginDate": 1857,
+      "objectEndDate": 1860,
+      "department": "The American Wing",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ad/web-large/201886.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/9563"
+    },
+    {
+      "objectID": 249072,
+      "title": "Vase",
+      "objectBeginDate": -900,
+      "objectEndDate": -30,
+      "department": "Greek and Roman Art",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/LC-16_75_3.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/249072"
+    },
+    {
+      "objectID": 244836,
+      "title": "Vase",
+      "objectBeginDate": -580,
+      "objectEndDate": -520,
+      "department": "Greek and Roman Art",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/sf75411.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/244836"
+    },
+    {
+      "objectID": 9227,
+      "title": "Vase",
+      "objectBeginDate": 1886,
+      "objectEndDate": 1895,
+      "department": "The American Wing",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ad/web-large/174352.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/9227"
+    },
+    {
+      "objectID": 250238,
+      "title": "Vase",
+      "objectBeginDate": -670,
+      "objectEndDate": 330,
+      "department": "Greek and Roman Art",
+      "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/LC-17_194_1819.jpg",
+      "isPublicDomain": true,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/250238"
+    }
+  ]
+}

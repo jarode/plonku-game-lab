@@ -12,6 +12,15 @@ const hooksPath = path.join(root, "games/breakout-lab/runtime/lab-hooks.js");
 const fixturesDir = path.join(root, "games/breakout-lab/data/fixtures");
 const cityFixDir = path.join(root, "games/breakout-lab/data/city-breaker/fixtures");
 const project = JSON.parse(fs.readFileSync(projectPath, "utf8"));
+const metManifestPath = path.join(root, "experiments/open-data-met-breaker/met-records.json");
+const metManifest = JSON.parse(fs.readFileSync(metManifestPath, "utf8"));
+const metItems = metManifest.records.map((r) => ({
+  id: r.objectID,
+  title: r.title,
+  year: r.objectBeginDate,
+  image: r.primaryImageSmall,
+  url: r.objectURL,
+}));
 
 const catalog = {};
 for (const name of fs.readdirSync(fixturesDir).filter((n) => n.endsWith(".json"))) {
@@ -26,8 +35,9 @@ for (const name of fs.readdirSync(cityFixDir).filter((n) => n.endsWith(".json"))
 const hooksSrc = fs
   .readFileSync(hooksPath, "utf8")
   .replace("__BO_BOARDS__", JSON.stringify(catalog))
-  .replace("__BO_CITY_BOARDS__", JSON.stringify(cityCatalog));
-if (hooksSrc.includes("__BO_BOARDS__") || hooksSrc.includes("__BO_CITY_BOARDS__")) {
+  .replace("__BO_CITY_BOARDS__", JSON.stringify(cityCatalog))
+  .replace("__BO_MET_RECORDS__", JSON.stringify(metItems));
+if (hooksSrc.includes("__BO_BOARDS__") || hooksSrc.includes("__BO_CITY_BOARDS__") || hooksSrc.includes("__BO_MET_RECORDS__")) {
   console.error("lab-hooks.js missing catalog token");
   process.exit(1);
 }
